@@ -32,6 +32,10 @@
             this.panelMenuLateral = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelFormularios = new System.Windows.Forms.Panel();
+            this.btnVenta = new System.Windows.Forms.Button();
+            this.btnRegistro = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.panelMenuLateral.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -40,13 +44,16 @@
             // panelMenuLateral
             // 
             this.panelMenuLateral.BackColor = System.Drawing.Color.LightGray;
+            this.panelMenuLateral.Controls.Add(this.btnInventario);
+            this.panelMenuLateral.Controls.Add(this.btnRegistro);
+            this.panelMenuLateral.Controls.Add(this.btnVenta);
             this.panelMenuLateral.Controls.Add(this.panelLogo);
             this.panelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.panelMenuLateral.Name = "panelMenuLateral";
-            this.panelMenuLateral.Size = new System.Drawing.Size(250, 782);
+            this.panelMenuLateral.Size = new System.Drawing.Size(253, 782);
             this.panelMenuLateral.TabIndex = 0;
-            this.panelMenuLateral.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+     
             // 
             // panelLogo
             // 
@@ -54,9 +61,9 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 100);
+            this.panelLogo.Size = new System.Drawing.Size(253, 100);
             this.panelLogo.TabIndex = 0;
-            this.panelLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            
             // 
             // pictureBox1
             // 
@@ -68,15 +75,53 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panelFormularios
+            // 
+            this.panelFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormularios.Location = new System.Drawing.Point(253, 0);
+            this.panelFormularios.Name = "panelFormularios";
+            this.panelFormularios.Size = new System.Drawing.Size(1099, 782);
+            this.panelFormularios.TabIndex = 1;
+            // 
+            // btnVenta
+            // 
+            this.btnVenta.Location = new System.Drawing.Point(10, 123);
+            this.btnVenta.Name = "btnVenta";
+            this.btnVenta.Size = new System.Drawing.Size(234, 72);
+            this.btnVenta.TabIndex = 1;
+            this.btnVenta.Text = "VENTA";
+            this.btnVenta.UseVisualStyleBackColor = true;
+            this.btnVenta.Click += new System.EventHandler(this.btnVenta_Click_1);
+            // 
+            // btnRegistro
+            // 
+            this.btnRegistro.Location = new System.Drawing.Point(10, 201);
+            this.btnRegistro.Name = "btnRegistro";
+            this.btnRegistro.Size = new System.Drawing.Size(234, 72);
+            this.btnRegistro.TabIndex = 2;
+            this.btnRegistro.Text = "REGISTRO";
+            this.btnRegistro.UseVisualStyleBackColor = true;
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.Location = new System.Drawing.Point(10, 279);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(234, 72);
+            this.btnInventario.TabIndex = 3;
+            this.btnInventario.Text = "INVENTARIO";
+            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1352, 782);
+            this.Controls.Add(this.panelFormularios);
             this.Controls.Add(this.panelMenuLateral);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelMenuLateral.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
@@ -90,6 +135,10 @@
         private System.Windows.Forms.Panel panelMenuLateral;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelFormularios;
+        private System.Windows.Forms.Button btnRegistro;
+        private System.Windows.Forms.Button btnVenta;
+        private System.Windows.Forms.Button btnInventario;
     }
 }
 
