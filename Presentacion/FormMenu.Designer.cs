@@ -43,7 +43,7 @@
             // 
             // panelMenuLateral
             // 
-            this.panelMenuLateral.BackColor = System.Drawing.Color.LightGray;
+            this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.panelMenuLateral.Controls.Add(this.btnInventario);
             this.panelMenuLateral.Controls.Add(this.btnRegistro);
             this.panelMenuLateral.Controls.Add(this.btnVenta);
@@ -57,6 +57,10 @@
             // btnInventario
             // 
             this.btnInventario.BackColor = System.Drawing.Color.White;
+            this.btnInventario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.btnInventario.FlatAppearance.BorderSize = 2;
+            this.btnInventario.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.ForeColor = System.Drawing.SystemColors.GrayText;
             this.btnInventario.Location = new System.Drawing.Point(10, 279);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(234, 72);
@@ -68,6 +72,10 @@
             // btnRegistro
             // 
             this.btnRegistro.BackColor = System.Drawing.Color.White;
+            this.btnRegistro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.btnRegistro.FlatAppearance.BorderSize = 2;
+            this.btnRegistro.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistro.ForeColor = System.Drawing.SystemColors.GrayText;
             this.btnRegistro.Location = new System.Drawing.Point(10, 201);
             this.btnRegistro.Name = "btnRegistro";
             this.btnRegistro.Size = new System.Drawing.Size(234, 72);
@@ -79,6 +87,10 @@
             // btnVenta
             // 
             this.btnVenta.BackColor = System.Drawing.Color.White;
+            this.btnVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.btnVenta.FlatAppearance.BorderSize = 2;
+            this.btnVenta.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenta.ForeColor = System.Drawing.SystemColors.GrayText;
             this.btnVenta.Location = new System.Drawing.Point(10, 123);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(234, 72);
@@ -108,6 +120,7 @@
             // 
             // panelFormularios
             // 
+            this.panelFormularios.BackColor = System.Drawing.Color.White;
             this.panelFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormularios.Location = new System.Drawing.Point(253, 0);
             this.panelFormularios.Name = "panelFormularios";
