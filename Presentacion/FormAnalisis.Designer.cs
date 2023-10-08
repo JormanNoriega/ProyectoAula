@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class FormInventario
+    partial class FormAnalisis
     {
         /// <summary>
         /// Required designer variable.
@@ -40,19 +40,18 @@
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(70, 30, 30, 30);
-            this.label2.Size = new System.Drawing.Size(437, 123);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "INVENTARIO";
+            this.label2.Size = new System.Drawing.Size(353, 123);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "ANÁLISIS";
             // 
-            // FormInventario
+            // FormAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1635, 1002);
             this.Controls.Add(this.label2);
-            this.Name = "FormInventario";
-            this.Text = "FormInventario";
+            this.Name = "FormAnalisis";
+            this.Text = "FormAnalisis";
             this.ResumeLayout(false);
             this.PerformLayout();
 
