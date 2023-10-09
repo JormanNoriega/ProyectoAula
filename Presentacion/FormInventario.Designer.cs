@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
+            this.panelDatos = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panelDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -44,15 +48,35 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "INVENTARIO";
             // 
+            // panelDatos
+            // 
+            this.panelDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatos.Controls.Add(this.dataGridView1);
+            this.panelDatos.Location = new System.Drawing.Point(90, 151);
+            this.panelDatos.Name = "panelDatos";
+            this.panelDatos.Size = new System.Drawing.Size(1413, 795);
+            this.panelDatos.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(159, 152);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(500, 298);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1635, 1002);
+            this.Controls.Add(this.panelDatos);
             this.Controls.Add(this.label2);
             this.Name = "FormInventario";
             this.Text = "FormInventario";
+            this.panelDatos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -61,5 +85,7 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panelDatos;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

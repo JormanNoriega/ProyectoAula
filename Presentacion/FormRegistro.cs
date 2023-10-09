@@ -19,6 +19,7 @@ namespace Presentacion
             ConfigureRoundedCorners(panelDatos, 20);
         }
 
+        //Funcion para aplicar bordes redondeados a paneles
         private void ConfigureRoundedCorners(Control control, int radius)
         {
             GraphicsPath path = new GraphicsPath();
