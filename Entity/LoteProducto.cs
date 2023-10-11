@@ -8,7 +8,7 @@ namespace Entity
 {
     internal class LoteProducto
     {
-        public int codLote { get; set; }
+        public string codLote { get; set; }
         public DateTime FechaVencimiento { get; set; }
         private double precioCompra { get; set; }
         private double precioVenta { get; set; }
@@ -18,7 +18,7 @@ namespace Entity
         {
         }
 
-        public LoteProducto(int codLote, DateTime fechaVencimiento, double precioCompra, double precioVenta, int cantidad)
+        public LoteProducto(string codLote, DateTime fechaVencimiento, double precioCompra, double precioVenta, int cantidad)
         {
             this.codLote = codLote;
             FechaVencimiento = fechaVencimiento;

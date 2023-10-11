@@ -26,5 +26,10 @@ namespace Entity
             this.descripcion = descripcion;
             this.lotes = new List<LoteProducto>();
         }
+
+        public void AgregarLote(string codLote, DateTime fechaVencimiento, double precioCompra, double precioVenta, int cantidad)
+        {
+            lotes.Add(new LoteProducto(codLote, fechaVencimiento, precioCompra, precioVenta, cantidad));
+        }
     }
 }
