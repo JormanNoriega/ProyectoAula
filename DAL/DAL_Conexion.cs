@@ -1,30 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using Oracle.DataAccess.Client;
-using Oracle.DataAccess.Types;
-
 
 namespace DAL
 {
     public class DAL_Conexion
     {
-        private OracleConnection Conexion = new OracleConnection("Data Source=BD_VitalFarmacos:1521/xepdb1;User Id=vital;Password=123;");
-        public OracleConnection AbrirConexion()
+        private SqlConnection Conexion = new SqlConnection("Server=DESKTOP-NH8IHBF\\SQLEXPRESS;DataBase=BD_VitalFarmacos;Integrated Security=true");
+        public SqlConnection AbrirConexion()
         {
             if (Conexion.State == ConnectionState.Closed)
                 Conexion.Open();
             return Conexion;
         }
-        public OracleConnection CerrarConexion()
+        public SqlConnection CerrarConexion()
         {
             if (Conexion.State == ConnectionState.Open)
                 Conexion.Close();
             return Conexion;
         }
-
     }
 }

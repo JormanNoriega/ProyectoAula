@@ -10,24 +10,24 @@ namespace BLL
 {
     public class BLL_Services
     {
-        private DAL_Repository Repository = new DAL_Repository();
+        private DAL_Repository repository = new DAL_Repository();
         public DataTable MostrarProd()
         {
             DataTable tabla = new DataTable();
-            tabla = Repository.Mostrar();
+            tabla = repository.Mostrar();
             return tabla;
         }
-        //public void InsertarPRod(string nombre, string desc, string marca, string precio, string stock)
-        //{
-        //    Repository.Insertar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock));
-        //}
-        //public void EditarProd(string nombre, string desc, string marca, string precio, string stock, string id)
-        //{
-        //    Repository.Editar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock), Convert.ToInt32(id));
-        //}
-        //public void EliminarPRod(string id)
-        //{
-        //    Repository.Eliminar(Convert.ToInt32(id));
-        //}
+        public void InsertarPRod(string nombre, string desc, string marca, string precio, string stock)
+        {
+            repository.Insertar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock));
+        }
+        public void EditarProd(string nombre, string desc, string marca, string precio, string stock, string id)
+        {
+            repository.Editar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock), Convert.ToInt32(id));
+        }
+        public void EliminarPRod(string id)
+        {
+            repository.Eliminar(Convert.ToInt32(id));
+        }
     }
 }
