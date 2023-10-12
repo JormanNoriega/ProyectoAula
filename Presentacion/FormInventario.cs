@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Presentacion
 {
     public partial class FormInventario : Form
     {
+        private BLL_Services servicio = new BLL_Services();
         public FormInventario()
         {
             InitializeComponent();
@@ -30,6 +32,16 @@ namespace Presentacion
 
             // Aplica la región con los bordes redondeados al control
             control.Region = new Region(path);
+        }
+
+        private void FormInventario_Load(object sender, EventArgs e)
+        {
+            MostrarProcutos();
+        }
+
+        private void MostrarProcutos()
+        {
+            dgvInventario.DataSource = servicio.MostrarProd();
         }
     }
 }

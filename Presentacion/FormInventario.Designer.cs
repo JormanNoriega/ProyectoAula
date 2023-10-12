@@ -30,9 +30,9 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.panelDatos = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.panelDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -51,19 +51,19 @@
             // panelDatos
             // 
             this.panelDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.panelDatos.Controls.Add(this.dataGridView1);
+            this.panelDatos.Controls.Add(this.dgvInventario);
             this.panelDatos.Location = new System.Drawing.Point(90, 151);
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(1413, 795);
             this.panelDatos.TabIndex = 2;
             // 
-            // dataGridView1
+            // dgvInventario
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(159, 152);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(500, 298);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventario.Location = new System.Drawing.Point(72, 170);
+            this.dgvInventario.Name = "dgvInventario";
+            this.dgvInventario.Size = new System.Drawing.Size(1242, 458);
+            this.dgvInventario.TabIndex = 0;
             // 
             // FormInventario
             // 
@@ -75,8 +75,9 @@
             this.Controls.Add(this.label2);
             this.Name = "FormInventario";
             this.Text = "FormInventario";
+            this.Load += new System.EventHandler(this.FormInventario_Load);
             this.panelDatos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,6 +87,6 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelDatos;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInventario;
     }
 }

@@ -30,6 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.panelDatos = new System.Windows.Forms.Panel();
+            this.cboxCategoria = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -52,7 +53,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cboxCategoria = new System.Windows.Forms.ComboBox();
             this.panelDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +90,18 @@
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(1433, 795);
             this.panelDatos.TabIndex = 1;
+            // 
+            // cboxCategoria
+            // 
+            this.cboxCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.cboxCategoria.FormattingEnabled = true;
+            this.cboxCategoria.Items.AddRange(new object[] {
+            "Tableta",
+            "Jarabe"});
+            this.cboxCategoria.Location = new System.Drawing.Point(106, 365);
+            this.cboxCategoria.Name = "cboxCategoria";
+            this.cboxCategoria.Size = new System.Drawing.Size(546, 30);
+            this.cboxCategoria.TabIndex = 16;
             // 
             // label11
             // 
@@ -323,18 +335,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "CODIGO DE PRODUCTO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // cboxCategoria
-            // 
-            this.cboxCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.cboxCategoria.FormattingEnabled = true;
-            this.cboxCategoria.Items.AddRange(new object[] {
-            "Tableta",
-            "Jarabe"});
-            this.cboxCategoria.Location = new System.Drawing.Point(106, 365);
-            this.cboxCategoria.Name = "cboxCategoria";
-            this.cboxCategoria.Size = new System.Drawing.Size(546, 30);
-            this.cboxCategoria.TabIndex = 16;
             // 
             // FormRegistro
             // 
