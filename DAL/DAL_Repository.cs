@@ -12,34 +12,87 @@ namespace DAL
     {
         private DAL_Conexion conexion = new DAL_Conexion();
         SqlDataReader leer;
-        DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-        public DataTable Mostrar()
-        {
 
+        //METODOS PARA MOSTRAR TABLAS DE LA BD
+        public DataTable MostrarProductos()
+        {
+            DataTable tablaProductos = new DataTable();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SELECT * FROM Productos";
+            comando.CommandText = @"SELECT p.CodProducto AS 'Codigo De Producto',p.NombProducto AS 'Nombre De Producto',f.NombProveedor AS 'Proveedor',c.NombCategoria AS 'Categoria',l.NombLaboratorio AS 'Laboratorio',SUM(lt.cantidad) AS 'Cantidad Total' FROM Productos AS p 
+                                    INNER JOIN Proveedores AS f ON p.NitProveedor = f.NitProveedor 
+                                    INNER JOIN Categorias AS c ON p.IdCategoria = c.IdCategoria
+                                    INNER JOIN Laboratorios AS l ON p.IdLaboratorio = l.IdLaboratorio
+                                    INNER JOIN Lotes AS lt ON p.CodProducto = lt.CodProducto
+                                    GROUP BY p.CodProducto, p.NombProducto, f.NombProveedor, c.NombCategoria, l.NombLaboratorio";
+
             leer = comando.ExecuteReader();
-            tabla.Load(leer);
+            tablaProductos.Load(leer);
+            leer.Close();
             conexion.CerrarConexion();
-            return tabla;
+            return tablaProductos;
         }
 
+        public DataTable MostrarCategorias()
+        {
+            DataTable tablaCategorias = new DataTable();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT * FROM Categorias";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaCategorias.Load(leer);
+            leer.Close();
+            conexion.CerrarConexion();
+            return tablaCategorias;
+        }
 
-        public void Insertar(string nombre, string desc, string marca, double precio, int stock)
+        public DataTable MostrarLaboratorios()
+        {
+            DataTable tablaLaboratorios = new DataTable();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT * FROM Laboratorios";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaLaboratorios.Load(leer);
+            leer.Close();
+            conexion.CerrarConexion();
+            return tablaLaboratorios;
+        }
+
+        public DataTable MostrarProveedores()
+        {
+            DataTable tablaProveedores = new DataTable();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT * FROM Proveedores";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaProveedores.Load(leer);
+            leer.Close();
+            conexion.CerrarConexion();
+            return tablaProveedores;
+        }
+
+        //METODOS PARA INSERTAR EN LA BD
+
+        public void InsertarProducto(decimal CodProducto, string NombProducto, decimal NitProveedor, int IdCategoria , int IdLaboratorio, string Descripcion)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "InsetarProductos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@nombre", nombre);
-            comando.Parameters.AddWithValue("@descrip", desc);
-            comando.Parameters.AddWithValue("@Marca", marca);
-            comando.Parameters.AddWithValue("@precio", precio);
-            comando.Parameters.AddWithValue("@stock", precio);
+            comando.CommandText = "INSERT INTO Productos (CodProducto,NombProducto,NitProveedor,IdCategoria,IdLaboratorio,Descripcion) VALUES(@CodProducto, @NombProducto, @NitProveedor, @IdCategoria, @IdLaboratorio, @Descripcion)";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add("@CodProducto", SqlDbType.Decimal).Value = CodProducto;
+            comando.Parameters.Add("@NombProducto", SqlDbType.NVarChar, 50).Value = NombProducto;
+            comando.Parameters.Add("@NitProveedor", SqlDbType.Decimal).Value = NitProveedor;
+            comando.Parameters.Add("@IdCategoria", SqlDbType.Int).Value = IdCategoria;
+            comando.Parameters.Add("@IdLaboratorio", SqlDbType.Int).Value = IdLaboratorio;
+            comando.Parameters.Add("@Descripcion", SqlDbType.NVarChar, 300).Value = Descripcion;
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
+
+
+
+
         public void Editar(string nombre, string desc, string marca, double precio, int stock, int id)
         {
             comando.Connection = conexion.AbrirConexion();

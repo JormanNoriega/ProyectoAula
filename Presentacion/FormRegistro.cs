@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Presentacion
 {
     public partial class FormRegistro : Form
     {
+        BLL_Services servicio = new BLL_Services();
         public FormRegistro()
         {
             InitializeComponent();
@@ -31,6 +33,49 @@ namespace Presentacion
 
             // Aplica la región con los bordes redondeados al control
             control.Region = new Region(path);
+        }
+        private void FormRegistro_Load(object sender, EventArgs e)
+        {
+            ListarCategorias();
+            ListarProveedores();
+            ListarLaboratorios();
+        }
+
+        private void btnCrearProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                servicio.InsertarProductos(txtCodigoProducto.Text, txtNombreProducto.Text, Convert.ToInt32(cboxProveedor.SelectedValue), Convert.ToInt32(cboxCategoria.SelectedValue), Convert.ToInt32(cboxLaboratorio.SelectedValue), txtDescripcion.Text);
+                MessageBox.Show("Se agrego el producto correctamente");
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("No se pudo agregar el produto"+ex);
+            }
+        }
+        
+        private void ListarCategorias()
+        {
+            cboxCategoria.DataSource=servicio.MostrarCategorias();
+            cboxCategoria.DisplayMember ="NombCategoria";
+            cboxCategoria.ValueMember="IdCategoria";
+            cboxCategoria.SelectedIndex = -1;
+        }
+
+        private void ListarProveedores()
+        {
+            cboxProveedor.DataSource = servicio.MostrarProveedores();
+            cboxProveedor.DisplayMember = "NombProveedor";
+            cboxProveedor.ValueMember = "NitProveedor";
+            cboxProveedor.SelectedIndex = -1;
+        }
+
+        private void ListarLaboratorios()
+        {
+            cboxLaboratorio.DataSource=servicio.MostrarLaboratorios();
+            cboxLaboratorio.DisplayMember = "NombLaboratorio";
+            cboxLaboratorio.ValueMember = "IdLaboratorio";
+            cboxLaboratorio.SelectedIndex = -1;
         }
     }
 }

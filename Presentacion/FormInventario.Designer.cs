@@ -60,6 +60,7 @@
             // dgvInventario
             // 
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInventario.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInventario.Location = new System.Drawing.Point(72, 170);
             this.dgvInventario.Name = "dgvInventario";
@@ -88,6 +89,6 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelDatos;
-        private System.Windows.Forms.DataGridView dgvInventario;
+        public System.Windows.Forms.DataGridView dgvInventario;
     }
 }

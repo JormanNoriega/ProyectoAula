@@ -31,6 +31,7 @@ namespace Presentacion
         private void btnInventario_Click_1(object sender, EventArgs e)
         {
             AbrirFormulario<FormInventario>();
+            
         }
         private void btnAnalisis_Click(object sender, EventArgs e)
         {
@@ -55,7 +56,16 @@ namespace Presentacion
                 formulario.BringToFront();
             }
             else
-            { 
+            {
+                formulario.Close(); // Cierra el formulario existente
+                formulario.Dispose(); // Libera recursos asociados al formulario existente
+                formulario = new MiForm(); // Crea un nuevo formulario
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelFormularios.Controls.Add(formulario);
+                panelFormularios.Tag = formulario;
+                formulario.Show();
                 formulario.BringToFront();
             }
         }

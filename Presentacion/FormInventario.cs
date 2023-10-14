@@ -34,14 +34,19 @@ namespace Presentacion
             control.Region = new Region(path);
         }
 
+
         private void FormInventario_Load(object sender, EventArgs e)
         {
             MostrarProcutos();
         }
 
-        private void MostrarProcutos()
+        public void MostrarProcutos()
         {
-            dgvInventario.DataSource = servicio.MostrarProd();
+            BLL_Services  vistaTabla= new BLL_Services();
+            dgvInventario.DataSource = vistaTabla.MostrarProductos();
         }
+
+
+        
     }
 }
