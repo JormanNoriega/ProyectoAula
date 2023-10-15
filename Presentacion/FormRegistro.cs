@@ -47,6 +47,7 @@ namespace Presentacion
             {
                 servicio.InsertarProductos(txtCodigoProducto.Text, txtNombreProducto.Text, Convert.ToInt32(cboxProveedor.SelectedValue), Convert.ToInt32(cboxCategoria.SelectedValue), Convert.ToInt32(cboxLaboratorio.SelectedValue), txtDescripcion.Text);
                 MessageBox.Show("Se agrego el producto correctamente");
+                limpiarTxt();
             }
             catch(Exception ex) 
             {
@@ -61,6 +62,7 @@ namespace Presentacion
                 DateTime fechaSeleccionada = dtpVencimiento.Value;
                 servicio.InsertarLote(txtCodLote.Text, txtCodigoProducto.Text, fechaSeleccionada, Convert.ToInt32(txtCantidad),txtPrecioCompra.Text,txtPrecioVenta.Text);
                 MessageBox.Show("Se agrego el Lote correctamente");
+                limpiarTxt();
             }
             catch (Exception ex)
             {
@@ -94,5 +96,24 @@ namespace Presentacion
             cboxLaboratorio.SelectedIndex = -1;
         }
 
+        private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
+        {
+            string codProducto = txtCodigoProducto.Text;
+            
+
+        }
+
+        private void limpiarTxt()
+        {
+            //Limpiar Producto
+            txtCodigoProducto.Clear();
+            txtNombreProducto.Clear();
+            cboxLaboratorio.SelectedIndex = -1;
+            cboxCategoria.SelectedIndex = -1;
+            cboxLaboratorio.SelectedIndex = -1;
+            txtDescripcion.Clear();
+
+            //Limpiar Lote
+        }
     }
 }

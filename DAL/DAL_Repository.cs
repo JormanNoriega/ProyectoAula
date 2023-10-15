@@ -14,16 +14,30 @@ namespace DAL
         SqlDataReader leer;
         SqlCommand comando = new SqlCommand();
 
+        //METODO PARA BUSCAR PRODUCTO
+        public DataTable BuscarProducto(decimal CodProducto)
+        {
+            DataTable Busqueda = new DataTable();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT * FROM Productos WHERE CodProducto = @CodProductoBuscado";
+            comando.Parameters.Add("@CodProductoBuscado", SqlDbType.Decimal).Value = CodProducto;
+            leer = comando.ExecuteReader();
+            Busqueda.Load(leer);
+            leer.Close();
+            conexion.CerrarConexion();
+            return Busqueda;
+        }
+
         //METODOS PARA MOSTRAR TABLAS DE LA BD
         public DataTable MostrarProductos()
         {
             DataTable tablaProductos = new DataTable();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = @"SELECT p.CodProducto AS 'Codigo De Producto',p.NombProducto AS 'Nombre De Producto',f.NombProveedor AS 'Proveedor',c.NombCategoria AS 'Categoria',l.NombLaboratorio AS 'Laboratorio',SUM(lt.cantidad) AS 'Cantidad Total' FROM Productos AS p 
+            comando.CommandText = @"SELECT p.CodProducto AS 'Codigo De Producto',p.NombProducto AS 'Nombre De Producto',f.NombProveedor AS 'Proveedor',c.NombCategoria AS 'Categoria',l.NombLaboratorio AS 'Laboratorio',COALESCE(SUM(lt.cantidad),0) AS 'Cantidad Total' FROM Productos AS p 
                                     INNER JOIN Proveedores AS f ON p.NitProveedor = f.NitProveedor 
                                     INNER JOIN Categorias AS c ON p.IdCategoria = c.IdCategoria
                                     INNER JOIN Laboratorios AS l ON p.IdLaboratorio = l.IdLaboratorio
-                                    INNER JOIN Lotes AS lt ON p.CodProducto = lt.CodProducto
+                                    LEFT JOIN Lotes AS lt ON p.CodProducto = lt.CodProducto OR lt.CodProducto IS NULL
                                     GROUP BY p.CodProducto, p.NombProducto, f.NombProveedor, c.NombCategoria, l.NombLaboratorio";
 
             leer = comando.ExecuteReader();

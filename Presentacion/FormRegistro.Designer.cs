@@ -172,6 +172,7 @@
             this.txtCodigoProducto.Name = "txtCodigoProducto";
             this.txtCodigoProducto.Size = new System.Drawing.Size(546, 31);
             this.txtCodigoProducto.TabIndex = 1;
+            this.txtCodigoProducto.TextChanged += new System.EventHandler(this.txtCodigoProducto_TextChanged);
             // 
             // cboxCategoria
             // 
