@@ -53,6 +53,22 @@ namespace Presentacion
                 MessageBox.Show("No se pudo agregar el produto"+ex);
             }
         }
+
+        private void btnCrearLote_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fechaSeleccionada = dtpVencimiento.Value;
+                servicio.InsertarLote(txtCodLote.Text, txtCodigoProducto.Text, fechaSeleccionada, Convert.ToInt32(txtCantidad),txtPrecioCompra.Text,txtPrecioVenta.Text);
+                MessageBox.Show("Se agrego el Lote correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo agregar el Lote" + ex);
+            }
+        }
+
+
         
         private void ListarCategorias()
         {
@@ -77,5 +93,6 @@ namespace Presentacion
             cboxLaboratorio.ValueMember = "IdLaboratorio";
             cboxLaboratorio.SelectedIndex = -1;
         }
+
     }
 }

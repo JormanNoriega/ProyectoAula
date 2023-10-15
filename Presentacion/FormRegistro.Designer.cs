@@ -54,10 +54,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtCodLote = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFechaVencimiento = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.panelDatos.SuspendLayout();
             this.gpbRegistrarProducto.SuspendLayout();
             this.gpbRegistroLote.SuspendLayout();
@@ -271,6 +271,7 @@
             // 
             // gpbRegistroLote
             // 
+            this.gpbRegistroLote.Controls.Add(this.dtpVencimiento);
             this.gpbRegistroLote.Controls.Add(this.btnCrearLote);
             this.gpbRegistroLote.Controls.Add(this.txtPrecioVenta);
             this.gpbRegistroLote.Controls.Add(this.txtPrecioCompra);
@@ -278,7 +279,6 @@
             this.gpbRegistroLote.Controls.Add(this.label12);
             this.gpbRegistroLote.Controls.Add(this.txtCodLote);
             this.gpbRegistroLote.Controls.Add(this.label1);
-            this.gpbRegistroLote.Controls.Add(this.txtFechaVencimiento);
             this.gpbRegistroLote.Controls.Add(this.label7);
             this.gpbRegistroLote.Controls.Add(this.label8);
             this.gpbRegistroLote.Controls.Add(this.txtCantidad);
@@ -298,6 +298,7 @@
             this.btnCrearLote.TabIndex = 18;
             this.btnCrearLote.Text = "Crear Lote";
             this.btnCrearLote.UseVisualStyleBackColor = true;
+            this.btnCrearLote.Click += new System.EventHandler(this.btnCrearLote_Click);
             // 
             // txtPrecioVenta
             // 
@@ -360,15 +361,6 @@
             this.label1.Text = "CODIGO DE LOTE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // txtFechaVencimiento
-            // 
-            this.txtFechaVencimiento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaVencimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaVencimiento.Location = new System.Drawing.Point(27, 131);
-            this.txtFechaVencimiento.Name = "txtFechaVencimiento";
-            this.txtFechaVencimiento.Size = new System.Drawing.Size(546, 31);
-            this.txtFechaVencimiento.TabIndex = 11;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -400,6 +392,16 @@
             this.txtCantidad.Size = new System.Drawing.Size(544, 31);
             this.txtCantidad.TabIndex = 12;
             // 
+            // dtpVencimiento
+            // 
+            this.dtpVencimiento.CustomFormat = "yyyy-MM-dd";
+            this.dtpVencimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVencimiento.Location = new System.Drawing.Point(27, 138);
+            this.dtpVencimiento.Name = "dtpVencimiento";
+            this.dtpVencimiento.Size = new System.Drawing.Size(542, 31);
+            this.dtpVencimiento.TabIndex = 21;
+            // 
             // FormRegistro
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
@@ -428,7 +430,6 @@
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.TextBox txtFechaVencimiento;
         private System.Windows.Forms.TextBox txtNombreProducto;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -452,5 +453,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cboxLaboratorio;
         private System.Windows.Forms.ComboBox cboxProveedor;
+        private System.Windows.Forms.DateTimePicker dtpVencimiento;
     }
 }

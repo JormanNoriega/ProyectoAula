@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
@@ -52,9 +53,15 @@ namespace BLL
         }
 
         //FUNSION PARA REGISTRAR LOTES
-        public void EditarProd(string nombre, string desc, string marca, string precio, string stock, string id)
+        public void InsertarLote(string CodLote, string CodProducto, DateTime Vencimiento, int Cantidad, string PrecioCompra, string PrecioVentan)
         {
-            repository.Editar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock), Convert.ToInt32(id));
+            repository.InsertarLote(CodLote, Convert.ToDecimal(CodProducto), Vencimiento, Cantidad, Convert.ToDecimal(PrecioCompra), Convert.ToDecimal(PrecioVentan));
+        }
+
+
+        public void EditarProd(string CodLote, string CodProducto, DateTime Vencimiento, int Cantidad, string PrecioCompra, string PrecioVentan)
+        {
+            
         }
 
 

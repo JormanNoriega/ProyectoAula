@@ -90,6 +90,23 @@ namespace DAL
             conexion.CerrarConexion();
         }
 
+        public void InsertarLote(string CodLote, decimal CodProducto,DateTime Vencimiento, int Cantidad, decimal PrecioCompra, decimal PrecioVentan)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "INSERT INTO Lotes (CodLote,CodProducto,Vencimiento,Cantidad,PrecioCompra,PrecioVenta) VALUES(@CodLote, @CodProducto, @Vencimiento, @Cantidad, @PrecioCompra, @PrecioVenta)";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add("@CodLote", SqlDbType.NVarChar,20).Value = CodLote;
+            comando.Parameters.Add("@CodProducto", SqlDbType.Decimal).Value = CodProducto;
+            comando.Parameters.Add("@Vencimiento", SqlDbType.Date).Value = Vencimiento;
+            comando.Parameters.Add("@Cantidad", SqlDbType.Int).Value = Cantidad;
+            comando.Parameters.Add("@PrecioCompra", SqlDbType.Decimal).Value = PrecioCompra;
+            comando.Parameters.Add("@PrecioVenta", SqlDbType.Decimal).Value = PrecioVentan;
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+
 
 
 
