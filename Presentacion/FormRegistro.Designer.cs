@@ -47,6 +47,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.gpbRegistroLote = new System.Windows.Forms.GroupBox();
+            this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.btnCrearLote = new System.Windows.Forms.Button();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
@@ -57,7 +58,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.panelDatos.SuspendLayout();
             this.gpbRegistrarProducto.SuspendLayout();
             this.gpbRegistroLote.SuspendLayout();
@@ -289,6 +289,16 @@
             this.gpbRegistroLote.TabIndex = 14;
             this.gpbRegistroLote.TabStop = false;
             // 
+            // dtpVencimiento
+            // 
+            this.dtpVencimiento.CustomFormat = "yyyy-MM-dd";
+            this.dtpVencimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVencimiento.Location = new System.Drawing.Point(27, 138);
+            this.dtpVencimiento.Name = "dtpVencimiento";
+            this.dtpVencimiento.Size = new System.Drawing.Size(542, 31);
+            this.dtpVencimiento.TabIndex = 21;
+            // 
             // btnCrearLote
             // 
             this.btnCrearLote.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -392,16 +402,6 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(544, 31);
             this.txtCantidad.TabIndex = 12;
-            // 
-            // dtpVencimiento
-            // 
-            this.dtpVencimiento.CustomFormat = "yyyy-MM-dd";
-            this.dtpVencimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVencimiento.Location = new System.Drawing.Point(27, 138);
-            this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(542, 31);
-            this.dtpVencimiento.TabIndex = 21;
             // 
             // FormRegistro
             // 
