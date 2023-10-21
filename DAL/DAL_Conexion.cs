@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DAL_Conexion
     {
-        private SqlConnection Conexion = new SqlConnection("Server=DESKTOP-NH8IHBF\\SQLEXPRESS;DataBase=BD_VitalFarmacos;Integrated Security=true");
+        private SqlConnection Conexion = new SqlConnection("Server=.\\SQLEXPRESS;DataBase=BD_VitalFarmacos;Integrated Security=true");
         public SqlConnection AbrirConexion()
         {
             if (Conexion.State == ConnectionState.Closed)

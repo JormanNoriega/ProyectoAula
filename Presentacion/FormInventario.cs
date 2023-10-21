@@ -15,6 +15,7 @@ namespace Presentacion
     public partial class FormInventario : Form
     {
         private BLL_Services servicio = new BLL_Services();
+        private string idproducto;
         public FormInventario()
         {
             InitializeComponent();
@@ -37,16 +38,55 @@ namespace Presentacion
 
         private void FormInventario_Load(object sender, EventArgs e)
         {
+            btnEditar.Visible = false;
+            btnEliminar.Visible = false;
             MostrarProcutos();
         }
 
         public void MostrarProcutos()
         {
-            BLL_Services  vistaTabla= new BLL_Services();
-            dgvInventario.DataSource = vistaTabla.MostrarProductos();
+            //BLL_Services  vistaTablaProductos= new BLL_Services();
+            dgvInventario.DataSource = servicio.MostrarProductos();
         }
 
+        private void btnVerLotes_Click(object sender, EventArgs e)
+        {
+            if (dgvInventario.SelectedRows.Count > 0)
+            {
+                idproducto = dgvInventario.CurrentRow.Cells["Codigo De Producto"].Value.ToString();
+                dgvInventario.DataSource = servicio.MostrarLotes(idproducto);
+                btnVerLotes.Visible = false;
+                btnEditar.Visible = true;
+                btnEliminar.Visible = true;
+                label3.Visible = false;
+                txtFiltro.Visible= false;
 
-        
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una Registro");
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            CargarProductosFiltrado(txtFiltro.Text);
+        }
+
+        private void CargarProductosFiltrado(string filtro)
+        {
+            dgvInventario.DataSource = servicio.MostrarProductoFiltrado(filtro);
+        }
+
     }
 }

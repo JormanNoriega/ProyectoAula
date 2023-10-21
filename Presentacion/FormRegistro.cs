@@ -60,7 +60,7 @@ namespace Presentacion
             try
             {
                 DateTime fechaSeleccionada = dtpVencimiento.Value;
-                servicio.InsertarLote(txtCodLote.Text, txtCodigoProducto.Text, fechaSeleccionada, Convert.ToInt32(txtCantidad),txtPrecioCompra.Text,txtPrecioVenta.Text);
+                servicio.InsertarLote(txtCodLote.Text, txtCodigoProducto.Text, fechaSeleccionada, txtCantidad.Text, txtPrecioCompra.Text, txtPrecioVenta.Text);
                 MessageBox.Show("Se agrego el Lote correctamente");
                 limpiarTxt();
             }

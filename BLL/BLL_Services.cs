@@ -16,12 +16,10 @@ namespace BLL
         //FUNSION PARA MOSTRAR PRODUCTOS
         public DataTable MostrarProductos()
         {
-
             DataTable tablaProductos = new DataTable();
             tablaProductos = repository.MostrarProductos();
             return tablaProductos;
         }
-
         //FUNSION PARA MOSTRAR CATEGORIAS
         public DataTable MostrarCategorias()
         {
@@ -43,8 +41,30 @@ namespace BLL
             tablaProveedores = repository.MostrarProveedores();
             return tablaProveedores;
         }
+        //FUNSION PARA MOSTRAR LOTES
+        public DataTable MostrarLotes(string CodProducto)
+        {
+            DataTable tablaLotes = new DataTable();
+            tablaLotes = repository.MostrarLotes(Convert.ToDecimal(CodProducto));
+            return tablaLotes;
+        }
+        //FUNSION PARA MOSTRAR PRODUCTOS FILTRADOS
+        public DataTable MostrarProductoFiltrado(string CodProducto)
+        {
 
-
+            DAL_Repository productosfiltrados = new DAL_Repository();
+            DataTable tablaProductoFiltrado = new DataTable();
+            if (CodProducto == "")
+            {
+                tablaProductoFiltrado= productosfiltrados.MostrarProductos();
+                return tablaProductoFiltrado;
+            }
+            else
+            {
+                tablaProductoFiltrado = productosfiltrados.MostrarProductoFiltrado(Convert.ToDecimal(CodProducto));
+                return tablaProductoFiltrado;
+            }
+        }
 
         //FUNSION PARA REGISTRAR PRODUCTOS
         public void InsertarProductos(string CodProducto, string NombProducto, int NitProveedor, int IdCategoria, int IdLaboratorio, string Descripcion)
@@ -53,9 +73,9 @@ namespace BLL
         }
 
         //FUNSION PARA REGISTRAR LOTES
-        public void InsertarLote(string CodLote, string CodProducto, DateTime Vencimiento, int Cantidad, string PrecioCompra, string PrecioVentan)
+        public void InsertarLote(string CodLote, string CodProducto, DateTime Vencimiento, string Cantidad, string PrecioCompra, string PrecioVentan)
         {
-            repository.InsertarLote(CodLote, Convert.ToDecimal(CodProducto), Vencimiento, Cantidad, Convert.ToDecimal(PrecioCompra), Convert.ToDecimal(PrecioVentan));
+            repository.InsertarLote(CodLote, Convert.ToDecimal(CodProducto), Vencimiento, Convert.ToInt32(Cantidad), Convert.ToDecimal(PrecioCompra), Convert.ToDecimal(PrecioVentan));
         }
 
 

@@ -86,6 +86,36 @@ namespace DAL
             return tablaProveedores;
         }
 
+        //METODO PARA MOSTRAR LOTES DE UN PRODUCTO
+
+        public DataTable MostrarLotes(decimal CodProducto)
+        {
+            DataTable tablaLotes = new DataTable();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT * FROM Lotes WHERE CodProducto = @CodProducto";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add("@CodProducto", SqlDbType.Decimal).Value = CodProducto;
+            leer = comando.ExecuteReader();
+            tablaLotes.Load(leer);
+            leer.Close();
+            conexion.CerrarConexion();
+            return tablaLotes;
+        }
+        //METODO PARA MOSTRAR PRODUCTOS FILTRADO
+        public DataTable MostrarProductoFiltrado(decimal CodProducto)
+        {
+            DataTable tablaProductoFiltrado = new DataTable();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT * FROM Productos WHERE CONVERT(NVARCHAR(50), CodProducto) LIKE CAST(@CodProducto AS NVARCHAR(50)) + '%'";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add("@CodProducto", SqlDbType.Decimal).Value = CodProducto;
+            leer = comando.ExecuteReader();
+            tablaProductoFiltrado.Load(leer);
+            leer.Close();
+            conexion.CerrarConexion();
+            return tablaProductoFiltrado;
+        }
+
         //METODOS PARA INSERTAR EN LA BD
 
         public void InsertarProducto(decimal CodProducto, string NombProducto, decimal NitProveedor, int IdCategoria , int IdLaboratorio, string Descripcion)
