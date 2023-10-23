@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMenuLateral = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnAnalisis = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelFormularios = new System.Windows.Forms.Panel();
-            this.btnAnalisis = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.panelMenuLateral.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,6 +59,48 @@
             this.panelMenuLateral.Name = "panelMenuLateral";
             this.panelMenuLateral.Size = new System.Drawing.Size(253, 1041);
             this.panelMenuLateral.TabIndex = 0;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(0, 937);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Padding = new System.Windows.Forms.Padding(10, 0, 20, 10);
+            this.btnSalir.Size = new System.Drawing.Size(253, 60);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = "  SALIR";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            // 
+            // btnAnalisis
+            // 
+            this.btnAnalisis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.btnAnalisis.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAnalisis.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.btnAnalisis.FlatAppearance.BorderSize = 0;
+            this.btnAnalisis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnalisis.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnalisis.ForeColor = System.Drawing.Color.White;
+            this.btnAnalisis.Image = ((System.Drawing.Image)(resources.GetObject("btnAnalisis.Image")));
+            this.btnAnalisis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnalisis.Location = new System.Drawing.Point(0, 297);
+            this.btnAnalisis.Name = "btnAnalisis";
+            this.btnAnalisis.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnAnalisis.Size = new System.Drawing.Size(253, 60);
+            this.btnAnalisis.TabIndex = 4;
+            this.btnAnalisis.Text = "  ANÁLISIS";
+            this.btnAnalisis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnalisis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAnalisis.UseVisualStyleBackColor = false;
+            this.btnAnalisis.Click += new System.EventHandler(this.btnAnalisis_Click);
             // 
             // btnInventario
             // 
@@ -137,6 +179,16 @@
             this.panelLogo.Size = new System.Drawing.Size(253, 117);
             this.panelLogo.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(67, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -159,67 +211,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "VITAL";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panelFormularios
             // 
-            this.panelFormularios.BackColor = System.Drawing.SystemColors.Control;
+            this.panelFormularios.BackColor = System.Drawing.Color.White;
             this.panelFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormularios.Location = new System.Drawing.Point(253, 0);
             this.panelFormularios.MinimumSize = new System.Drawing.Size(1651, 1041);
             this.panelFormularios.Name = "panelFormularios";
             this.panelFormularios.Size = new System.Drawing.Size(1651, 1041);
             this.panelFormularios.TabIndex = 1;
-            // 
-            // btnAnalisis
-            // 
-            this.btnAnalisis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.btnAnalisis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAnalisis.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
-            this.btnAnalisis.FlatAppearance.BorderSize = 0;
-            this.btnAnalisis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalisis.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnalisis.ForeColor = System.Drawing.Color.White;
-            this.btnAnalisis.Image = ((System.Drawing.Image)(resources.GetObject("btnAnalisis.Image")));
-            this.btnAnalisis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnalisis.Location = new System.Drawing.Point(0, 297);
-            this.btnAnalisis.Name = "btnAnalisis";
-            this.btnAnalisis.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnAnalisis.Size = new System.Drawing.Size(253, 60);
-            this.btnAnalisis.TabIndex = 4;
-            this.btnAnalisis.Text = "  ANÁLISIS";
-            this.btnAnalisis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnalisis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAnalisis.UseVisualStyleBackColor = false;
-            this.btnAnalisis.Click += new System.EventHandler(this.btnAnalisis_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(0, 937);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Padding = new System.Windows.Forms.Padding(10, 0, 20, 10);
-            this.btnSalir.Size = new System.Drawing.Size(253, 60);
-            this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "  SALIR";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 

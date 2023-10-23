@@ -30,12 +30,12 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.panelDatos = new System.Windows.Forms.Panel();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVerLotes = new System.Windows.Forms.Button();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
-            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.panelDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +66,16 @@
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(1438, 795);
             this.panelDatos.TabIndex = 2;
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltro.Location = new System.Drawing.Point(324, 83);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(546, 31);
+            this.txtFiltro.TabIndex = 6;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // label3
             // 
@@ -119,21 +129,11 @@
             this.dgvInventario.Size = new System.Drawing.Size(1297, 514);
             this.dgvInventario.TabIndex = 0;
             // 
-            // txtFiltro
-            // 
-            this.txtFiltro.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.Location = new System.Drawing.Point(324, 83);
-            this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(546, 31);
-            this.txtFiltro.TabIndex = 6;
-            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
-            // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1635, 1002);
             this.Controls.Add(this.panelDatos);
             this.Controls.Add(this.label2);

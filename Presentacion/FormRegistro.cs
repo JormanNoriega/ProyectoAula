@@ -18,7 +18,8 @@ namespace Presentacion
         public FormRegistro()
         {
             InitializeComponent();
-            ConfigureRoundedCorners(panelDatos, 20);
+            ConfigureRoundedCorners(panelDatos1, 20);
+            ConfigureRoundedCorners(panelDatos2, 20);
         }
 
         //Funcion para aplicar bordes redondeados a paneles
@@ -49,9 +50,9 @@ namespace Presentacion
                 MessageBox.Show("Se agrego el producto correctamente");
                 limpiarTxt();
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show("No se pudo agregar el produto"+ex);
+                MessageBox.Show("No se pudo agregar el produto" + ex);
             }
         }
 
@@ -71,12 +72,12 @@ namespace Presentacion
         }
 
 
-        
+
         private void ListarCategorias()
         {
-            cboxCategoria.DataSource=servicio.MostrarCategorias();
-            cboxCategoria.DisplayMember ="NombCategoria";
-            cboxCategoria.ValueMember="IdCategoria";
+            cboxCategoria.DataSource = servicio.MostrarCategorias();
+            cboxCategoria.DisplayMember = "NombCategoria";
+            cboxCategoria.ValueMember = "IdCategoria";
             cboxCategoria.SelectedIndex = -1;
         }
 
@@ -90,7 +91,7 @@ namespace Presentacion
 
         private void ListarLaboratorios()
         {
-            cboxLaboratorio.DataSource=servicio.MostrarLaboratorios();
+            cboxLaboratorio.DataSource = servicio.MostrarLaboratorios();
             cboxLaboratorio.DisplayMember = "NombLaboratorio";
             cboxLaboratorio.ValueMember = "IdLaboratorio";
             cboxLaboratorio.SelectedIndex = -1;
@@ -99,7 +100,7 @@ namespace Presentacion
         private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
         {
             string codProducto = txtCodigoProducto.Text;
-            
+
 
         }
 
@@ -115,5 +116,6 @@ namespace Presentacion
 
             //Limpiar Lote
         }
+
     }
 }
