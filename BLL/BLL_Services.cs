@@ -49,45 +49,45 @@ namespace BLL
             return tablaLotes;
         }
         //FUNSION PARA MOSTRAR PRODUCTOS FILTRADOS
-        public DataTable MostrarProductoFiltrado(string CodProducto)
-        {
+        //public DataTable MostrarProductoFiltrado(string CodProducto)
+        //{
 
-            DAL_Repository productosfiltrados = new DAL_Repository();
-            DataTable tablaProductoFiltrado = new DataTable();
-            if (CodProducto == "")
-            {
-                tablaProductoFiltrado= productosfiltrados.MostrarProductos();
-                return tablaProductoFiltrado;
-            }
-            else
-            {
-                tablaProductoFiltrado = productosfiltrados.MostrarProductoFiltrado(Convert.ToDecimal(CodProducto));
-                return tablaProductoFiltrado;
-            }
-        }
+        //    DAL_Repository productosfiltrados = new DAL_Repository();
+        //    DataTable tablaProductoFiltrado = new DataTable();
+        //    if (CodProducto == "")
+        //    {
+        //        tablaProductoFiltrado = productosfiltrados.MostrarProductos();
+        //        return tablaProductoFiltrado;
+        //    }
+        //    else
+        //    {
+        //        tablaProductoFiltrado = productosfiltrados.MostrarProductoFiltrado(Convert.ToDecimal(CodProducto));
+        //        return tablaProductoFiltrado;
+        //    }
+        //}
 
-        //FUNSION PARA REGISTRAR PRODUCTOS
-        public void InsertarProductos(string CodProducto, string NombProducto, int NitProveedor, int IdCategoria, int IdLaboratorio, string Descripcion)
-        {
-            repository.InsertarProducto(Convert.ToDecimal(CodProducto),NombProducto,Convert.ToDecimal(NitProveedor),Convert.ToInt32(IdCategoria),Convert.ToInt32(IdLaboratorio),Descripcion);
-        }
+        ////FUNSION PARA REGISTRAR PRODUCTOS
+        //public void InsertarProductos(string CodProducto, string NombProducto, int NitProveedor, int IdCategoria, int IdLaboratorio, string Descripcion)
+        //{
+        //    repository.InsertarProducto(Convert.ToDecimal(CodProducto), NombProducto, Convert.ToDecimal(NitProveedor), Convert.ToInt32(IdCategoria), Convert.ToInt32(IdLaboratorio), Descripcion);
+        //}
 
-        //FUNSION PARA REGISTRAR LOTES
-        public void InsertarLote(string CodLote, string CodProducto, DateTime Vencimiento, string Cantidad, string PrecioCompra, string PrecioVentan)
-        {
-            repository.InsertarLote(CodLote, Convert.ToDecimal(CodProducto), Vencimiento, Convert.ToInt32(Cantidad), Convert.ToDecimal(PrecioCompra), Convert.ToDecimal(PrecioVentan));
-        }
-
-
-        public void EditarProd(string CodLote, string CodProducto, DateTime Vencimiento, int Cantidad, string PrecioCompra, string PrecioVentan)
-        {
-            
-        }
+        ////FUNSION PARA REGISTRAR LOTES
+        //public void InsertarLote(string CodLote, string CodProducto, DateTime Vencimiento, string Cantidad, string PrecioCompra, string PrecioVentan)
+        //{
+        //    repository.InsertarLote(CodLote, Convert.ToDecimal(CodProducto), Vencimiento, Convert.ToInt32(Cantidad), Convert.ToDecimal(PrecioCompra), Convert.ToDecimal(PrecioVentan));
+        //}
 
 
-        public void EliminarPRod(string id)
-        {
-            repository.Eliminar(Convert.ToInt32(id));
-        }
+        //public void EditarProd(string CodLote, string CodProducto, DateTime Vencimiento, int Cantidad, string PrecioCompra, string PrecioVentan)
+        //{
+
+        //}
+
+
+        //public void EliminarPRod(string id)
+        //{
+        //    repository.Eliminar(Convert.ToInt32(id));
+        //}
     }
 }

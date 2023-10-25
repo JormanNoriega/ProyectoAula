@@ -80,13 +80,13 @@ namespace Presentacion
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            CargarProductosFiltrado(txtFiltro.Text);
+            //CargarProductosFiltrado(txtFiltro.Text);
         }
 
-        private void CargarProductosFiltrado(string filtro)
-        {
-            dgvInventario.DataSource = servicio.MostrarProductoFiltrado(filtro);
-        }
+        //private void CargarProductosFiltrado(string filtro)
+        //{
+        //    dgvInventario.DataSource = servicio.MostrarProductoFiltrado(filtro);
+        //}
 
     }
 }

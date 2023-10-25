@@ -46,7 +46,7 @@ namespace Presentacion
         {
             try
             {
-                servicio.InsertarProductos(txtCodigoProducto.Text, txtNombreProducto.Text, Convert.ToInt32(cboxProveedor.SelectedValue), Convert.ToInt32(cboxCategoria.SelectedValue), Convert.ToInt32(cboxLaboratorio.SelectedValue), txtDescripcion.Text);
+                //servicio.InsertarProductos(txtCodigoProducto.Text, txtNombreProducto.Text, Convert.ToInt32(cboxProveedor.SelectedValue), Convert.ToInt32(cboxCategoria.SelectedValue), Convert.ToInt32(cboxLaboratorio.SelectedValue), txtDescripcion.Text);
                 MessageBox.Show("Se agrego el producto correctamente");
                 limpiarTxt();
             }
@@ -61,7 +61,7 @@ namespace Presentacion
             try
             {
                 DateTime fechaSeleccionada = dtpVencimiento.Value;
-                servicio.InsertarLote(txtCodLote.Text, txtCodigoProducto.Text, fechaSeleccionada, txtCantidad.Text, txtPrecioCompra.Text, txtPrecioVenta.Text);
+                //servicio.InsertarLote(txtCodLote.Text, txtCodigoProducto.Text, fechaSeleccionada, txtCantidad.Text, txtPrecioCompra.Text, txtPrecioVenta.Text);
                 MessageBox.Show("Se agrego el Lote correctamente");
                 limpiarTxt();
             }
@@ -76,24 +76,24 @@ namespace Presentacion
         private void ListarCategorias()
         {
             cboxCategoria.DataSource = servicio.MostrarCategorias();
-            cboxCategoria.DisplayMember = "NombCategoria";
-            cboxCategoria.ValueMember = "IdCategoria";
+            cboxCategoria.DisplayMember = "Nomb_Categoria";
+            cboxCategoria.ValueMember = "Id_Categoria";
             cboxCategoria.SelectedIndex = -1;
         }
 
         private void ListarProveedores()
         {
             cboxProveedor.DataSource = servicio.MostrarProveedores();
-            cboxProveedor.DisplayMember = "NombProveedor";
-            cboxProveedor.ValueMember = "NitProveedor";
+            cboxProveedor.DisplayMember = "Nomb_Proveedor";
+            cboxProveedor.ValueMember = "Nit_Proveedor";
             cboxProveedor.SelectedIndex = -1;
         }
 
         private void ListarLaboratorios()
         {
             cboxLaboratorio.DataSource = servicio.MostrarLaboratorios();
-            cboxLaboratorio.DisplayMember = "NombLaboratorio";
-            cboxLaboratorio.ValueMember = "IdLaboratorio";
+            cboxLaboratorio.DisplayMember = "Nomb_Laboratorio";
+            cboxLaboratorio.ValueMember = "Id_Laboratorio";
             cboxLaboratorio.SelectedIndex = -1;
         }
 
