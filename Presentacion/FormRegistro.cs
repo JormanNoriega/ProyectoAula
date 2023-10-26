@@ -18,8 +18,12 @@ namespace Presentacion
         public FormRegistro()
         {
             InitializeComponent();
-            ConfigureRoundedCorners(panelDatos1, 20);
-            ConfigureRoundedCorners(panelDatos2, 20);
+            ConfigureRoundedCorners(panelDatosProductos, 20);
+            ConfigureRoundedCorners(panelDatosLotes, 20);
+            ConfigureRoundedCorners(panelDatosCategorias, 20);
+            ConfigureRoundedCorners(panelDatosLaboratorios, 20);
+            ConfigureRoundedCorners(panelDatosProveedores, 20);
+
         }
 
         //Funcion para aplicar bordes redondeados a paneles
@@ -75,6 +79,7 @@ namespace Presentacion
 
         private void ListarCategorias()
         {
+            dgvCategorias.DataSource = servicio.MostrarCategorias();
             cboxCategoria.DataSource = servicio.MostrarCategorias();
             cboxCategoria.DisplayMember = "Nomb_Categoria";
             cboxCategoria.ValueMember = "Id_Categoria";
@@ -83,6 +88,7 @@ namespace Presentacion
 
         private void ListarProveedores()
         {
+            dgvProveedores.DataSource = servicio.MostrarProveedores();
             cboxProveedor.DataSource = servicio.MostrarProveedores();
             cboxProveedor.DisplayMember = "Nomb_Proveedor";
             cboxProveedor.ValueMember = "Nit_Proveedor";
@@ -91,6 +97,7 @@ namespace Presentacion
 
         private void ListarLaboratorios()
         {
+            dgvLaboratorios.DataSource = servicio.MostrarLaboratorios();
             cboxLaboratorio.DataSource = servicio.MostrarLaboratorios();
             cboxLaboratorio.DisplayMember = "Nomb_Laboratorio";
             cboxLaboratorio.ValueMember = "Id_Laboratorio";

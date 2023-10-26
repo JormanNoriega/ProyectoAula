@@ -21,7 +21,7 @@ namespace DAL
             try
             {
                 cadena.ConnectionString = @"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))
-                                          (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=BD_vitalFarmacos)));User Id=C##vital;Password=vital;";    
+                                          (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));User Id=C##vital;Password=vital;";    
             }
             catch(Exception ex)
             {

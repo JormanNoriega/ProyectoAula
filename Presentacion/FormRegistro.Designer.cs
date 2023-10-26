@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelDatos2 = new System.Windows.Forms.Panel();
-            this.gpbRegistroLote = new System.Windows.Forms.GroupBox();
+            this.panelDatosLotes = new System.Windows.Forms.Panel();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.btnCrearLote = new System.Windows.Forms.Button();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
@@ -41,7 +40,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.gpbRegistrarProducto = new System.Windows.Forms.GroupBox();
             this.cboxProveedor = new System.Windows.Forms.ComboBox();
             this.cboxLaboratorio = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -59,51 +57,79 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tabRegistro = new System.Windows.Forms.TabControl();
             this.tabProductos = new System.Windows.Forms.TabPage();
-            this.panelDatos1 = new System.Windows.Forms.Panel();
+            this.panelDatosProductos = new System.Windows.Forms.Panel();
             this.tabLotes = new System.Windows.Forms.TabPage();
-            this.panelDatos2.SuspendLayout();
-            this.gpbRegistroLote.SuspendLayout();
-            this.gpbRegistrarProducto.SuspendLayout();
+            this.tabProveedores = new System.Windows.Forms.TabPage();
+            this.tabLaboratorios = new System.Windows.Forms.TabPage();
+            this.tabCategorias = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panelDatosProveedores = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panelDatosLaboratorios = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panelDatosCategorias = new System.Windows.Forms.Panel();
+            this.dgvProveedores = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dgvLaboratorios = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dgvCategorias = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panelDatosLotes.SuspendLayout();
             this.tabRegistro.SuspendLayout();
             this.tabProductos.SuspendLayout();
-            this.panelDatos1.SuspendLayout();
+            this.panelDatosProductos.SuspendLayout();
             this.tabLotes.SuspendLayout();
+            this.tabProveedores.SuspendLayout();
+            this.tabLaboratorios.SuspendLayout();
+            this.tabCategorias.SuspendLayout();
+            this.panelDatosProveedores.SuspendLayout();
+            this.panelDatosLaboratorios.SuspendLayout();
+            this.panelDatosCategorias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelDatos2
+            // panelDatosLotes
             // 
-            this.panelDatos2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.panelDatos2.Controls.Add(this.gpbRegistroLote);
-            this.panelDatos2.Location = new System.Drawing.Point(110, 143);
-            this.panelDatos2.Name = "panelDatos2";
-            this.panelDatos2.Size = new System.Drawing.Size(1359, 762);
-            this.panelDatos2.TabIndex = 1;
-            // 
-            // gpbRegistroLote
-            // 
-            this.gpbRegistroLote.Controls.Add(this.dtpVencimiento);
-            this.gpbRegistroLote.Controls.Add(this.btnCrearLote);
-            this.gpbRegistroLote.Controls.Add(this.txtPrecioVenta);
-            this.gpbRegistroLote.Controls.Add(this.txtPrecioCompra);
-            this.gpbRegistroLote.Controls.Add(this.label13);
-            this.gpbRegistroLote.Controls.Add(this.label12);
-            this.gpbRegistroLote.Controls.Add(this.txtCodLote);
-            this.gpbRegistroLote.Controls.Add(this.label1);
-            this.gpbRegistroLote.Controls.Add(this.label7);
-            this.gpbRegistroLote.Controls.Add(this.label8);
-            this.gpbRegistroLote.Controls.Add(this.txtCantidad);
-            this.gpbRegistroLote.Location = new System.Drawing.Point(152, 83);
-            this.gpbRegistroLote.Name = "gpbRegistroLote";
-            this.gpbRegistroLote.Size = new System.Drawing.Size(620, 595);
-            this.gpbRegistroLote.TabIndex = 14;
-            this.gpbRegistroLote.TabStop = false;
+            this.panelDatosLotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatosLotes.Controls.Add(this.label24);
+            this.panelDatosLotes.Controls.Add(this.textBox5);
+            this.panelDatosLotes.Controls.Add(this.dtpVencimiento);
+            this.panelDatosLotes.Controls.Add(this.btnCrearLote);
+            this.panelDatosLotes.Controls.Add(this.txtPrecioVenta);
+            this.panelDatosLotes.Controls.Add(this.txtCantidad);
+            this.panelDatosLotes.Controls.Add(this.txtPrecioCompra);
+            this.panelDatosLotes.Controls.Add(this.label8);
+            this.panelDatosLotes.Controls.Add(this.label13);
+            this.panelDatosLotes.Controls.Add(this.label7);
+            this.panelDatosLotes.Controls.Add(this.label12);
+            this.panelDatosLotes.Controls.Add(this.label1);
+            this.panelDatosLotes.Controls.Add(this.txtCodLote);
+            this.panelDatosLotes.Location = new System.Drawing.Point(114, 139);
+            this.panelDatosLotes.Name = "panelDatosLotes";
+            this.panelDatosLotes.Size = new System.Drawing.Size(1407, 762);
+            this.panelDatosLotes.TabIndex = 1;
             // 
             // dtpVencimiento
             // 
             this.dtpVencimiento.CustomFormat = "yyyy-MM-dd";
             this.dtpVencimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVencimiento.Location = new System.Drawing.Point(27, 138);
+            this.dtpVencimiento.Location = new System.Drawing.Point(109, 301);
             this.dtpVencimiento.Name = "dtpVencimiento";
             this.dtpVencimiento.Size = new System.Drawing.Size(542, 31);
             this.dtpVencimiento.TabIndex = 21;
@@ -112,7 +138,7 @@
             // 
             this.btnCrearLote.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearLote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.btnCrearLote.Location = new System.Drawing.Point(400, 513);
+            this.btnCrearLote.Location = new System.Drawing.Point(453, 613);
             this.btnCrearLote.Name = "btnCrearLote";
             this.btnCrearLote.Size = new System.Drawing.Size(204, 64);
             this.btnCrearLote.TabIndex = 18;
@@ -124,7 +150,7 @@
             // 
             this.txtPrecioVenta.BackColor = System.Drawing.SystemColors.Control;
             this.txtPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioVenta.Location = new System.Drawing.Point(27, 351);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(109, 521);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(544, 31);
             this.txtPrecioVenta.TabIndex = 20;
@@ -133,7 +159,7 @@
             // 
             this.txtPrecioCompra.BackColor = System.Drawing.SystemColors.Control;
             this.txtPrecioCompra.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioCompra.Location = new System.Drawing.Point(27, 270);
+            this.txtPrecioCompra.Location = new System.Drawing.Point(109, 440);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(544, 31);
             this.txtPrecioCompra.TabIndex = 19;
@@ -143,28 +169,28 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(25, 325);
+            this.label13.Location = new System.Drawing.Point(107, 495);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(153, 23);
+            this.label13.Size = new System.Drawing.Size(137, 23);
             this.label13.TabIndex = 18;
-            this.label13.Text = "PRECIO VENTA";
+            this.label13.Text = "Precio Venta";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(25, 244);
+            this.label12.Location = new System.Drawing.Point(107, 414);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(178, 23);
+            this.label12.Size = new System.Drawing.Size(158, 23);
             this.label12.TabIndex = 17;
-            this.label12.Text = "PRECIO COMPRA";
+            this.label12.Text = "Precio Compra";
             // 
             // txtCodLote
             // 
             this.txtCodLote.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodLote.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodLote.Location = new System.Drawing.Point(29, 62);
+            this.txtCodLote.Location = new System.Drawing.Point(111, 225);
             this.txtCodLote.Name = "txtCodLote";
             this.txtCodLote.Size = new System.Drawing.Size(546, 31);
             this.txtCodLote.TabIndex = 16;
@@ -174,11 +200,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(25, 36);
+            this.label1.Location = new System.Drawing.Point(107, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 23);
+            this.label1.Size = new System.Drawing.Size(163, 23);
             this.label1.TabIndex = 15;
-            this.label1.Text = "CODIGO DE LOTE";
+            this.label1.Text = "Codigo de Lote";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label7
@@ -186,59 +212,38 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(25, 105);
+            this.label7.Location = new System.Drawing.Point(107, 268);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(249, 23);
+            this.label7.Size = new System.Drawing.Size(234, 23);
             this.label7.TabIndex = 5;
-            this.label7.Text = "FECHA DE VENCIMIENTO";
+            this.label7.Text = "Fecha de Vencimiento";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(25, 172);
+            this.label8.Location = new System.Drawing.Point(107, 342);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 23);
+            this.label8.Size = new System.Drawing.Size(104, 23);
             this.label8.TabIndex = 6;
-            this.label8.Text = "CANTIDAD";
+            this.label8.Text = "Cantidad";
             // 
             // txtCantidad
             // 
             this.txtCantidad.BackColor = System.Drawing.SystemColors.Control;
             this.txtCantidad.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(27, 198);
+            this.txtCantidad.Location = new System.Drawing.Point(109, 368);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(544, 31);
             this.txtCantidad.TabIndex = 12;
-            // 
-            // gpbRegistrarProducto
-            // 
-            this.gpbRegistrarProducto.Controls.Add(this.cboxProveedor);
-            this.gpbRegistrarProducto.Controls.Add(this.cboxLaboratorio);
-            this.gpbRegistrarProducto.Controls.Add(this.label14);
-            this.gpbRegistrarProducto.Controls.Add(this.label3);
-            this.gpbRegistrarProducto.Controls.Add(this.btnCrearProducto);
-            this.gpbRegistrarProducto.Controls.Add(this.txtCodigoProducto);
-            this.gpbRegistrarProducto.Controls.Add(this.cboxCategoria);
-            this.gpbRegistrarProducto.Controls.Add(this.label5);
-            this.gpbRegistrarProducto.Controls.Add(this.txtNombreProducto);
-            this.gpbRegistrarProducto.Controls.Add(this.txtDescripcion);
-            this.gpbRegistrarProducto.Controls.Add(this.label4);
-            this.gpbRegistrarProducto.Controls.Add(this.label9);
-            this.gpbRegistrarProducto.Controls.Add(this.label6);
-            this.gpbRegistrarProducto.Location = new System.Drawing.Point(112, 60);
-            this.gpbRegistrarProducto.Name = "gpbRegistrarProducto";
-            this.gpbRegistrarProducto.Size = new System.Drawing.Size(613, 595);
-            this.gpbRegistrarProducto.TabIndex = 18;
-            this.gpbRegistrarProducto.TabStop = false;
             // 
             // cboxProveedor
             // 
             this.cboxProveedor.BackColor = System.Drawing.SystemColors.Control;
             this.cboxProveedor.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.cboxProveedor.FormattingEnabled = true;
-            this.cboxProveedor.Location = new System.Drawing.Point(34, 199);
+            this.cboxProveedor.Location = new System.Drawing.Point(111, 288);
             this.cboxProveedor.Name = "cboxProveedor";
             this.cboxProveedor.Size = new System.Drawing.Size(546, 30);
             this.cboxProveedor.TabIndex = 21;
@@ -248,7 +253,7 @@
             this.cboxLaboratorio.BackColor = System.Drawing.SystemColors.Control;
             this.cboxLaboratorio.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.cboxLaboratorio.FormattingEnabled = true;
-            this.cboxLaboratorio.Location = new System.Drawing.Point(34, 340);
+            this.cboxLaboratorio.Location = new System.Drawing.Point(111, 429);
             this.cboxLaboratorio.Name = "cboxLaboratorio";
             this.cboxLaboratorio.Size = new System.Drawing.Size(546, 30);
             this.cboxLaboratorio.TabIndex = 20;
@@ -258,29 +263,29 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(30, 172);
+            this.label14.Location = new System.Drawing.Point(107, 261);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(132, 23);
+            this.label14.Size = new System.Drawing.Size(113, 23);
             this.label14.TabIndex = 18;
-            this.label14.Text = "PROVEEDOR";
+            this.label14.Text = "Proveedor";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(30, 34);
+            this.label3.Location = new System.Drawing.Point(107, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(245, 23);
+            this.label3.Size = new System.Drawing.Size(211, 23);
             this.label3.TabIndex = 0;
-            this.label3.Text = "CODIGO DE PRODUCTO";
+            this.label3.Text = "Codigo de Producto";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // btnCrearProducto
             // 
             this.btnCrearProducto.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.btnCrearProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.btnCrearProducto.Location = new System.Drawing.Point(391, 513);
+            this.btnCrearProducto.Location = new System.Drawing.Point(468, 602);
             this.btnCrearProducto.Name = "btnCrearProducto";
             this.btnCrearProducto.Size = new System.Drawing.Size(204, 64);
             this.btnCrearProducto.TabIndex = 17;
@@ -292,7 +297,7 @@
             // 
             this.txtCodigoProducto.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodigoProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoProducto.Location = new System.Drawing.Point(34, 60);
+            this.txtCodigoProducto.Location = new System.Drawing.Point(111, 149);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
             this.txtCodigoProducto.Size = new System.Drawing.Size(546, 31);
             this.txtCodigoProducto.TabIndex = 1;
@@ -305,7 +310,7 @@
             this.cboxCategoria.FormattingEnabled = true;
             this.cboxCategoria.Items.AddRange(new object[] {
             ""});
-            this.cboxCategoria.Location = new System.Drawing.Point(34, 270);
+            this.cboxCategoria.Location = new System.Drawing.Point(111, 359);
             this.cboxCategoria.Name = "cboxCategoria";
             this.cboxCategoria.Size = new System.Drawing.Size(546, 30);
             this.cboxCategoria.TabIndex = 16;
@@ -315,17 +320,17 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(30, 105);
+            this.label5.Location = new System.Drawing.Point(107, 194);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(250, 23);
+            this.label5.Size = new System.Drawing.Size(224, 23);
             this.label5.TabIndex = 3;
-            this.label5.Text = "NOMBRE DEL PRODUCTO";
+            this.label5.Text = "Nombre del Producto";
             // 
             // txtNombreProducto
             // 
             this.txtNombreProducto.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombreProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(34, 131);
+            this.txtNombreProducto.Location = new System.Drawing.Point(111, 220);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(546, 31);
             this.txtNombreProducto.TabIndex = 8;
@@ -334,7 +339,7 @@
             // 
             this.txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
             this.txtDescripcion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(34, 424);
+            this.txtDescripcion.Location = new System.Drawing.Point(111, 513);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(546, 31);
             this.txtDescripcion.TabIndex = 13;
@@ -344,64 +349,68 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(30, 244);
+            this.label4.Location = new System.Drawing.Point(107, 333);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 23);
+            this.label4.Size = new System.Drawing.Size(109, 23);
             this.label4.TabIndex = 2;
-            this.label4.Text = "CATEGORIA";
+            this.label4.Text = "Categoria";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(30, 387);
+            this.label9.Location = new System.Drawing.Point(107, 476);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 23);
+            this.label9.Size = new System.Drawing.Size(125, 23);
             this.label9.TabIndex = 7;
-            this.label9.Text = "DESCRIPCIÓN";
+            this.label9.Text = "Descripcíon";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(30, 314);
+            this.label6.Location = new System.Drawing.Point(107, 403);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 23);
+            this.label6.Size = new System.Drawing.Size(122, 23);
             this.label6.TabIndex = 4;
-            this.label6.Text = "LABORATORIO";
+            this.label6.Text = "Laboratorio";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(102, 67);
+            this.label11.Location = new System.Drawing.Point(106, 63);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(305, 47);
+            this.label11.Size = new System.Drawing.Size(386, 47);
             this.label11.TabIndex = 15;
-            this.label11.Text = "REGISTRO LOTE";
+            this.label11.Text = "REGISTRO DE LOTES";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(102, 67);
+            this.label10.Location = new System.Drawing.Point(106, 63);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(430, 47);
+            this.label10.Size = new System.Drawing.Size(511, 47);
             this.label10.TabIndex = 2;
-            this.label10.Text = "REGISTRO PRODUCTO";
+            this.label10.Text = "REGISTRO DE PRODUCTOS";
             // 
             // tabRegistro
             // 
             this.tabRegistro.Controls.Add(this.tabProductos);
             this.tabRegistro.Controls.Add(this.tabLotes);
+            this.tabRegistro.Controls.Add(this.tabProveedores);
+            this.tabRegistro.Controls.Add(this.tabLaboratorios);
+            this.tabRegistro.Controls.Add(this.tabCategorias);
             this.tabRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabRegistro.ItemSize = new System.Drawing.Size(119, 30);
+            this.tabRegistro.ItemSize = new System.Drawing.Size(130, 30);
             this.tabRegistro.Location = new System.Drawing.Point(0, 0);
             this.tabRegistro.Name = "tabRegistro";
+            this.tabRegistro.Padding = new System.Drawing.Point(15, 4);
             this.tabRegistro.SelectedIndex = 0;
             this.tabRegistro.Size = new System.Drawing.Size(1635, 1002);
             this.tabRegistro.TabIndex = 2;
@@ -410,34 +419,354 @@
             // 
             this.tabProductos.BackColor = System.Drawing.Color.White;
             this.tabProductos.Controls.Add(this.label10);
-            this.tabProductos.Controls.Add(this.panelDatos1);
+            this.tabProductos.Controls.Add(this.panelDatosProductos);
             this.tabProductos.Location = new System.Drawing.Point(4, 34);
             this.tabProductos.Name = "tabProductos";
             this.tabProductos.Padding = new System.Windows.Forms.Padding(3);
             this.tabProductos.Size = new System.Drawing.Size(1627, 964);
             this.tabProductos.TabIndex = 0;
-            this.tabProductos.Text = "Registro De Productos";
+            this.tabProductos.Text = "Productos";
             // 
-            // panelDatos1
+            // panelDatosProductos
             // 
-            this.panelDatos1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.panelDatos1.Controls.Add(this.gpbRegistrarProducto);
-            this.panelDatos1.Location = new System.Drawing.Point(110, 167);
-            this.panelDatos1.Name = "panelDatos1";
-            this.panelDatos1.Size = new System.Drawing.Size(1194, 702);
-            this.panelDatos1.TabIndex = 19;
+            this.panelDatosProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatosProductos.Controls.Add(this.cboxProveedor);
+            this.panelDatosProductos.Controls.Add(this.cboxLaboratorio);
+            this.panelDatosProductos.Controls.Add(this.cboxCategoria);
+            this.panelDatosProductos.Controls.Add(this.label14);
+            this.panelDatosProductos.Controls.Add(this.label6);
+            this.panelDatosProductos.Controls.Add(this.label3);
+            this.panelDatosProductos.Controls.Add(this.label9);
+            this.panelDatosProductos.Controls.Add(this.btnCrearProducto);
+            this.panelDatosProductos.Controls.Add(this.label4);
+            this.panelDatosProductos.Controls.Add(this.txtCodigoProducto);
+            this.panelDatosProductos.Controls.Add(this.txtDescripcion);
+            this.panelDatosProductos.Controls.Add(this.txtNombreProducto);
+            this.panelDatosProductos.Controls.Add(this.label5);
+            this.panelDatosProductos.Location = new System.Drawing.Point(114, 139);
+            this.panelDatosProductos.Name = "panelDatosProductos";
+            this.panelDatosProductos.Size = new System.Drawing.Size(1407, 762);
+            this.panelDatosProductos.TabIndex = 19;
             // 
             // tabLotes
             // 
             this.tabLotes.BackColor = System.Drawing.Color.White;
             this.tabLotes.Controls.Add(this.label11);
-            this.tabLotes.Controls.Add(this.panelDatos2);
+            this.tabLotes.Controls.Add(this.panelDatosLotes);
             this.tabLotes.Location = new System.Drawing.Point(4, 34);
             this.tabLotes.Name = "tabLotes";
             this.tabLotes.Padding = new System.Windows.Forms.Padding(3);
             this.tabLotes.Size = new System.Drawing.Size(1627, 964);
             this.tabLotes.TabIndex = 1;
-            this.tabLotes.Text = "Registro de Lotes";
+            this.tabLotes.Text = "Lotes";
+            // 
+            // tabProveedores
+            // 
+            this.tabProveedores.Controls.Add(this.label2);
+            this.tabProveedores.Controls.Add(this.panelDatosProveedores);
+            this.tabProveedores.Location = new System.Drawing.Point(4, 34);
+            this.tabProveedores.Name = "tabProveedores";
+            this.tabProveedores.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProveedores.Size = new System.Drawing.Size(1627, 964);
+            this.tabProveedores.TabIndex = 2;
+            this.tabProveedores.Text = "Proveedores";
+            this.tabProveedores.UseVisualStyleBackColor = true;
+            // 
+            // tabLaboratorios
+            // 
+            this.tabLaboratorios.Controls.Add(this.label20);
+            this.tabLaboratorios.Controls.Add(this.panelDatosLaboratorios);
+            this.tabLaboratorios.Location = new System.Drawing.Point(4, 34);
+            this.tabLaboratorios.Name = "tabLaboratorios";
+            this.tabLaboratorios.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLaboratorios.Size = new System.Drawing.Size(1627, 964);
+            this.tabLaboratorios.TabIndex = 3;
+            this.tabLaboratorios.Text = "Laboratorios";
+            this.tabLaboratorios.UseVisualStyleBackColor = true;
+            // 
+            // tabCategorias
+            // 
+            this.tabCategorias.Controls.Add(this.label21);
+            this.tabCategorias.Controls.Add(this.panelDatosCategorias);
+            this.tabCategorias.Location = new System.Drawing.Point(4, 34);
+            this.tabCategorias.Name = "tabCategorias";
+            this.tabCategorias.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCategorias.Size = new System.Drawing.Size(1627, 964);
+            this.tabCategorias.TabIndex = 4;
+            this.tabCategorias.Text = "Categorias";
+            this.tabCategorias.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(106, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(551, 47);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "REGISTRO DE PROVEEDORES";
+            // 
+            // panelDatosProveedores
+            // 
+            this.panelDatosProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatosProveedores.Controls.Add(this.label15);
+            this.panelDatosProveedores.Controls.Add(this.dgvProveedores);
+            this.panelDatosProveedores.Controls.Add(this.button1);
+            this.panelDatosProveedores.Controls.Add(this.label17);
+            this.panelDatosProveedores.Controls.Add(this.textBox3);
+            this.panelDatosProveedores.Controls.Add(this.textBox4);
+            this.panelDatosProveedores.Controls.Add(this.label19);
+            this.panelDatosProveedores.Location = new System.Drawing.Point(114, 139);
+            this.panelDatosProveedores.Name = "panelDatosProveedores";
+            this.panelDatosProveedores.Size = new System.Drawing.Size(1407, 762);
+            this.panelDatosProveedores.TabIndex = 16;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(111, 244);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(544, 31);
+            this.textBox4.TabIndex = 12;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(107, 208);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(232, 23);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "Nombre de Proveedor";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(107, 123);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(177, 23);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Nit de Proveedor";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(111, 160);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(546, 31);
+            this.textBox3.TabIndex = 16;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.button1.Location = new System.Drawing.Point(451, 314);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(204, 64);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Registar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(106, 63);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(573, 47);
+            this.label20.TabIndex = 19;
+            this.label20.Text = "REGISTRO DE LABORATORIOS";
+            // 
+            // panelDatosLaboratorios
+            // 
+            this.panelDatosLaboratorios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatosLaboratorios.Controls.Add(this.label16);
+            this.panelDatosLaboratorios.Controls.Add(this.dgvLaboratorios);
+            this.panelDatosLaboratorios.Controls.Add(this.button2);
+            this.panelDatosLaboratorios.Controls.Add(this.textBox2);
+            this.panelDatosLaboratorios.Controls.Add(this.label22);
+            this.panelDatosLaboratorios.Location = new System.Drawing.Point(114, 139);
+            this.panelDatosLaboratorios.Name = "panelDatosLaboratorios";
+            this.panelDatosLaboratorios.Size = new System.Drawing.Size(1407, 762);
+            this.panelDatosLaboratorios.TabIndex = 18;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(106, 63);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(527, 47);
+            this.label21.TabIndex = 19;
+            this.label21.Text = "REGISTRO DE CATEGORIAS";
+            // 
+            // panelDatosCategorias
+            // 
+            this.panelDatosCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatosCategorias.Controls.Add(this.label18);
+            this.panelDatosCategorias.Controls.Add(this.dgvCategorias);
+            this.panelDatosCategorias.Controls.Add(this.button3);
+            this.panelDatosCategorias.Controls.Add(this.textBox1);
+            this.panelDatosCategorias.Controls.Add(this.label23);
+            this.panelDatosCategorias.Location = new System.Drawing.Point(114, 139);
+            this.panelDatosCategorias.Name = "panelDatosCategorias";
+            this.panelDatosCategorias.Size = new System.Drawing.Size(1407, 762);
+            this.panelDatosCategorias.TabIndex = 18;
+            // 
+            // dgvProveedores
+            // 
+            this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProveedores.Location = new System.Drawing.Point(759, 137);
+            this.dgvProveedores.Name = "dgvProveedores";
+            this.dgvProveedores.Size = new System.Drawing.Size(482, 533);
+            this.dgvProveedores.TabIndex = 19;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(755, 97);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(251, 23);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Proveedores Registrados";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(755, 97);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(247, 23);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Laboratorios Registrados";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // dgvLaboratorios
+            // 
+            this.dgvLaboratorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLaboratorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLaboratorios.Location = new System.Drawing.Point(759, 137);
+            this.dgvLaboratorios.Name = "dgvLaboratorios";
+            this.dgvLaboratorios.Size = new System.Drawing.Size(482, 533);
+            this.dgvLaboratorios.TabIndex = 26;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.button2.Location = new System.Drawing.Point(451, 222);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(204, 64);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Registrar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(111, 160);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(544, 31);
+            this.textBox2.TabIndex = 22;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(107, 123);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(241, 23);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "Nombre de Laboratorio";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(755, 97);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(235, 23);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "Categorias Registradas";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // dgvCategorias
+            // 
+            this.dgvCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorias.Location = new System.Drawing.Point(759, 137);
+            this.dgvCategorias.Name = "dgvCategorias";
+            this.dgvCategorias.Size = new System.Drawing.Size(482, 533);
+            this.dgvCategorias.TabIndex = 31;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.button3.Location = new System.Drawing.Point(451, 233);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(204, 64);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "Registrar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(111, 169);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(544, 31);
+            this.textBox1.TabIndex = 29;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(107, 123);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(257, 23);
+            this.label23.TabIndex = 28;
+            this.label23.Text = "Nombre de La Categoria";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(107, 123);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(211, 23);
+            this.label24.TabIndex = 22;
+            this.label24.Text = "Codigo de Producto";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(111, 154);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(546, 31);
+            this.textBox5.TabIndex = 23;
             // 
             // FormRegistro
             // 
@@ -446,24 +775,37 @@
             this.Controls.Add(this.tabRegistro);
             this.Name = "FormRegistro";
             this.Load += new System.EventHandler(this.FormRegistro_Load);
-            this.panelDatos2.ResumeLayout(false);
-            this.gpbRegistroLote.ResumeLayout(false);
-            this.gpbRegistroLote.PerformLayout();
-            this.gpbRegistrarProducto.ResumeLayout(false);
-            this.gpbRegistrarProducto.PerformLayout();
+            this.panelDatosLotes.ResumeLayout(false);
+            this.panelDatosLotes.PerformLayout();
             this.tabRegistro.ResumeLayout(false);
             this.tabProductos.ResumeLayout(false);
             this.tabProductos.PerformLayout();
-            this.panelDatos1.ResumeLayout(false);
+            this.panelDatosProductos.ResumeLayout(false);
+            this.panelDatosProductos.PerformLayout();
             this.tabLotes.ResumeLayout(false);
             this.tabLotes.PerformLayout();
+            this.tabProveedores.ResumeLayout(false);
+            this.tabProveedores.PerformLayout();
+            this.tabLaboratorios.ResumeLayout(false);
+            this.tabLaboratorios.PerformLayout();
+            this.tabCategorias.ResumeLayout(false);
+            this.tabCategorias.PerformLayout();
+            this.panelDatosProveedores.ResumeLayout(false);
+            this.panelDatosProveedores.PerformLayout();
+            this.panelDatosLaboratorios.ResumeLayout(false);
+            this.panelDatosLaboratorios.PerformLayout();
+            this.panelDatosCategorias.ResumeLayout(false);
+            this.panelDatosCategorias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelDatos2;
+        private System.Windows.Forms.Panel panelDatosLotes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.TextBox txtDescripcion;
@@ -475,7 +817,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox gpbRegistroLote;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
@@ -487,7 +828,6 @@
         private System.Windows.Forms.ComboBox cboxCategoria;
         private System.Windows.Forms.Button btnCrearProducto;
         private System.Windows.Forms.Button btnCrearLote;
-        private System.Windows.Forms.GroupBox gpbRegistrarProducto;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cboxLaboratorio;
         private System.Windows.Forms.ComboBox cboxProveedor;
@@ -495,6 +835,34 @@
         private System.Windows.Forms.TabControl tabRegistro;
         private System.Windows.Forms.TabPage tabProductos;
         private System.Windows.Forms.TabPage tabLotes;
-        private System.Windows.Forms.Panel panelDatos1;
+        private System.Windows.Forms.Panel panelDatosProductos;
+        private System.Windows.Forms.TabPage tabProveedores;
+        private System.Windows.Forms.TabPage tabLaboratorios;
+        private System.Windows.Forms.TabPage tabCategorias;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panelDatosProveedores;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel panelDatosLaboratorios;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panelDatosCategorias;
+        private System.Windows.Forms.DataGridView dgvProveedores;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridView dgvLaboratorios;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dgvCategorias;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

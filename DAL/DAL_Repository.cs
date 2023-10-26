@@ -14,14 +14,14 @@ namespace DAL
         //private DAL_Conexion conexion = new DAL_Conexion();
         //SqlDataReader leer;
         //SqlCommand comando = new SqlCommand();
-        OracleDataReader Resultado;
-        OracleConnection sqlCon = new OracleConnection();
+        
 
 
         //METODO PARA BUSCAR PRODUCTO
         public DataTable BuscarProducto(decimal CodProducto)
         {
-            
+            OracleDataReader Resultado;
+            OracleConnection sqlCon = new OracleConnection();
             DataTable tablaBusqueda = new DataTable();
             try
             {
@@ -49,6 +49,8 @@ namespace DAL
         //METODOS PARA MOSTRAR TABLAS DE LA BD
         public DataTable MostrarProductos()
         {
+            OracleDataReader Resultado;
+            OracleConnection sqlCon = new OracleConnection();
             DataTable tablaProductos = new DataTable();
             try
             {
@@ -74,6 +76,8 @@ namespace DAL
 
         public DataTable MostrarCategorias()
         {
+            OracleDataReader Resultado;
+            OracleConnection sqlCon = new OracleConnection();
             DataTable tablaCategorias = new DataTable();
 
             try
@@ -98,6 +102,8 @@ namespace DAL
 
         public DataTable MostrarLaboratorios()
         {
+            OracleDataReader Resultado;
+            OracleConnection sqlCon = new OracleConnection();
             DataTable tablaLaboratorios = new DataTable();
             try
             {
@@ -121,6 +127,8 @@ namespace DAL
 
         public DataTable MostrarProveedores()
         {
+            OracleDataReader Resultado;
+            OracleConnection sqlCon = new OracleConnection();
             DataTable tablaProveedores = new DataTable();
             try
             {
@@ -145,6 +153,8 @@ namespace DAL
         //METODO PARA MOSTRAR LOTES DE UN PRODUCTO
         public DataTable MostrarLotes(decimal CodProducto)
         {
+            OracleDataReader Resultado;
+            OracleConnection sqlCon = new OracleConnection();
             DataTable tablaLotes = new DataTable();
             try
             {
