@@ -13,42 +13,43 @@ namespace BLL
     {
         private DAL_Repository repository = new DAL_Repository();
 
-        //FUNSION PARA MOSTRAR PRODUCTOS
+        //FUNCION PARA MOSTRAR PRODUCTOS
         public DataTable MostrarProductos()
         {
             DataTable tablaProductos = new DataTable();
             tablaProductos = repository.MostrarProductos();
             return tablaProductos;
         }
-        //FUNSION PARA MOSTRAR CATEGORIAS
+        //FUNCION PARA MOSTRAR CATEGORIAS
         public DataTable MostrarCategorias()
         {
             DataTable tablaCategoria = new DataTable();
             tablaCategoria = repository.MostrarCategorias();
             return tablaCategoria;
         }
-        //FUNSION PARA MOSTRAR LABORATORIOS
+        //FUNCION PARA MOSTRAR LABORATORIOS
         public DataTable MostrarLaboratorios()
         {
             DataTable tablaLaboratorios = new DataTable();
             tablaLaboratorios = repository.MostrarLaboratorios();
             return tablaLaboratorios;
         }
-        //FUNSION PARA MOSTRAR PROVEEDORES
+        //FUNCION PARA MOSTRAR PROVEEDORES
         public DataTable MostrarProveedores()
         {
             DataTable tablaProveedores = new DataTable();
             tablaProveedores = repository.MostrarProveedores();
             return tablaProveedores;
         }
-        //FUNSION PARA MOSTRAR LOTES
+        //FUNCION PARA MOSTRAR LOTES
         public DataTable MostrarLotes(string CodProducto)
         {
             DataTable tablaLotes = new DataTable();
             tablaLotes = repository.MostrarLotes(Convert.ToDecimal(CodProducto));
             return tablaLotes;
         }
-        //FUNSION PARA MOSTRAR PRODUCTOS FILTRADOS
+        //FUNCION PARA MOSTRAR PRODUCTOS FILTRADOS
+
         //public DataTable MostrarProductoFiltrado(string CodProducto)
         //{
 
@@ -66,13 +67,13 @@ namespace BLL
         //    }
         //}
 
-        ////FUNSION PARA REGISTRAR PRODUCTOS
+        ////FUNCION PARA REGISTRAR PRODUCTOS
         //public void InsertarProductos(string CodProducto, string NombProducto, int NitProveedor, int IdCategoria, int IdLaboratorio, string Descripcion)
         //{
         //    repository.InsertarProducto(Convert.ToDecimal(CodProducto), NombProducto, Convert.ToDecimal(NitProveedor), Convert.ToInt32(IdCategoria), Convert.ToInt32(IdLaboratorio), Descripcion);
         //}
 
-        ////FUNSION PARA REGISTRAR LOTES
+        ////FUNCION PARA REGISTRAR LOTES
         //public void InsertarLote(string CodLote, string CodProducto, DateTime Vencimiento, string Cantidad, string PrecioCompra, string PrecioVentan)
         //{
         //    repository.InsertarLote(CodLote, Convert.ToDecimal(CodProducto), Vencimiento, Convert.ToInt32(Cantidad), Convert.ToDecimal(PrecioCompra), Convert.ToDecimal(PrecioVentan));

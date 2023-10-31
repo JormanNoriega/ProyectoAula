@@ -8,28 +8,25 @@ namespace Entity
 {
     public class Producto
     {
-        private int codProducto {  get; set;}
-        private string nombProducto { get; set;}
-        private string laboratorio { get; set;}
-        private string cartegoria { get; set;}
-        private string publicoDirigido { get; set;}
-        private string descripcion { get; set;}
-        private List<LoteProducto> lotes {get; set;}
+        public decimal cod_producto {  get; set;}
+        public string nomb_producto { get; set;}
+        public Proveedor proveedor { get; set;}
+        public Categoria categoria { get; set;}
+        public Laboratorio laboratorio { get; set;}
+        public string descipcion { get; set;}
 
-        public Producto(int codProducto, string nombProducto, string laboratorio, string cartegoria, string publicoDirigido, string descripcion)
+        public Producto()
         {
-            this.codProducto = codProducto;
-            this.nombProducto = nombProducto;
-            this.laboratorio = laboratorio;
-            this.cartegoria = cartegoria;
-            this.publicoDirigido = publicoDirigido;
-            this.descripcion = descripcion;
-            this.lotes = new List<LoteProducto>();
         }
 
-        public void AgregarLote(string codLote, DateTime fechaVencimiento, double precioCompra, double precioVenta, int cantidad)
+        public Producto(decimal cod_producto, string nomb_producto, Proveedor proveedor, Categoria categoria, Laboratorio laboratorio, string descipcion)
         {
-            lotes.Add(new LoteProducto(codLote, fechaVencimiento, precioCompra, precioVenta, cantidad));
+            this.cod_producto = cod_producto;
+            this.nomb_producto = nomb_producto;
+            this.proveedor = proveedor;
+            this.categoria = categoria;
+            this.laboratorio = laboratorio;
+            this.descipcion = descipcion;
         }
     }
 }

@@ -14,7 +14,14 @@ namespace Presentacion
 {
     public partial class FormInventario : Form
     {
-        private BLL_Services servicio = new BLL_Services();
+        //private BLL_Services servicio = new BLL_Services();
+        CategoriaService categoriaService = new CategoriaService();
+        LaboratorioService laboratorioService = new LaboratorioService();
+        LoteService loteService = new LoteService();
+        ProductoService productoService = new ProductoService();
+        ProveedorService proveedorService = new ProveedorService();
+
+
         private string idproducto;
         public FormInventario()
         {
@@ -46,7 +53,7 @@ namespace Presentacion
         public void MostrarProcutos()
         {
             //BLL_Services  vistaTablaProductos= new BLL_Services();
-            dgvInventario.DataSource = servicio.MostrarProductos();
+            dgvInventario.DataSource = productoService.MostrarProductos();
         }
 
         private void btnVerLotes_Click(object sender, EventArgs e)
@@ -54,7 +61,7 @@ namespace Presentacion
             if (dgvInventario.SelectedRows.Count > 0)
             {
                 idproducto = dgvInventario.CurrentRow.Cells["Codigo De Producto"].Value.ToString();
-                dgvInventario.DataSource = servicio.MostrarLotes(idproducto);
+                dgvInventario.DataSource = loteService.MostrarLotes(idproducto);
                 btnVerLotes.Visible = false;
                 btnEditar.Visible = true;
                 btnEliminar.Visible = true;

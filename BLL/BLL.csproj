@@ -42,7 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL_Services.cs" />
+    <Compile Include="CategoriaService.cs" />
+    <Compile Include="LaboratorioService.cs" />
+    <Compile Include="LoteService.cs" />
+    <Compile Include="ProductoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

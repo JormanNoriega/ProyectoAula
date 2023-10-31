@@ -14,7 +14,13 @@ namespace Presentacion
 {
     public partial class FormRegistro : Form
     {
-        BLL_Services servicio = new BLL_Services();
+        
+        CategoriaService categoriaService = new CategoriaService();
+        LaboratorioService laboratorioService = new LaboratorioService();
+        LoteService loteService = new LoteService();
+        ProductoService productoService = new ProductoService();
+        ProveedorService proveedorService = new ProveedorService();
+
         public FormRegistro()
         {
             InitializeComponent();
@@ -79,8 +85,8 @@ namespace Presentacion
 
         private void ListarCategorias()
         {
-            dgvCategorias.DataSource = servicio.MostrarCategorias();
-            cboxCategoria.DataSource = servicio.MostrarCategorias();
+            dgvCategorias.DataSource = categoriaService.MostrarCategorias();
+            cboxCategoria.DataSource = categoriaService.MostrarCategorias();
             cboxCategoria.DisplayMember = "Nomb_Categoria";
             cboxCategoria.ValueMember = "Id_Categoria";
             cboxCategoria.SelectedIndex = -1;
@@ -88,8 +94,8 @@ namespace Presentacion
 
         private void ListarProveedores()
         {
-            dgvProveedores.DataSource = servicio.MostrarProveedores();
-            cboxProveedor.DataSource = servicio.MostrarProveedores();
+            dgvProveedores.DataSource = proveedorService.MostrarProveedores();
+            cboxProveedor.DataSource = proveedorService.MostrarProveedores();
             cboxProveedor.DisplayMember = "Nomb_Proveedor";
             cboxProveedor.ValueMember = "Nit_Proveedor";
             cboxProveedor.SelectedIndex = -1;
@@ -97,8 +103,8 @@ namespace Presentacion
 
         private void ListarLaboratorios()
         {
-            dgvLaboratorios.DataSource = servicio.MostrarLaboratorios();
-            cboxLaboratorio.DataSource = servicio.MostrarLaboratorios();
+            dgvLaboratorios.DataSource = laboratorioService.MostrarLaboratorios();
+            cboxLaboratorio.DataSource = laboratorioService.MostrarLaboratorios();
             cboxLaboratorio.DisplayMember = "Nomb_Laboratorio";
             cboxLaboratorio.ValueMember = "Id_Laboratorio";
             cboxLaboratorio.SelectedIndex = -1;
