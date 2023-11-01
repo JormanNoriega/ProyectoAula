@@ -8,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ProductoService
+    public class ProductoService : ICrud
     {
         private ProductoRepository repository = new ProductoRepository();
-        public DataTable MostrarProductos()
+
+        public void InsertarDatos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable MostrarDatos()
         {
             DataTable tablaProductos = new DataTable();
             tablaProductos = repository.MostrarProductos();

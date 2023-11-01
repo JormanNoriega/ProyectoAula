@@ -53,7 +53,7 @@ namespace Presentacion
         public void MostrarProcutos()
         {
             //BLL_Services  vistaTablaProductos= new BLL_Services();
-            dgvInventario.DataSource = productoService.MostrarProductos();
+            dgvInventario.DataSource = productoService.MostrarDatos();
         }
 
         private void btnVerLotes_Click(object sender, EventArgs e)

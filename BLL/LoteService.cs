@@ -8,9 +8,20 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class LoteService
+    public class LoteService : ICrud
     {
         private LoteRepository repository = new LoteRepository();
+
+        public void InsertarDatos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable MostrarDatos()
+        {
+            throw new NotImplementedException();
+        }
+
         public DataTable MostrarLotes(string CodProducto)
         {
             DataTable tablaLotes = new DataTable();

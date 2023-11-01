@@ -85,8 +85,8 @@ namespace Presentacion
 
         private void ListarCategorias()
         {
-            dgvCategorias.DataSource = categoriaService.MostrarCategorias();
-            cboxCategoria.DataSource = categoriaService.MostrarCategorias();
+            dgvCategorias.DataSource = categoriaService.MostrarDatos();
+            cboxCategoria.DataSource = categoriaService.MostrarDatos();
             cboxCategoria.DisplayMember = "Nomb_Categoria";
             cboxCategoria.ValueMember = "Id_Categoria";
             cboxCategoria.SelectedIndex = -1;
@@ -94,8 +94,8 @@ namespace Presentacion
 
         private void ListarProveedores()
         {
-            dgvProveedores.DataSource = proveedorService.MostrarProveedores();
-            cboxProveedor.DataSource = proveedorService.MostrarProveedores();
+            dgvProveedores.DataSource = proveedorService.MostrarDatos();
+            cboxProveedor.DataSource = proveedorService.MostrarDatos();
             cboxProveedor.DisplayMember = "Nomb_Proveedor";
             cboxProveedor.ValueMember = "Nit_Proveedor";
             cboxProveedor.SelectedIndex = -1;
@@ -103,8 +103,8 @@ namespace Presentacion
 
         private void ListarLaboratorios()
         {
-            dgvLaboratorios.DataSource = laboratorioService.MostrarLaboratorios();
-            cboxLaboratorio.DataSource = laboratorioService.MostrarLaboratorios();
+            dgvLaboratorios.DataSource = laboratorioService.MostrarDatos();
+            cboxLaboratorio.DataSource = laboratorioService.MostrarDatos();
             cboxLaboratorio.DisplayMember = "Nomb_Laboratorio";
             cboxLaboratorio.ValueMember = "Id_Laboratorio";
             cboxLaboratorio.SelectedIndex = -1;

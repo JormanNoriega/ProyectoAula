@@ -8,15 +8,22 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class CategoriaService
+    public class CategoriaService:ICrud
     {
         private CategoriaRepository repository = new CategoriaRepository();
-        public DataTable MostrarCategorias()
+
+        public void InsertarDatos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable MostrarDatos()
         {
             DataTable tablaCategoria = new DataTable();
             tablaCategoria = repository.MostrarCategorias();
             return tablaCategoria;
         }
+
 
     }
 }

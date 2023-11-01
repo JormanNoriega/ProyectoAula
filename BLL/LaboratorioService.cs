@@ -8,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class LaboratorioService
+    public class LaboratorioService : ICrud
     {
         private LaboratorioRepository repository = new LaboratorioRepository();
-        public DataTable MostrarLaboratorios()
+
+        public void InsertarDatos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable MostrarDatos()
         {
             DataTable tablaLaboratorios = new DataTable();
             tablaLaboratorios = repository.MostrarLaboratorios();
