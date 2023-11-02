@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using Entity;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +11,7 @@ namespace DAL
 {
     public class LaboratorioRepository
     {
-        public DataTable MostrarLaboratorios()
+        public DataTable MostrarLaboratorio()
         {
             OracleDataReader Resultado;
             OracleConnection sqlCon = new OracleConnection();
@@ -18,7 +19,7 @@ namespace DAL
             try
             {
                 sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("SELECT * FROM Laboratorios", sqlCon);
+                OracleCommand comando = new OracleCommand("SELECT id_laboratorio AS Id, nomb_laboratorio AS Nombre FROM Laboratorios", sqlCon);
                 comando.CommandType = CommandType.Text;
                 sqlCon.Open();
                 Resultado = comando.ExecuteReader();
@@ -34,6 +35,29 @@ namespace DAL
                 if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
             }
         }
+
+        public void RegistrarLaboratorio(Laboratorio laboratorio)
+        {
+            OracleConnection sqlCon = new OracleConnection();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("prc_InsertarLaboratorio", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("nombre", OracleDbType.Varchar2).Value = laboratorio.nomb_laboratorio;
+                sqlCon.Open();
+                comando.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+        }
+
 
 
     }

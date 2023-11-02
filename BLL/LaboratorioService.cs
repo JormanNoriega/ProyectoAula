@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class LaboratorioService : ICrud
+    public class LaboratorioService : ICrud<Laboratorio>
     {
         private LaboratorioRepository repository = new LaboratorioRepository();
 
-        public void InsertarDatos()
+        public void InsertarDatos(Laboratorio laboratorio)
         {
-            throw new NotImplementedException();
+            repository.RegistrarLaboratorio(laboratorio);
         }
 
         public DataTable MostrarDatos()
         {
             DataTable tablaLaboratorios = new DataTable();
-            tablaLaboratorios = repository.MostrarLaboratorios();
+            tablaLaboratorios = repository.MostrarLaboratorio();
             return tablaLaboratorios;
         }
 

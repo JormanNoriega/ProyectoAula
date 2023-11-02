@@ -7,9 +7,9 @@ using System.Data;
 
 namespace BLL
 {
-    public interface ICrud
+    public interface ICrud<T>
     {
         DataTable MostrarDatos();
-        void InsertarDatos();
+        void InsertarDatos(T entidad);
     }
 }

@@ -19,7 +19,7 @@ namespace DAL
             try
             {
                 sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("SELECT * FROM Proveedores", sqlCon);
+                OracleCommand comando = new OracleCommand("SELECT nit_proveedor AS Nit, Nomb_Proveedor AS Nombre FROM Proveedores", sqlCon);
                 comando.CommandType = CommandType.Text;
                 sqlCon.Open();
                 Resultado = comando.ExecuteReader();
@@ -42,10 +42,10 @@ namespace DAL
             try
             {
                 sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("INSERT INTO Proveedores (nit_proveedor,nomb_proveedor) VALUES (:nit,:nombre)", sqlCon);
-                comando.CommandType = CommandType.Text;
-                comando.Parameters.Add(":nit", OracleDbType.Varchar2).Value = proveedor.nit_proveedor;
-                comando.Parameters.Add(":nombre", OracleDbType.Varchar2).Value = proveedor.nomb_proveedor;
+                OracleCommand comando = new OracleCommand("prc_InsertarProveedor", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("nit", OracleDbType.Decimal).Value = proveedor.nit_proveedor;
+                comando.Parameters.Add("nombre", OracleDbType.Varchar2).Value = proveedor.nomb_proveedor;
                 sqlCon.Open();
                 comando.ExecuteReader();  
             }

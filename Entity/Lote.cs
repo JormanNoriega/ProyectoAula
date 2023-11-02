@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    internal class Lote
+    public class Lote
     {
         public string cod_lote { get; set; }
         public decimal cod_producto { get; set; }

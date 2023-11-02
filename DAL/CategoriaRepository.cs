@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using Entity;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -34,8 +35,28 @@ namespace DAL
             {
                 if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
             }
+        }
 
-
+        public void RegistrarCategoria(Categoria categoria)
+        {
+            OracleConnection sqlCon = new OracleConnection();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("prc_InsertarCategoria", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("nombre", OracleDbType.Varchar2).Value = categoria.nomb_categoria;
+                sqlCon.Open();
+                comando.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class CategoriaService:ICrud
+    public class CategoriaService:ICrud<Categoria>
     {
         private CategoriaRepository repository = new CategoriaRepository();
 
-        public void InsertarDatos()
+        public void InsertarDatos(Categoria categoria)
         {
-            throw new NotImplementedException();
+            repository.RegistrarCategoria(categoria);
         }
 
         public DataTable MostrarDatos()

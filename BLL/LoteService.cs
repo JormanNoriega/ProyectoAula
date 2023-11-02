@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class LoteService : ICrud
+    public class LoteService : ICrud <Lote>
     {
         private LoteRepository repository = new LoteRepository();
 
-        public void InsertarDatos()
+        public void InsertarDatos(Lote lote)
         {
             throw new NotImplementedException();
         }

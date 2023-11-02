@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ProductoService : ICrud
+    public class ProductoService : ICrud <Producto>
     {
         private ProductoRepository repository = new ProductoRepository();
 
-        public void InsertarDatos()
+        public void InsertarDatos(Producto producto)
         {
             throw new NotImplementedException();
         }

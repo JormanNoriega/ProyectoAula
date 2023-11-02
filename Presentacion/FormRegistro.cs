@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,6 +81,65 @@ namespace Presentacion
                 MessageBox.Show("No se pudo agregar el Lote" + ex);
             }
         }
+        private void btnRegistarProveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Proveedor proveedor = new Proveedor
+                {
+                    nit_proveedor = Convert.ToDecimal(txtNitProveedor.Text),
+                    nomb_proveedor = txtNombreProveedor.Text
+                };
+                proveedorService.InsertarDatos(proveedor);
+                MessageBox.Show("Se agrego el Proveedor correctamente");
+                ListarProveedores();
+                limpiarTxt();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo agregar el proveedor" + ex); 
+            }
+        }
+        private void btnRegistarLaboratorio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Laboratorio laboratorio = new Laboratorio
+                {
+                    nomb_laboratorio = txtNombreLaboratorio.Text
+                };
+                laboratorioService.InsertarDatos(laboratorio);
+                MessageBox.Show("Se agrego el Laboratorio correctamente");
+                ListarLaboratorios();
+                limpiarTxt();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo agregar el Laboratorio" + ex);
+            }
+
+        }
+        private void btnRegistarCategoria_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Categoria categoria = new Categoria
+                {
+                    nomb_categoria = txtNombreCategoria.Text
+                };
+                categoriaService.InsertarDatos(categoria);
+                MessageBox.Show("Se agrego la categoria correctamente");
+                ListarCategorias();
+                limpiarTxt();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo agregar la categoria" + ex);
+            }
+
+        }
+
+
 
 
 
@@ -96,8 +156,8 @@ namespace Presentacion
         {
             dgvProveedores.DataSource = proveedorService.MostrarDatos();
             cboxProveedor.DataSource = proveedorService.MostrarDatos();
-            cboxProveedor.DisplayMember = "Nomb_Proveedor";
-            cboxProveedor.ValueMember = "Nit_Proveedor";
+            cboxProveedor.DisplayMember = "Nombre";
+            cboxProveedor.ValueMember = "Nit";
             cboxProveedor.SelectedIndex = -1;
         }
 
@@ -105,8 +165,8 @@ namespace Presentacion
         {
             dgvLaboratorios.DataSource = laboratorioService.MostrarDatos();
             cboxLaboratorio.DataSource = laboratorioService.MostrarDatos();
-            cboxLaboratorio.DisplayMember = "Nomb_Laboratorio";
-            cboxLaboratorio.ValueMember = "Id_Laboratorio";
+            cboxLaboratorio.DisplayMember = "Nombre";
+            cboxLaboratorio.ValueMember = "Id";
             cboxLaboratorio.SelectedIndex = -1;
         }
 
@@ -126,8 +186,15 @@ namespace Presentacion
             cboxCategoria.SelectedIndex = -1;
             cboxLaboratorio.SelectedIndex = -1;
             txtDescripcion.Clear();
-
             //Limpiar Lote
+
+            //Limpiar Proveedor
+            txtNombreProveedor.Clear();
+            txtNitProveedor.Clear();
+            //Limpiar Laboratorio
+            txtNombreLaboratorio.Clear();
+            //Limpiar Categoria
+            txtNombreCategoria.Clear();
         }
 
     }
