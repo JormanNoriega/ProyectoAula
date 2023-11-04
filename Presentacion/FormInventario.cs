@@ -61,7 +61,7 @@ namespace Presentacion
             if (dgvInventario.SelectedRows.Count > 0)
             {
                 idproducto = dgvInventario.CurrentRow.Cells["Codigo De Producto"].Value.ToString();
-                dgvInventario.DataSource = loteService.MostrarLotes(idproducto);
+                //dgvInventario.DataSource = loteService.MostrarLotes(idproducto);
                 btnVerLotes.Visible = false;
                 btnEditar.Visible = true;
                 btnEliminar.Visible = true;

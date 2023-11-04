@@ -13,22 +13,22 @@ namespace BLL
     {
         private LoteRepository repository = new LoteRepository();
 
-        public void InsertarDatos(Lote lote)
+        public string InsertarDatos(Lote lote)
         {
             throw new NotImplementedException();
         }
 
-        public DataTable MostrarDatos()
+        public List<Lote> MostrarDatos()
         {
             throw new NotImplementedException();
         }
 
-        public DataTable MostrarLotes(string CodProducto)
-        {
-            DataTable tablaLotes = new DataTable();
-            tablaLotes = repository.MostrarLotes(Convert.ToDecimal(CodProducto));
-            return tablaLotes;
-        }
+        //public List<Lote> MostrarLotes(string CodProducto)
+        //{
+        //    DataTable tablaLotes = new DataTable();
+        //    tablaLotes = repository.MostrarLotes(Convert.ToDecimal(CodProducto));
+        //    return tablaLotes;
+        //}
 
 
     }

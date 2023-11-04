@@ -11,32 +11,8 @@ namespace DAL
 {
     public class LaboratorioRepository
     {
-        public DataTable MostrarLaboratorio()
-        {
-            OracleDataReader Resultado;
-            OracleConnection sqlCon = new OracleConnection();
-            DataTable tablaLaboratorios = new DataTable();
-            try
-            {
-                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("SELECT id_laboratorio AS Id, nomb_laboratorio AS Nombre FROM Laboratorios", sqlCon);
-                comando.CommandType = CommandType.Text;
-                sqlCon.Open();
-                Resultado = comando.ExecuteReader();
-                tablaLaboratorios.Load(Resultado);
-                return tablaLaboratorios;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
-            }
-        }
-
-        public void RegistrarLaboratorio(Laboratorio laboratorio)
+        
+        public string RegistrarLaboratorio(Laboratorio laboratorio)
         {
             OracleConnection sqlCon = new OracleConnection();
             try
@@ -47,6 +23,7 @@ namespace DAL
                 comando.Parameters.Add("nombre", OracleDbType.Varchar2).Value = laboratorio.nomb_laboratorio;
                 sqlCon.Open();
                 comando.ExecuteReader();
+                return "Se agrego el laboratorio "+ laboratorio.nomb_laboratorio;
             }
             catch (Exception ex)
             {
@@ -58,7 +35,41 @@ namespace DAL
             }
         }
 
+        public List<Laboratorio> MostrarLaboratorio()
+        {
+            OracleDataReader reader;
+            OracleConnection sqlCon = new OracleConnection();
+            List<Laboratorio> list = new List<Laboratorio>();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("SELECT id_laboratorio AS Id, nomb_laboratorio AS Nombre FROM Laboratorios", sqlCon);
+                comando.CommandType = CommandType.Text;
+                sqlCon.Open();
+                reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(mapear(reader));
+                }
+                reader.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+        }
 
-
+        private Laboratorio mapear(OracleDataReader reader)
+        {
+            Laboratorio laboratorio = new Laboratorio();
+            laboratorio.id_laboratorio = Convert.ToDecimal(reader["Id"]);
+            laboratorio.nomb_laboratorio = Convert.ToString(reader["Nombre"]);
+            return laboratorio;
+        }
     }
 }

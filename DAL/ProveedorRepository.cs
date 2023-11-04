@@ -11,20 +11,19 @@ namespace DAL
 {
     public class ProveedorRepository
     {
-        public DataTable MostrarProveedores()
+        public string RegistrarProveedor(Proveedor proveedor)
         {
-            OracleDataReader Resultado;
             OracleConnection sqlCon = new OracleConnection();
-            DataTable tablaProveedores = new DataTable();
             try
             {
                 sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("SELECT nit_proveedor AS Nit, Nomb_Proveedor AS Nombre FROM Proveedores", sqlCon);
-                comando.CommandType = CommandType.Text;
+                OracleCommand comando = new OracleCommand("prc_InsertarProveedor", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("nit", OracleDbType.Decimal).Value = proveedor.nit_proveedor;
+                comando.Parameters.Add("nombre", OracleDbType.Varchar2).Value = proveedor.nomb_proveedor;
                 sqlCon.Open();
-                Resultado = comando.ExecuteReader();
-                tablaProveedores.Load(Resultado);
-                return tablaProveedores;
+                comando.ExecuteReader();
+                return "Se agrego el proveedor " + proveedor.nomb_proveedor;
             }
             catch (Exception ex)
             {
@@ -36,18 +35,24 @@ namespace DAL
             }
         }
 
-        public void RegistrarProveedor(Proveedor proveedor)
+        public List<Proveedor> MostrarProveedores()
         {
+            OracleDataReader reader;
             OracleConnection sqlCon = new OracleConnection();
+            List<Proveedor> list = new List<Proveedor>();
             try
             {
                 sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("prc_InsertarProveedor", sqlCon);
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.Add("nit", OracleDbType.Decimal).Value = proveedor.nit_proveedor;
-                comando.Parameters.Add("nombre", OracleDbType.Varchar2).Value = proveedor.nomb_proveedor;
+                OracleCommand comando = new OracleCommand("SELECT nit_proveedor AS Nit, Nomb_Proveedor AS Nombre FROM Proveedores", sqlCon);
+                comando.CommandType = CommandType.Text;
                 sqlCon.Open();
-                comando.ExecuteReader();  
+                reader = comando.ExecuteReader();
+                while(reader.Read())
+                {
+                    list.Add(mapear(reader));
+                }
+                reader.Close();
+                return list;
             }
             catch (Exception ex)
             {
@@ -57,6 +62,13 @@ namespace DAL
             {
                 if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
             }
+        }
+        private Proveedor mapear(OracleDataReader reader)
+        {
+            Proveedor proveedor = new Proveedor();
+            proveedor.nit_proveedor = Convert.ToDecimal(reader["Nit"]);
+            proveedor.nomb_proveedor = Convert.ToString(reader["Nombre"]);
+            return proveedor;
         }
     }
 }

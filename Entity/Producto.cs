@@ -13,7 +13,7 @@ namespace Entity
         public Proveedor proveedor { get; set;}
         public Categoria categoria { get; set;}
         public Laboratorio laboratorio { get; set;}
-        public string descipcion { get; set;}
+        public string descripcion { get; set;}
 
         public Producto()
         {
@@ -26,7 +26,7 @@ namespace Entity
             this.proveedor = proveedor;
             this.categoria = categoria;
             this.laboratorio = laboratorio;
-            this.descipcion = descipcion;
+            this.descripcion = descipcion;
         }
     }
 }

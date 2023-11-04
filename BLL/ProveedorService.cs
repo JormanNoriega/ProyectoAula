@@ -13,16 +13,14 @@ namespace BLL
     {
         private ProveedorRepository repository = new ProveedorRepository();
 
-        public void InsertarDatos(Proveedor proveedor)
+        public string InsertarDatos(Proveedor proveedor)
         {
-            repository.RegistrarProveedor(proveedor);
+            return repository.RegistrarProveedor(proveedor);
         }
 
-        public DataTable MostrarDatos()
+        public List<Proveedor> MostrarDatos()
         {
-            DataTable tablaProveedores = new DataTable();
-            tablaProveedores = repository.MostrarProveedores();
-            return tablaProveedores;
+            return repository.MostrarProveedores();
         }
 
 

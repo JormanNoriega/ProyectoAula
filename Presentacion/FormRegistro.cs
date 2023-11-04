@@ -156,8 +156,8 @@ namespace Presentacion
         {
             dgvProveedores.DataSource = proveedorService.MostrarDatos();
             cboxProveedor.DataSource = proveedorService.MostrarDatos();
-            cboxProveedor.DisplayMember = "Nombre";
-            cboxProveedor.ValueMember = "Nit";
+            cboxProveedor.DisplayMember = "nomb_proveedor";
+            cboxProveedor.ValueMember = "nit_proveedor";
             cboxProveedor.SelectedIndex = -1;
         }
 
@@ -165,8 +165,8 @@ namespace Presentacion
         {
             dgvLaboratorios.DataSource = laboratorioService.MostrarDatos();
             cboxLaboratorio.DataSource = laboratorioService.MostrarDatos();
-            cboxLaboratorio.DisplayMember = "Nombre";
-            cboxLaboratorio.ValueMember = "Id";
+            cboxLaboratorio.DisplayMember = "nomb_laboratorio";
+            cboxLaboratorio.ValueMember = "id_laboratorio";
             cboxLaboratorio.SelectedIndex = -1;
         }
 

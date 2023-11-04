@@ -9,7 +9,7 @@ namespace BLL
 {
     public interface ICrud<T>
     {
-        DataTable MostrarDatos();
-        void InsertarDatos(T entidad);
+        List<T> MostrarDatos();
+        string InsertarDatos(T entidad);
     }
 }

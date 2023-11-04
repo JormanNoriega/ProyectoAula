@@ -13,16 +13,14 @@ namespace BLL
     {
         private ProductoRepository repository = new ProductoRepository();
 
-        public void InsertarDatos(Producto producto)
+        public string InsertarDatos(Producto producto)
         {
             throw new NotImplementedException();
         }
 
-        public DataTable MostrarDatos()
+        public List<Producto> MostrarDatos()
         {
-            DataTable tablaProductos = new DataTable();
-            tablaProductos = repository.MostrarProductos();
-            return tablaProductos;
+            return repository.MostrarProductos();
         }
 
 

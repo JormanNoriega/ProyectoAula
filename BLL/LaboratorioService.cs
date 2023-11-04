@@ -13,16 +13,14 @@ namespace BLL
     {
         private LaboratorioRepository repository = new LaboratorioRepository();
 
-        public void InsertarDatos(Laboratorio laboratorio)
+        public string InsertarDatos(Laboratorio laboratorio)
         {
-            repository.RegistrarLaboratorio(laboratorio);
+            return repository.RegistrarLaboratorio(laboratorio);
         }
 
-        public DataTable MostrarDatos()
+        public List<Laboratorio> MostrarDatos()
         {
-            DataTable tablaLaboratorios = new DataTable();
-            tablaLaboratorios = repository.MostrarLaboratorio();
-            return tablaLaboratorios;
+            return repository.MostrarLaboratorio();
         }
 
 

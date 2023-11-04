@@ -13,18 +13,14 @@ namespace BLL
     {
         private CategoriaRepository repository = new CategoriaRepository();
 
-        public void InsertarDatos(Categoria categoria)
+        public string InsertarDatos(Categoria categoria)
         {
-            repository.RegistrarCategoria(categoria);
+            return repository.RegistrarCategoria(categoria);
         }
 
-        public DataTable MostrarDatos()
+        public List<Categoria> MostrarDatos()
         {
-            DataTable tablaCategoria = new DataTable();
-            tablaCategoria = repository.MostrarCategorias();
-            return tablaCategoria;
+            return repository.mostrarTodos();
         }
-
-
     }
 }
