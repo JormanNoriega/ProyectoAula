@@ -10,12 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentacion
 {
     public partial class FormRegistro : Form
     {
-        
+
         CategoriaService categoriaService = new CategoriaService();
         LaboratorioService laboratorioService = new LaboratorioService();
         LoteService loteService = new LoteService();
@@ -57,13 +58,42 @@ namespace Presentacion
         {
             try
             {
-                //servicio.InsertarProductos(txtCodigoProducto.Text, txtNombreProducto.Text, Convert.ToInt32(cboxProveedor.SelectedValue), Convert.ToInt32(cboxCategoria.SelectedValue), Convert.ToInt32(cboxLaboratorio.SelectedValue), txtDescripcion.Text);
-                MessageBox.Show("Se agrego el producto correctamente");
-                limpiarTxt();
+                Proveedor proveedorSeleccionado = (Proveedor)cboxProveedor.SelectedItem;
+                Categoria categoriaSeleccionada = (Categoria)cboxCategoria.SelectedItem;
+                Laboratorio laboratorioSeleccionado = (Laboratorio)cboxLaboratorio.SelectedItem;
+                
+                if (proveedorSeleccionado != null && categoriaSeleccionada != null && laboratorioSeleccionado != null && txtCodigoProducto != null 
+                    && txtNombreProducto != null && txtDescripcion != null)
+                {
+                    var existe = productoService.Existe(Convert.ToDecimal(txtCodigoProducto.Text));
+                    if (existe == true)
+                    {
+                        MessageBox.Show("Codigo de Producto Existente...");
+                    }
+                    else
+                    {
+                        Producto producto = new Producto
+                        {
+                            cod_producto = Convert.ToDecimal(txtCodigoProducto.Text),
+                            nomb_producto = txtNombreProducto.Text,
+                            proveedor = proveedorSeleccionado,
+                            categoria = categoriaSeleccionada,
+                            laboratorio = laboratorioSeleccionado,
+                            descripcion = txtDescripcion.Text,
+                        };
+                        var msg = productoService.InsertarDatos(producto);
+                        MessageBox.Show(msg);
+                        limpiarTxt();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese los Datos de todos los campos");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo agregar el produto" + ex);
+                MessageBox.Show("No se pudo agregar el produto" + ex.Message);
             }
         }
 
@@ -72,8 +102,18 @@ namespace Presentacion
             try
             {
                 DateTime fechaSeleccionada = dtpVencimiento.Value;
-                //servicio.InsertarLote(txtCodLote.Text, txtCodigoProducto.Text, fechaSeleccionada, txtCantidad.Text, txtPrecioCompra.Text, txtPrecioVenta.Text);
-                MessageBox.Show("Se agrego el Lote correctamente");
+                Producto productoSeleccionado = loteService.productoSeleccionado(Convert.ToDecimal(txtCodProductoLote.Text)); 
+                Lote lote = new Lote
+                {
+                    cod_lote=txtCodLote.Text,
+                    producto=productoSeleccionado,
+                    vencimiento= fechaSeleccionada,
+                    cantidad=Convert.ToDecimal(txtCantidad.Text),
+                    precio_compra=Convert.ToDecimal(txtPrecioCompra.Text),
+                    precio_venta=Convert.ToDecimal(txtPrecioVenta.Text),
+                };
+                var msg = loteService.InsertarDatos(lote);
+                MessageBox.Show(msg);
                 limpiarTxt();
             }
             catch (Exception ex)
@@ -85,37 +125,52 @@ namespace Presentacion
         {
             try
             {
-                Proveedor proveedor = new Proveedor
+                if(txtNombreProveedor != null && txtNitProveedor != null)
                 {
-                    nit_proveedor = Convert.ToDecimal(txtNitProveedor.Text),
-                    nomb_proveedor = txtNombreProveedor.Text
-                };
-                proveedorService.InsertarDatos(proveedor);
-                MessageBox.Show("Se agrego el Proveedor correctamente");
-                ListarProveedores();
-                limpiarTxt();
+                    Proveedor proveedor = new Proveedor
+                    {
+                        nit_proveedor = Convert.ToDecimal(txtNitProveedor.Text),
+                        nomb_proveedor = txtNombreProveedor.Text
+                    };
+                    var msg = proveedorService.InsertarDatos(proveedor);
+                    MessageBox.Show(msg);
+                    ListarProveedores();
+                    limpiarTxt();
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese los Datos de todos los campos");
+                }
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo agregar el proveedor" + ex); 
+                MessageBox.Show("No se pudo agregar el proveedor" + ex.Message);
             }
         }
         private void btnRegistarLaboratorio_Click(object sender, EventArgs e)
         {
             try
             {
-                Laboratorio laboratorio = new Laboratorio
+                if (txtNombreLaboratorio != null)
                 {
-                    nomb_laboratorio = txtNombreLaboratorio.Text
-                };
-                laboratorioService.InsertarDatos(laboratorio);
-                MessageBox.Show("Se agrego el Laboratorio correctamente");
-                ListarLaboratorios();
-                limpiarTxt();
+                    Laboratorio laboratorio = new Laboratorio
+                    {
+                        nomb_laboratorio = txtNombreLaboratorio.Text
+                    };
+                    var msg = laboratorioService.InsertarDatos(laboratorio);
+                    MessageBox.Show(msg);
+                    ListarLaboratorios();
+                    limpiarTxt();
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese los Datos de todos los campos");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo agregar el Laboratorio" + ex);
+                MessageBox.Show("No se pudo agregar el Laboratorio" + ex.Message);
             }
 
         }
@@ -123,14 +178,22 @@ namespace Presentacion
         {
             try
             {
-                Categoria categoria = new Categoria
+                if(txtNombreCategoria != null)
                 {
-                    nomb_categoria = txtNombreCategoria.Text
-                };
-                categoriaService.InsertarDatos(categoria);
-                MessageBox.Show("Se agrego la categoria correctamente");
-                ListarCategorias();
-                limpiarTxt();
+                    Categoria categoria = new Categoria
+                    {
+                        nomb_categoria = txtNombreCategoria.Text
+                    };
+                    var msg = categoriaService.InsertarDatos(categoria);
+                    MessageBox.Show(msg);
+                    ListarCategorias();
+                    limpiarTxt();
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese los Datos de todos los campos");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -139,14 +202,11 @@ namespace Presentacion
 
         }
 
-
-
-
-
         private void ListarCategorias()
         {
             dgvCategorias.DataSource = categoriaService.MostrarDatos();
             cboxCategoria.DataSource = categoriaService.MostrarDatos();
+            cboxCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxCategoria.DisplayMember = "Nomb_Categoria";
             cboxCategoria.ValueMember = "Id_Categoria";
             cboxCategoria.SelectedIndex = -1;
@@ -156,6 +216,7 @@ namespace Presentacion
         {
             dgvProveedores.DataSource = proveedorService.MostrarDatos();
             cboxProveedor.DataSource = proveedorService.MostrarDatos();
+            cboxProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxProveedor.DisplayMember = "nomb_proveedor";
             cboxProveedor.ValueMember = "nit_proveedor";
             cboxProveedor.SelectedIndex = -1;
@@ -165,6 +226,7 @@ namespace Presentacion
         {
             dgvLaboratorios.DataSource = laboratorioService.MostrarDatos();
             cboxLaboratorio.DataSource = laboratorioService.MostrarDatos();
+            cboxLaboratorio.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxLaboratorio.DisplayMember = "nomb_laboratorio";
             cboxLaboratorio.ValueMember = "id_laboratorio";
             cboxLaboratorio.SelectedIndex = -1;
@@ -182,7 +244,7 @@ namespace Presentacion
             //Limpiar Producto
             txtCodigoProducto.Clear();
             txtNombreProducto.Clear();
-            cboxLaboratorio.SelectedIndex = -1;
+            cboxProveedor.SelectedIndex = -1;
             cboxCategoria.SelectedIndex = -1;
             cboxLaboratorio.SelectedIndex = -1;
             txtDescripcion.Clear();

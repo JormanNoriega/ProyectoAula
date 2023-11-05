@@ -34,7 +34,7 @@ namespace DAL
             }
         }
 
-        public List<Categoria> mostrarTodos()
+        public List<Categoria> MostrarCategorias()
         {
             OracleDataReader reader;
             OracleConnection sqlCon = new OracleConnection();

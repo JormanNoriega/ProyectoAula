@@ -21,8 +21,6 @@ namespace Presentacion
         ProductoService productoService = new ProductoService();
         ProveedorService proveedorService = new ProveedorService();
 
-
-        private string idproducto;
         public FormInventario()
         {
             InitializeComponent();
@@ -52,21 +50,65 @@ namespace Presentacion
 
         public void MostrarProcutos()
         {
-            //BLL_Services  vistaTablaProductos= new BLL_Services();
-            dgvInventario.DataSource = productoService.MostrarDatos();
+            if (dgvInventario.ColumnCount == 0)
+            {
+                dgvInventario.Columns.Add("CodigoProducto", "Código Producto");
+                dgvInventario.Columns.Add("NombreProducto", "Nombre Producto");
+                dgvInventario.Columns.Add("Proveedor", "Proveedor");
+                dgvInventario.Columns.Add("Categoria", "Categoría");
+                dgvInventario.Columns.Add("Laboratorio", "Laboratorio");
+                dgvInventario.Columns.Add("Descripcion", "Descripción");
+                dgvInventario.Columns.Add("CantidadTotal", "Cantidad Total");
+            }
+            var productos = productoService.MostrarDatos();
+            foreach (var producto in productos)
+            {
+                dgvInventario.Rows.Add(
+                    producto.cod_producto,
+                    producto.nomb_producto,
+                    producto.proveedor.nomb_proveedor,
+                    producto.categoria.nomb_categoria,
+                    producto.laboratorio.nomb_laboratorio,
+                    producto.descripcion,
+                    producto.cantidadTotal
+                    );
+            }
         }
 
         private void btnVerLotes_Click(object sender, EventArgs e)
         {
             if (dgvInventario.SelectedRows.Count > 0)
             {
-                idproducto = dgvInventario.CurrentRow.Cells["Codigo De Producto"].Value.ToString();
-                //dgvInventario.DataSource = loteService.MostrarLotes(idproducto);
+                string codigoProducto = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
+                var lotes = loteService.MostrarLotesPorProducto(Convert.ToDecimal(codigoProducto));
+                dgvInventario.Rows.Clear();
+                dgvInventario.Columns.Clear();
+
+                if (dgvInventario.ColumnCount == 0)
+                {
+                    dgvInventario.Columns.Add("CodigoLote", "Código Lote");
+                    dgvInventario.Columns.Add("Producto", "Nombre Producto");
+                    dgvInventario.Columns.Add("Vencimiento", "Vencimiento");
+                    dgvInventario.Columns.Add("Cantidad", "Cantidad");
+                    dgvInventario.Columns.Add("PrecioCompra", "Precio de Compra");
+                    dgvInventario.Columns.Add("PrecioVenta", "Precio de Venta");
+                }
+                foreach (var lote in lotes)
+                {
+                    dgvInventario.Rows.Add(
+                        lote.cod_lote,
+                        lote.producto.nomb_producto,
+                        lote.vencimiento.ToString("dd/MM/yyyy"),
+                        lote.cantidad,
+                        lote.precio_compra,
+                        lote.precio_venta
+                    );
+                }
                 btnVerLotes.Visible = false;
                 btnEditar.Visible = true;
                 btnEliminar.Visible = true;
                 label3.Visible = false;
-                txtFiltro.Visible= false;
+                txtFiltro.Visible = false;
 
             }
             else

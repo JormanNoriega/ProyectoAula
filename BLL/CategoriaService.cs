@@ -20,7 +20,7 @@ namespace BLL
 
         public List<Categoria> MostrarDatos()
         {
-            return repository.mostrarTodos();
+            return repository.MostrarCategorias();
         }
     }
 }

@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ProductoService : ICrud <Producto>
+    public class ProductoService : ICrud<Producto>
     {
         private ProductoRepository repository = new ProductoRepository();
 
         public string InsertarDatos(Producto producto)
         {
-            throw new NotImplementedException();
+            return repository.RegistrarProducto(producto);
         }
 
         public List<Producto> MostrarDatos()
@@ -23,6 +23,17 @@ namespace BLL
             return repository.MostrarProductos();
         }
 
-
+        public bool Existe(decimal cod_producto)
+        {
+            //foreach (var producto in MostrarDatos())
+            //{
+            //    if (producto.cod_producto == cod_producto)
+            //    {
+            //        return true;
+            //    }
+            //}
+            //return false;
+            return MostrarDatos().Any(producto => producto.cod_producto == cod_producto);
+        }
     }
 }

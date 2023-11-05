@@ -30,7 +30,7 @@
         {
             this.panelDatosLotes = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCodProductoLote = new System.Windows.Forms.TextBox();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.btnCrearLote = new System.Windows.Forms.Button();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
@@ -107,7 +107,7 @@
             // 
             this.panelDatosLotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
             this.panelDatosLotes.Controls.Add(this.label24);
-            this.panelDatosLotes.Controls.Add(this.textBox5);
+            this.panelDatosLotes.Controls.Add(this.txtCodProductoLote);
             this.panelDatosLotes.Controls.Add(this.dtpVencimiento);
             this.panelDatosLotes.Controls.Add(this.btnCrearLote);
             this.panelDatosLotes.Controls.Add(this.txtPrecioVenta);
@@ -136,14 +136,14 @@
             this.label24.Text = "Codigo de Producto";
             this.label24.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // textBox5
+            // txtCodProductoLote
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(111, 154);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(546, 31);
-            this.textBox5.TabIndex = 23;
+            this.txtCodProductoLote.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodProductoLote.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProductoLote.Location = new System.Drawing.Point(111, 154);
+            this.txtCodProductoLote.Name = "txtCodProductoLote";
+            this.txtCodProductoLote.Size = new System.Drawing.Size(546, 31);
+            this.txtCodProductoLote.TabIndex = 23;
             // 
             // dtpVencimiento
             // 
@@ -866,6 +866,6 @@
         private System.Windows.Forms.TextBox txtNombreCategoria;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCodProductoLote;
     }
 }
