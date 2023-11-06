@@ -25,15 +25,20 @@ namespace BLL
 
         public bool Existe(decimal cod_producto)
         {
-            //foreach (var producto in MostrarDatos())
-            //{
-            //    if (producto.cod_producto == cod_producto)
-            //    {
-            //        return true;
-            //    }
-            //}
-            //return false;
             return MostrarDatos().Any(producto => producto.cod_producto == cod_producto);
+        }
+
+        public List<Producto> MostrarProductoFiltrado(string filtro)
+        {
+            if(string.IsNullOrEmpty(filtro))
+            {
+                return MostrarDatos();
+            }
+            else
+            {
+                var filtrados = MostrarDatos().Where(p => p.cod_producto.ToString() == filtro || p.nomb_producto.StartsWith(filtro)).ToList();
+                return filtrados;
+            }
         }
     }
 }

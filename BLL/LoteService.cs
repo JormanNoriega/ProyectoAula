@@ -33,13 +33,17 @@ namespace BLL
             return repository.ObtenerProducto(cod_producto);
         }
 
-        //public List<Lote> MostrarLotes(string CodProducto)
-        //{
-        //    DataTable tablaLotes = new DataTable();
-        //    tablaLotes = repository.MostrarLotes(Convert.ToDecimal(CodProducto));
-        //    return tablaLotes;
-        //}
-
-
+        public List<Lote> MostrarLoteFiltrado(string filtro,decimal cod_producto)
+        {
+            if (string.IsNullOrEmpty(filtro))
+            {
+                return MostrarLotesPorProducto(cod_producto);
+            }
+            else
+            {
+                var filtrados = MostrarLotesPorProducto(cod_producto).Where(p => p.cod_lote.StartsWith(filtro)).ToList();
+                return filtrados;
+            }
+        }
     }
 }

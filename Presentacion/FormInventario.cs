@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,9 @@ namespace Presentacion
 {
     public partial class FormInventario : Form
     {
-        //private BLL_Services servicio = new BLL_Services();
-        CategoriaService categoriaService = new CategoriaService();
-        LaboratorioService laboratorioService = new LaboratorioService();
         LoteService loteService = new LoteService();
         ProductoService productoService = new ProductoService();
-        ProveedorService proveedorService = new ProveedorService();
+        string codigoProducto;
 
         public FormInventario()
         {
@@ -43,8 +41,10 @@ namespace Presentacion
 
         private void FormInventario_Load(object sender, EventArgs e)
         {
-            btnEditar.Visible = false;
+            btnEditar.Visible = true;
             btnEliminar.Visible = false;
+            txtFiltroLote.Visible = false;
+            lbCodLote.Visible = false;
             MostrarProcutos();
         }
 
@@ -79,7 +79,7 @@ namespace Presentacion
         {
             if (dgvInventario.SelectedRows.Count > 0)
             {
-                string codigoProducto = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
+                codigoProducto = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
                 var lotes = loteService.MostrarLotesPorProducto(Convert.ToDecimal(codigoProducto));
                 dgvInventario.Rows.Clear();
                 dgvInventario.Columns.Clear();
@@ -107,8 +107,10 @@ namespace Presentacion
                 btnVerLotes.Visible = false;
                 btnEditar.Visible = true;
                 btnEliminar.Visible = true;
-                label3.Visible = false;
-                txtFiltro.Visible = false;
+                lbCodProducto.Visible = false;
+                txtFiltroProducto.Visible = false;
+                txtFiltroLote.Visible = true;
+                lbCodLote.Visible = true;
 
             }
             else
@@ -119,7 +121,13 @@ namespace Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (dgvInventario.SelectedRows.Count > 0)
+            {
+                string codp = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
+                FormEditarProducto editarProducto = new FormEditarProducto(Convert.ToDecimal(codp));
+                editarProducto.ShowDialog();
 
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -129,13 +137,47 @@ namespace Presentacion
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            //CargarProductosFiltrado(txtFiltro.Text);
+            CargarProductosFiltrado(txtFiltroProducto.Text);
+        }
+        private void txtFiltroLote_TextChanged(object sender, EventArgs e)
+        {
+            CargarLotesFiltrado(txtFiltroLote.Text);
         }
 
-        //private void CargarProductosFiltrado(string filtro)
-        //{
-        //    dgvInventario.DataSource = servicio.MostrarProductoFiltrado(filtro);
-        //}
+        private void CargarLotesFiltrado(string filtro)
+        {
+            var lotesFiltrados = loteService.MostrarLoteFiltrado(filtro,Convert.ToDecimal(codigoProducto));
+            dgvInventario.Rows.Clear();
+            foreach (var lote in lotesFiltrados)
+            {
+                dgvInventario.Rows.Add(
+                        lote.cod_lote,
+                        lote.producto.nomb_producto,
+                        lote.vencimiento.ToString("dd/MM/yyyy"),
+                        lote.cantidad,
+                        lote.precio_compra,
+                        lote.precio_venta
+                    );
+            }
+        }
+
+        private void CargarProductosFiltrado(string filtro)
+        {
+            var productosFiltrados = productoService.MostrarProductoFiltrado(filtro);
+            dgvInventario.Rows.Clear();
+            foreach (var producto in productosFiltrados)
+            {
+                dgvInventario.Rows.Add(
+                    producto.cod_producto,
+                    producto.nomb_producto,
+                    producto.proveedor.nomb_proveedor,
+                    producto.categoria.nomb_categoria,
+                    producto.laboratorio.nomb_laboratorio,
+                    producto.descripcion,
+                    producto.cantidadTotal
+                    );
+            }
+        }
 
     }
 }

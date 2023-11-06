@@ -30,8 +30,10 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.panelDatos = new System.Windows.Forms.Panel();
-            this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbCodLote = new System.Windows.Forms.Label();
+            this.txtFiltroLote = new System.Windows.Forms.TextBox();
+            this.txtFiltroProducto = new System.Windows.Forms.TextBox();
+            this.lbCodProducto = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVerLotes = new System.Windows.Forms.Button();
@@ -56,8 +58,10 @@
             // panelDatos
             // 
             this.panelDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.panelDatos.Controls.Add(this.txtFiltro);
-            this.panelDatos.Controls.Add(this.label3);
+            this.panelDatos.Controls.Add(this.lbCodLote);
+            this.panelDatos.Controls.Add(this.txtFiltroLote);
+            this.panelDatos.Controls.Add(this.txtFiltroProducto);
+            this.panelDatos.Controls.Add(this.lbCodProducto);
             this.panelDatos.Controls.Add(this.btnEditar);
             this.panelDatos.Controls.Add(this.btnEliminar);
             this.panelDatos.Controls.Add(this.btnVerLotes);
@@ -67,27 +71,49 @@
             this.panelDatos.Size = new System.Drawing.Size(1438, 795);
             this.panelDatos.TabIndex = 2;
             // 
-            // txtFiltro
+            // lbCodLote
             // 
-            this.txtFiltro.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.Location = new System.Drawing.Point(324, 83);
-            this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(546, 31);
-            this.txtFiltro.TabIndex = 6;
-            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
+            this.lbCodLote.AutoSize = true;
+            this.lbCodLote.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.lbCodLote.ForeColor = System.Drawing.Color.White;
+            this.lbCodLote.Location = new System.Drawing.Point(68, 91);
+            this.lbCodLote.Name = "lbCodLote";
+            this.lbCodLote.Size = new System.Drawing.Size(128, 23);
+            this.lbCodLote.TabIndex = 8;
+            this.lbCodLote.Text = "Buscar Lote ";
+            this.lbCodLote.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label3
+            // txtFiltroLote
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(68, 91);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(250, 23);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "CODIGO DE PRODUCTO:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.txtFiltroLote.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFiltroLote.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroLote.Location = new System.Drawing.Point(244, 83);
+            this.txtFiltroLote.Name = "txtFiltroLote";
+            this.txtFiltroLote.Size = new System.Drawing.Size(546, 31);
+            this.txtFiltroLote.TabIndex = 7;
+            this.txtFiltroLote.TextChanged += new System.EventHandler(this.txtFiltroLote_TextChanged);
+            // 
+            // txtFiltroProducto
+            // 
+            this.txtFiltroProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFiltroProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroProducto.Location = new System.Drawing.Point(244, 83);
+            this.txtFiltroProducto.Name = "txtFiltroProducto";
+            this.txtFiltroProducto.Size = new System.Drawing.Size(546, 31);
+            this.txtFiltroProducto.TabIndex = 6;
+            this.txtFiltroProducto.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
+            // 
+            // lbCodProducto
+            // 
+            this.lbCodProducto.AutoSize = true;
+            this.lbCodProducto.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.lbCodProducto.ForeColor = System.Drawing.Color.White;
+            this.lbCodProducto.Location = new System.Drawing.Point(68, 91);
+            this.lbCodProducto.Name = "lbCodProducto";
+            this.lbCodProducto.Size = new System.Drawing.Size(170, 23);
+            this.lbCodProducto.TabIndex = 5;
+            this.lbCodProducto.Text = "Buscar Producto";
+            this.lbCodProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // btnEditar
             // 
@@ -156,7 +182,9 @@
         private System.Windows.Forms.Button btnVerLotes;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Label lbCodProducto;
+        private System.Windows.Forms.TextBox txtFiltroProducto;
+        private System.Windows.Forms.Label lbCodLote;
+        private System.Windows.Forms.TextBox txtFiltroLote;
     }
 }
