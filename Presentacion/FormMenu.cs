@@ -18,6 +18,12 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+
         private void btnVenta_Click_1(object sender, EventArgs e)
         {
             AbrirFormulario<FormVenta>();
@@ -70,11 +76,10 @@ namespace Presentacion
             }
         }
 
-        
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void horaFecha_Tick(object sender, EventArgs e)
         {
-
+            lbFecha.Text = DateTime.Now.ToString("dddd dd 'de' MMMM 'del' yyyy");
+            lbHora.Text = DateTime.Now.ToString("hh:mm:ss");
         }
 
     }

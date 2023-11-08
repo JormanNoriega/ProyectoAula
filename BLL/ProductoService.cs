@@ -12,14 +12,14 @@ namespace BLL
     public class ProductoService : ICrud<Producto>
     {
         private ProductoRepository repository = new ProductoRepository();
-        public string EliminarDatos(Producto entidad)
+        public string EliminarDatos(Producto producto)
         {
-            throw new NotImplementedException();
+            return repository.EliminarProducto(producto);
         }
 
-        public string ActualizarDatos(Producto entidad)
+        public string ActualizarDatos(Producto producto)
         {
-            throw new NotImplementedException();
+            return repository.ActualizarProducto(producto);
         }
 
         public string InsertarDatos(Producto producto)

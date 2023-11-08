@@ -76,7 +76,17 @@ namespace Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            Proveedor proveedorSeleccionado = (Proveedor)cboxProveedor.SelectedItem;
+            Categoria categoriaSeleccionada = (Categoria)cboxCategoria.SelectedItem;
+            Laboratorio laboratorioSeleccionado = (Laboratorio)cboxLaboratorio.SelectedItem;
+            productoSeleccionado.nomb_producto = txtNombreProducto.Text;
+            productoSeleccionado.proveedor = proveedorSeleccionado;
+            productoSeleccionado.categoria = categoriaSeleccionada;
+            productoSeleccionado.laboratorio = laboratorioSeleccionado;
+            productoSeleccionado.descripcion = txtDescripcion.Text;
+            var msg = productoService.ActualizarDatos(productoSeleccionado);
+            MessageBox.Show(msg);
+            this.Close();
         }
 
         private void ListarCategorias()

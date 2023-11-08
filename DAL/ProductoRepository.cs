@@ -1,5 +1,6 @@
 ﻿using Entity;
 using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -93,71 +94,75 @@ namespace DAL
             producto.descripcion = Convert.ToString(reader["Descripcion"]);
             producto.cantidadTotal = Convert.ToDecimal(reader["Cantidad_Total"]);
             return producto;
-
-            //producto.proveedor = new Proveedor
-            //{
-            //    nit_proveedor = Convert.ToDecimal(reader["Nit_Proveedor"]),
-            //    nomb_proveedor = Convert.ToString(reader["Nombre_Proveedor"])
-            //};
-            //producto.categoria = new Categoria
-            //{
-            //    id_categoria = Convert.ToDecimal(reader["Id_Categoria"]),
-            //    nomb_categoria = Convert.ToString(reader["Nombre_Categoria"])
-            //};
-            //producto.laboratorio = new Laboratorio
-            //{
-            //    id_laboratorio = Convert.ToDecimal(reader["Id_laboratorio"]),
-            //    nomb_laboratorio = Convert.ToString(reader["Nombre_Laboratorio"])
-            //};
-            //producto.descripcion = Convert.ToString(reader["Descripcion"]);
-            //producto.cantidadTotal = Convert.ToDecimal(reader["Cantidad_Total"]);
-            //return producto;
-            ////Mapero de Proveedores (Usa Objetos ya existentes)
-            //decimal nit_proveedor = Convert.ToDecimal(reader["Nit_Proveedor"]);
-            //producto.proveedor = ObtenerProveedor(nit_proveedor);
-            //if (proveedoresCache.ContainsKey(nit_proveedor))
-            //{
-            //    producto.proveedor = ObtenerProveedor(nit_proveedor);
-            //}
-            //else
-            //{
-            //    //producto.proveedor = new Proveedor
-            //    //{
-            //    //    nit_proveedor = nit_proveedor,
-            //    //    nomb_proveedor = Convert.ToString(reader["Nombre_Proveedor"])
-            //    //};
-            //}
-            ////Mapeo De Categorias
-            //decimal id_categora = Convert.ToDecimal(reader["Id_Categoria"]);
-            //if (categoriasCache.ContainsKey(id_categora))
-            //{
-            //    producto.categoria = categoriasCache[id_categora];
-            //}
-            //else
-            //{
-            //    //producto.categoria = new Categoria
-            //    //{
-            //    //    id_categoria = id_categora,
-            //    //    nomb_categoria = Convert.ToString(reader["Nombre_Categoria"])
-            //    //};
-            //}
-            ////Mapeo de Laboratorios
-            //decimal id_laboratorio = Convert.ToDecimal(reader["Id_laboratorio"]);
-            //if (laboratoriosCache.ContainsKey(id_laboratorio))
-            //{
-            //    producto.laboratorio = laboratoriosCache[id_laboratorio];
-            //}
-            //else
-            //{
-            //    //producto.laboratorio = new Laboratorio
-            //    //{
-            //    //    id_laboratorio = id_laboratorio,
-            //    //    nomb_laboratorio = Convert.ToString(reader["Nombre_Laboratorio"])
-            //    //};
-            //}
         }
 
-        
+        public string ActualizarProducto(Producto producto)
+        {
+            OracleConnection sqlCon = new OracleConnection();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("prc_actualizarproducto", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("p_cod_producto", OracleDbType.Varchar2).Value = producto.cod_producto;
+                comando.Parameters.Add("p_nomb_producto", OracleDbType.Varchar2).Value = producto.nomb_producto;
+                comando.Parameters.Add("p_nit_proveedor", OracleDbType.Decimal).Value = producto.proveedor.nit_proveedor;
+                comando.Parameters.Add("p_id_categoria", OracleDbType.Decimal).Value = producto.categoria.id_categoria;
+                comando.Parameters.Add("p_id_laboratorio", OracleDbType.Decimal).Value = producto.laboratorio.id_laboratorio;
+                comando.Parameters.Add("p_descripcion", OracleDbType.Varchar2).Value = producto.descripcion;
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                return "Se actualizó el Producto " + producto.nomb_producto + " correctamente.";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+        }
+
+        public string EliminarProducto(Producto producto)
+        {
+            OracleConnection sqlCon = new OracleConnection();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("prc_eliminarproducto", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("p_codigo_producto", OracleDbType.Decimal).Value = producto.cod_producto;
+                comando.Parameters.Add("eliminacion_exitosa", OracleDbType.Decimal).Direction = ParameterDirection.Output;
+                sqlCon.Open();
+
+                comando.ExecuteNonQuery();
+                OracleDecimal eliminacionExitosa = (OracleDecimal)comando.Parameters["eliminacion_exitosa"].Value;
+                if (eliminacionExitosa.ToInt32() == 1)
+                {
+                    return "Se eliminó el producto correctamente";
+                }
+                else
+                {
+                    return "No se puede eliminar el producto, tiene lotes asociados";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+        }
+
+
+
+
+
+
         private Proveedor ObtenerProveedor(decimal nitProveedor)
         {
             return proveedorRepository.MostrarProveedores().Find(p => p.nit_proveedor == nitProveedor);
@@ -170,5 +175,8 @@ namespace DAL
         {
             return laboratorioRepository.MostrarLaboratorio().Find(p => p.id_laboratorio == nitProveedor);
         }
+
+
     }
+
 }

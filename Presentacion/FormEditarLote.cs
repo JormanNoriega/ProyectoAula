@@ -50,6 +50,7 @@ namespace Presentacion
             // Llamar al método para actualizar el lote
             var msg = loteService.ActualizarDatos(loteSeleccionado);
             MessageBox.Show(msg);
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

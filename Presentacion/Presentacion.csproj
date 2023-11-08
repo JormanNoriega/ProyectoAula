@@ -119,6 +119,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,6 +143,15 @@
       <Project>{06725b7b-fb3a-4ad4-9322-bbfca565dfa1}</Project>
       <Name>Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sourse\vital farmacos png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sourse\isotipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sourse\isotipo 400x400.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

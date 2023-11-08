@@ -28,20 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMenuLateral = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelFormularios = new System.Windows.Forms.Panel();
+            this.pcBoxLogo = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAnalisis = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelFormularios = new System.Windows.Forms.Panel();
+            this.lbHora = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.panelMenuLateral.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            this.panelFormularios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +66,62 @@
             this.panelMenuLateral.Name = "panelMenuLateral";
             this.panelMenuLateral.Size = new System.Drawing.Size(253, 1041);
             this.panelMenuLateral.TabIndex = 0;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Controls.Add(this.label2);
+            this.panelLogo.Controls.Add(this.label1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(253, 117);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(76, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(165, 32);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "FARMACOS";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(76, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 32);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "VITAL";
+            // 
+            // panelFormularios
+            // 
+            this.panelFormularios.BackColor = System.Drawing.Color.White;
+            this.panelFormularios.Controls.Add(this.lbFecha);
+            this.panelFormularios.Controls.Add(this.lbHora);
+            this.panelFormularios.Controls.Add(this.pcBoxLogo);
+            this.panelFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormularios.Location = new System.Drawing.Point(253, 0);
+            this.panelFormularios.MinimumSize = new System.Drawing.Size(1651, 1041);
+            this.panelFormularios.Name = "panelFormularios";
+            this.panelFormularios.Size = new System.Drawing.Size(1651, 1041);
+            this.panelFormularios.TabIndex = 1;
+            // 
+            // pcBoxLogo
+            // 
+            this.pcBoxLogo.Image = global::Presentacion.Properties.Resources.isotipo_400x400;
+            this.pcBoxLogo.Location = new System.Drawing.Point(610, 216);
+            this.pcBoxLogo.Name = "pcBoxLogo";
+            this.pcBoxLogo.Size = new System.Drawing.Size(513, 517);
+            this.pcBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcBoxLogo.TabIndex = 0;
+            this.pcBoxLogo.TabStop = false;
             // 
             // btnSalir
             // 
@@ -168,17 +231,6 @@
             this.btnVenta.UseVisualStyleBackColor = false;
             this.btnVenta.Click += new System.EventHandler(this.btnVenta_Click_1);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Controls.Add(this.label2);
-            this.panelLogo.Controls.Add(this.label1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(253, 117);
-            this.panelLogo.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -189,37 +241,32 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // lbHora
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(76, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 32);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "FARMACOS";
+            this.lbHora.AutoSize = true;
+            this.lbHora.Font = new System.Drawing.Font("Century Gothic", 60F, System.Drawing.FontStyle.Bold);
+            this.lbHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.lbHora.Location = new System.Drawing.Point(675, 757);
+            this.lbHora.Name = "lbHora";
+            this.lbHora.Size = new System.Drawing.Size(588, 93);
+            this.lbHora.TabIndex = 1;
+            this.lbHora.Text = "HORA ACTUAL";
             // 
-            // label1
+            // lbFecha
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(76, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "VITAL";
+            this.lbFecha.AutoSize = true;
+            this.lbFecha.Font = new System.Drawing.Font("Century Gothic", 30F);
+            this.lbFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.lbFecha.Location = new System.Drawing.Point(505, 850);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(308, 49);
+            this.lbFecha.TabIndex = 2;
+            this.lbFecha.Text = "FECHA ACTUAL";
             // 
-            // panelFormularios
+            // horaFecha
             // 
-            this.panelFormularios.BackColor = System.Drawing.Color.White;
-            this.panelFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFormularios.Location = new System.Drawing.Point(253, 0);
-            this.panelFormularios.MinimumSize = new System.Drawing.Size(1651, 1041);
-            this.panelFormularios.Name = "panelFormularios";
-            this.panelFormularios.Size = new System.Drawing.Size(1651, 1041);
-            this.panelFormularios.TabIndex = 1;
+            this.horaFecha.Enabled = true;
+            this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
             // Form1
             // 
@@ -236,6 +283,9 @@
             this.panelMenuLateral.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
+            this.panelFormularios.ResumeLayout(false);
+            this.panelFormularios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -254,6 +304,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAnalisis;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.PictureBox pcBoxLogo;
+        private System.Windows.Forms.Label lbHora;
+        private System.Windows.Forms.Label lbFecha;
+        private System.Windows.Forms.Timer horaFecha;
     }
 }
 
