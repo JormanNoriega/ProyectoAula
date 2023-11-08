@@ -13,6 +13,16 @@ namespace BLL
     {
         private CategoriaRepository repository = new CategoriaRepository();
 
+        public string ActualizarDatos(Categoria entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string EliminarDatos(Categoria entidad)
+        {
+            throw new NotImplementedException();
+        }
+
         public string InsertarDatos(Categoria categoria)
         {
             return repository.RegistrarCategoria(categoria);

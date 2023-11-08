@@ -43,14 +43,14 @@
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboxProveedor
             // 
-            this.cboxProveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.cboxProveedor.BackColor = System.Drawing.Color.White;
             this.cboxProveedor.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.cboxProveedor.FormattingEnabled = true;
             this.cboxProveedor.Location = new System.Drawing.Point(25, 249);
@@ -60,7 +60,7 @@
             // 
             // cboxLaboratorio
             // 
-            this.cboxLaboratorio.BackColor = System.Drawing.SystemColors.Control;
+            this.cboxLaboratorio.BackColor = System.Drawing.Color.White;
             this.cboxLaboratorio.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.cboxLaboratorio.FormattingEnabled = true;
             this.cboxLaboratorio.Location = new System.Drawing.Point(25, 386);
@@ -70,7 +70,7 @@
             // 
             // cboxCategoria
             // 
-            this.cboxCategoria.BackColor = System.Drawing.SystemColors.Control;
+            this.cboxCategoria.BackColor = System.Drawing.Color.White;
             this.cboxCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.cboxCategoria.FormattingEnabled = true;
             this.cboxCategoria.Items.AddRange(new object[] {
@@ -150,7 +150,7 @@
             // 
             // txtCodigoProducto
             // 
-            this.txtCodigoProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodigoProducto.BackColor = System.Drawing.Color.White;
             this.txtCodigoProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoProducto.Location = new System.Drawing.Point(25, 116);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
@@ -159,7 +159,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDescripcion.BackColor = System.Drawing.Color.White;
             this.txtDescripcion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(25, 448);
             this.txtDescripcion.Name = "txtDescripcion";
@@ -168,7 +168,7 @@
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNombreProducto.BackColor = System.Drawing.Color.White;
             this.txtNombreProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.Location = new System.Drawing.Point(25, 182);
             this.txtNombreProducto.Name = "txtNombreProducto";
@@ -196,6 +196,17 @@
             this.panel1.Size = new System.Drawing.Size(595, 79);
             this.panel1.TabIndex = 35;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(18, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(322, 40);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "EDITAR PRODUCTO";
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
@@ -207,17 +218,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(322, 40);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "EDITAR PRODUCTO";
             // 
             // FormEditarProducto
             // 
@@ -239,6 +239,7 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombreProducto);
             this.Controls.Add(this.label5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEditarProducto";
             this.Load += new System.EventHandler(this.FormEditarProducto_Load);

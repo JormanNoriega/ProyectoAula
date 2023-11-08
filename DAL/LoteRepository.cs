@@ -90,5 +90,61 @@ namespace DAL
             return productorepository.MostrarProductos().Find(p => p.cod_producto == cod_producto);
         }
 
+
+        public string ActualizarLote(Lote lote)
+        {
+            OracleConnection sqlCon = new OracleConnection();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("prc_actualizarlote", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("codigo_lote", OracleDbType.Varchar2).Value = lote.cod_lote;
+                comando.Parameters.Add("cod_producto", OracleDbType.Decimal).Value = lote.producto.cod_producto;
+                comando.Parameters.Add("vencimiento", OracleDbType.Date).Value = lote.vencimiento;
+                comando.Parameters.Add("cantidad", OracleDbType.Decimal).Value = lote.cantidad;
+                comando.Parameters.Add("precio_compra", OracleDbType.Decimal).Value = lote.precio_compra;
+                comando.Parameters.Add("precio_venta", OracleDbType.Decimal).Value = lote.precio_venta;
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+
+
+                return "Se actualizó el lote " + lote.cod_lote + " correctamente";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+        }
+
+        public string EliminarLote(Lote lote)
+        {
+            OracleConnection sqlCon = new OracleConnection();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("prc_eliminarlote", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("codigo_lote", OracleDbType.Varchar2).Value = lote.cod_lote;
+
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+
+                return "Se eliminó el lote " + lote.cod_lote + " correctamente";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+        }
     }
 }

@@ -13,6 +13,16 @@ namespace BLL
     {
         private ProveedorRepository repository = new ProveedorRepository();
 
+        public string ActualizarDatos(Proveedor entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string EliminarDatos(Proveedor entidad)
+        {
+            throw new NotImplementedException();
+        }
+
         public string InsertarDatos(Proveedor proveedor)
         {
             return repository.RegistrarProveedor(proveedor);

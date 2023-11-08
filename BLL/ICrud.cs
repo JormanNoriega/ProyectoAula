@@ -11,5 +11,7 @@ namespace BLL
     {
         List<T> MostrarDatos();
         string InsertarDatos(T entidad);
+        string EliminarDatos(T entidad);
+        string ActualizarDatos(T entidad);
     }
 }

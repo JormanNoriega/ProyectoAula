@@ -14,19 +14,17 @@ namespace Presentacion
 {
     public partial class FormEditarProducto : Form
     {
-        decimal CodProducto;
+        private Producto productoSeleccionado;
         CategoriaService categoriaService = new CategoriaService();
         LaboratorioService laboratorioService = new LaboratorioService();
         ProveedorService proveedorService = new ProveedorService();
         ProductoService productoService = new ProductoService();
 
-        public FormEditarProducto(decimal productoRecibido)
+        public FormEditarProducto(Producto producto)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            //this.ControlBox = false;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            CodProducto = productoRecibido;
+            productoSeleccionado= producto;
         }
 
         private void FormEditarProducto_Load(object sender, EventArgs e)
@@ -34,12 +32,11 @@ namespace Presentacion
             ListarCategorias();
             ListarLaboratorios();
             ListarProveedores();
-            llenarDatos(CodProducto);
+            llenarDatos(productoSeleccionado);
         }
 
-        public void llenarDatos(decimal CodProducto)
+        private void llenarDatos(Producto producto)
         {
-            Producto producto = productoService.MostrarDatos().Find(p => p.cod_producto == CodProducto);
             txtCodigoProducto.Text = producto.cod_producto.ToString();
             txtCodigoProducto.ReadOnly = true;
             txtNombreProducto.Text = producto.nomb_producto.ToString();

@@ -41,8 +41,8 @@ namespace Presentacion
 
         private void FormInventario_Load(object sender, EventArgs e)
         {
-            btnEditar.Visible = true;
-            btnEliminar.Visible = false;
+            //btnEditar.Visible = true;
+            //btnEliminar.Visible = false;
             txtFiltroLote.Visible = false;
             lbCodLote.Visible = false;
             MostrarProcutos();
@@ -104,9 +104,9 @@ namespace Presentacion
                         lote.precio_venta
                     );
                 }
-                btnVerLotes.Visible = false;
-                btnEditar.Visible = true;
-                btnEliminar.Visible = true;
+                //btnVerLotes.Visible = false;
+                //btnEditar.Visible = true;
+                //btnEliminar.Visible = true;
                 lbCodProducto.Visible = false;
                 txtFiltroProducto.Visible = false;
                 txtFiltroLote.Visible = true;
@@ -123,16 +123,47 @@ namespace Presentacion
         {
             if (dgvInventario.SelectedRows.Count > 0)
             {
-                string codp = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
-                FormEditarProducto editarProducto = new FormEditarProducto(Convert.ToDecimal(codp));
-                editarProducto.ShowDialog();
-
+                // Verificar si se está mostrando información de productos o lotes
+                if (dgvInventario.Columns.Contains("CodigoProducto"))
+                {
+                    // Seleccionar producto
+                    string codp = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
+                    Producto producto = productoService.MostrarDatos().Find(p => p.cod_producto == Convert.ToDecimal(codp));
+                    FormEditarProducto editarProducto = new FormEditarProducto(producto);
+                    editarProducto.ShowDialog();
+                }
+                else if (dgvInventario.Columns.Contains("CodigoLote"))
+                {
+                    // Seleccionar lote
+                    string codl = dgvInventario.SelectedRows[0].Cells["CodigoLote"].Value.ToString();
+                    Lote lote = loteService.MostrarLotesPorProducto(Convert.ToDecimal(codigoProducto)).Find(l => l.cod_lote == codl);
+                    FormEditarLote formEditarLote = new FormEditarLote(lote);
+                    formEditarLote.ShowDialog();
+                }
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (dgvInventario.SelectedRows.Count > 0)
+            {
+                // Verificar si se está mostrando información de productos o lotes
+                if (dgvInventario.Columns.Contains("CodigoProducto"))
+                {
+                    // Seleccionar producto
+                    string codp = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
+                    // Realizar acción de eliminación para producto
+                    // (Código para eliminar producto)
+                }
+                else if (dgvInventario.Columns.Contains("CodigoLote"))
+                {
+                    // Seleccionar lote
+                    string codl = dgvInventario.SelectedRows[0].Cells["CodigoLote"].Value.ToString();
+                    Lote lote = loteService.MostrarLotesPorProducto(Convert.ToDecimal(codigoProducto)).Find(l => l.cod_lote == codl);
+                    var msg = loteService.EliminarDatos(lote);
+                    MessageBox.Show(msg);
+                }
+            }
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)

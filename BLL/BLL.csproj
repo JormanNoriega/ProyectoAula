@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL_Services.cs" />
     <Compile Include="CategoriaService.cs" />
     <Compile Include="ICrud.cs" />
     <Compile Include="LaboratorioService.cs" />

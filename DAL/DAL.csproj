@@ -77,7 +77,6 @@
   <ItemGroup>
     <Compile Include="CategoriaRepository.cs" />
     <Compile Include="DAL_Conexion.cs" />
-    <Compile Include="DAL_Repository.cs" />
     <Compile Include="LaboratorioRepository.cs" />
     <Compile Include="LoteRepository.cs" />
     <Compile Include="ProductoRepository.cs" />

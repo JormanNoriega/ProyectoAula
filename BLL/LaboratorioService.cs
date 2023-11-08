@@ -13,6 +13,16 @@ namespace BLL
     {
         private LaboratorioRepository repository = new LaboratorioRepository();
 
+        public string ActualizarDatos(Laboratorio entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string EliminarDatos(Laboratorio entidad)
+        {
+            throw new NotImplementedException();
+        }
+
         public string InsertarDatos(Laboratorio laboratorio)
         {
             return repository.RegistrarLaboratorio(laboratorio);

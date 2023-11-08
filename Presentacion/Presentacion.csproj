@@ -52,6 +52,12 @@
     <Compile Include="FormAnalisis.Designer.cs">
       <DependentUpon>FormAnalisis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditarLote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarLote.Designer.cs">
+      <DependentUpon>FormEditarLote.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAnalisis.resx">
       <DependentUpon>FormAnalisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarLote.resx">
+      <DependentUpon>FormEditarLote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditarProducto.resx">
       <DependentUpon>FormEditarProducto.cs</DependentUpon>
