@@ -23,6 +23,9 @@ namespace Presentacion
         {
             InitializeComponent();
             ConfigureRoundedCorners(panelDatos, 20);
+            ConfigureRoundedCorners(PanelDgvInventario, 20);
+            RedondearTextBox(txtFiltroProducto,10);
+            RedondearTextBox(txtFiltroLote,10);
         }
         //Funcion para aplicar bordes redondeados a paneles
         private void ConfigureRoundedCorners(Control control, int radius)
@@ -38,6 +41,22 @@ namespace Presentacion
             control.Region = new Region(path);
         }
 
+        private void RedondearTextBox(TextBox textBox, int radio)
+        {
+            if (radio > 0)
+            {
+                Rectangle r = new Rectangle(0, 0, textBox.Width, textBox.Height);
+                int radioDoble = radio * 2;
+                GraphicsPath path = new GraphicsPath();
+                path.StartFigure();
+                path.AddArc(r.X, r.Y, radioDoble, radioDoble, 180, 90); // Esquina superior izquierda
+                path.AddArc(r.Right - radioDoble, r.Y, radioDoble, radioDoble, 270, 90); // Esquina superior derecha
+                path.AddArc(r.Right - radioDoble, r.Bottom - radioDoble, radioDoble, radioDoble, 0, 90); // Esquina inferior derecha
+                path.AddArc(r.X, r.Bottom - radioDoble, radioDoble, radioDoble, 90, 90); // Esquina inferior izquierda
+                path.CloseFigure();
+                textBox.Region = new Region(path);
+            }
+        }
 
         private void FormInventario_Load(object sender, EventArgs e)
         {
@@ -154,24 +173,40 @@ namespace Presentacion
         {
             if (dgvInventario.SelectedRows.Count > 0)
             {
-                // Verificar si se está mostrando información de productos o lotes
+                string message = "";
+                string caption = "Confirmar eliminación";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 if (dgvInventario.Columns.Contains("CodigoProducto"))
                 {
-                    // Seleccionar producto
-                    string codp = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
-                    Producto producto = productoService.MostrarDatos().Find(p => p.cod_producto == Convert.ToDecimal(codp));
-                    var msg = productoService.EliminarDatos(producto);
-                    MessageBox.Show(msg);
-                    MostrarProcutos();
+                    message = "¿Está seguro de que desea eliminar este producto?";
                 }
                 else if (dgvInventario.Columns.Contains("CodigoLote"))
                 {
-                    // Seleccionar lote
-                    string codl = dgvInventario.SelectedRows[0].Cells["CodigoLote"].Value.ToString();
-                    Lote lote = loteService.MostrarLotesPorProducto(Convert.ToDecimal(codigoProducto)).Find(l => l.cod_lote == codl);
-                    var msg = loteService.EliminarDatos(lote);
-                    MessageBox.Show(msg);
-                    MostrarLotes(codigoProducto);
+                    message = "¿Está seguro de que desea eliminar este lote?";
+                }
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
+                // Verificar si se está mostrando información de productos o lotes
+                if (result == DialogResult.Yes)
+                {
+                    if (dgvInventario.Columns.Contains("CodigoProducto"))
+                    {
+                        // Seleccionar producto
+                        string codp = dgvInventario.SelectedRows[0].Cells["CodigoProducto"].Value.ToString();
+                        Producto producto = productoService.MostrarDatos().Find(p => p.cod_producto == Convert.ToDecimal(codp));
+                        var msg = productoService.EliminarDatos(producto);
+                        MessageBox.Show(msg);
+                        MostrarProcutos();
+                    }
+                    else if (dgvInventario.Columns.Contains("CodigoLote"))
+                    {
+                        // Seleccionar lote
+                        string codl = dgvInventario.SelectedRows[0].Cells["CodigoLote"].Value.ToString();
+                        Lote lote = loteService.MostrarLotesPorProducto(Convert.ToDecimal(codigoProducto)).Find(l => l.cod_lote == codl);
+                        var msg = loteService.EliminarDatos(lote);
+                        MessageBox.Show(msg);
+                        MostrarLotes(codigoProducto);
+                    }
                 }
             }
         }

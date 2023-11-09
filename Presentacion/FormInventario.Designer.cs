@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.panelDatos = new System.Windows.Forms.Panel();
             this.lbCodLote = new System.Windows.Forms.Label();
@@ -38,8 +40,10 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVerLotes = new System.Windows.Forms.Button();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
+            this.PanelDgvInventario = new System.Windows.Forms.Panel();
             this.panelDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
+            this.PanelDgvInventario.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -58,6 +62,7 @@
             // panelDatos
             // 
             this.panelDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatos.Controls.Add(this.PanelDgvInventario);
             this.panelDatos.Controls.Add(this.lbCodLote);
             this.panelDatos.Controls.Add(this.txtFiltroLote);
             this.panelDatos.Controls.Add(this.txtFiltroProducto);
@@ -65,7 +70,6 @@
             this.panelDatos.Controls.Add(this.btnEditar);
             this.panelDatos.Controls.Add(this.btnEliminar);
             this.panelDatos.Controls.Add(this.btnVerLotes);
-            this.panelDatos.Controls.Add(this.dgvInventario);
             this.panelDatos.Location = new System.Drawing.Point(90, 151);
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(1438, 795);
@@ -88,6 +92,7 @@
             this.txtFiltroLote.BackColor = System.Drawing.SystemColors.Control;
             this.txtFiltroLote.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltroLote.Location = new System.Drawing.Point(244, 83);
+            this.txtFiltroLote.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.txtFiltroLote.Name = "txtFiltroLote";
             this.txtFiltroLote.Size = new System.Drawing.Size(546, 31);
             this.txtFiltroLote.TabIndex = 7;
@@ -148,12 +153,42 @@
             // dgvInventario
             // 
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvInventario.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventario.Location = new System.Drawing.Point(72, 170);
+            this.dgvInventario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvInventario.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInventario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvInventario.ColumnHeadersHeight = 35;
+            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvInventario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInventario.EnableHeadersVisualStyles = false;
+            this.dgvInventario.Location = new System.Drawing.Point(0, 0);
             this.dgvInventario.Name = "dgvInventario";
+            this.dgvInventario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvInventario.Size = new System.Drawing.Size(1297, 514);
             this.dgvInventario.TabIndex = 0;
+            // 
+            // PanelDgvInventario
+            // 
+            this.PanelDgvInventario.Controls.Add(this.dgvInventario);
+            this.PanelDgvInventario.Location = new System.Drawing.Point(72, 154);
+            this.PanelDgvInventario.Name = "PanelDgvInventario";
+            this.PanelDgvInventario.Size = new System.Drawing.Size(1297, 514);
+            this.PanelDgvInventario.TabIndex = 9;
             // 
             // FormInventario
             // 
@@ -169,6 +204,7 @@
             this.panelDatos.ResumeLayout(false);
             this.panelDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
+            this.PanelDgvInventario.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +222,6 @@
         private System.Windows.Forms.TextBox txtFiltroProducto;
         private System.Windows.Forms.Label lbCodLote;
         private System.Windows.Forms.TextBox txtFiltroLote;
+        private System.Windows.Forms.Panel PanelDgvInventario;
     }
 }
