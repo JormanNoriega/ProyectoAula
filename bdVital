@@ -12,6 +12,7 @@ TABLE, INSERT ANY TABLE, UPDATE ANY TABLE, DELETE ANY TABLE TO C##vital;
 GRANT CREATE SEQUENCE TO C##vital;
 GRANT CREATE PROCEDURE TO C##vital;
 GRANT CREATE ANY TRIGGER TO C##vital;
+GRANT CREATE TYPE TO C##vital;
 
 --------------------------------------------------------
 --  DDL for Type PRODUCTOS_TABLA
