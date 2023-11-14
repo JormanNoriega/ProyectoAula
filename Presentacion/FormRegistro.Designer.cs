@@ -46,7 +46,6 @@
             this.cboxLaboratorio = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCrearProducto = new System.Windows.Forms.Button();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.cboxCategoria = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -87,6 +86,7 @@
             this.btnRegistarCategoria = new System.Windows.Forms.Button();
             this.txtNombreCategoria = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnCrearProducto = new System.Windows.Forms.Button();
             this.panelDatosLotes.SuspendLayout();
             this.tabRegistro.SuspendLayout();
             this.tabProductos.SuspendLayout();
@@ -152,7 +152,7 @@
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpVencimiento.Location = new System.Drawing.Point(109, 301);
             this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(542, 31);
+            this.dtpVencimiento.Size = new System.Drawing.Size(548, 31);
             this.dtpVencimiento.TabIndex = 21;
             // 
             // btnCrearLote
@@ -173,7 +173,7 @@
             this.txtPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioVenta.Location = new System.Drawing.Point(109, 521);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(544, 31);
+            this.txtPrecioVenta.Size = new System.Drawing.Size(548, 31);
             this.txtPrecioVenta.TabIndex = 20;
             // 
             // txtCantidad
@@ -182,7 +182,7 @@
             this.txtCantidad.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.Location = new System.Drawing.Point(109, 368);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(544, 31);
+            this.txtCantidad.Size = new System.Drawing.Size(548, 31);
             this.txtCantidad.TabIndex = 12;
             // 
             // txtPrecioCompra
@@ -191,7 +191,7 @@
             this.txtPrecioCompra.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioCompra.Location = new System.Drawing.Point(109, 440);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
-            this.txtPrecioCompra.Size = new System.Drawing.Size(544, 31);
+            this.txtPrecioCompra.Size = new System.Drawing.Size(548, 31);
             this.txtPrecioCompra.TabIndex = 19;
             // 
             // label8
@@ -301,18 +301,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Codigo de Producto";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // btnCrearProducto
-            // 
-            this.btnCrearProducto.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
-            this.btnCrearProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
-            this.btnCrearProducto.Location = new System.Drawing.Point(468, 602);
-            this.btnCrearProducto.Name = "btnCrearProducto";
-            this.btnCrearProducto.Size = new System.Drawing.Size(204, 64);
-            this.btnCrearProducto.TabIndex = 17;
-            this.btnCrearProducto.Text = "Crear Producto";
-            this.btnCrearProducto.UseVisualStyleBackColor = true;
-            this.btnCrearProducto.Click += new System.EventHandler(this.btnCrearProducto_Click);
             // 
             // txtCodigoProducto
             // 
@@ -772,6 +760,18 @@
             this.label23.TabIndex = 28;
             this.label23.Text = "Nombre de La Categoria";
             // 
+            // btnCrearProducto
+            // 
+            this.btnCrearProducto.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
+            this.btnCrearProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.btnCrearProducto.Location = new System.Drawing.Point(468, 602);
+            this.btnCrearProducto.Name = "btnCrearProducto";
+            this.btnCrearProducto.Size = new System.Drawing.Size(204, 64);
+            this.btnCrearProducto.TabIndex = 17;
+            this.btnCrearProducto.Text = "Crear Producto";
+            this.btnCrearProducto.UseVisualStyleBackColor = true;
+            this.btnCrearProducto.Click += new System.EventHandler(this.btnCrearProducto_Click);
+            // 
             // FormRegistro
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
@@ -830,7 +830,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cboxCategoria;
-        private System.Windows.Forms.Button btnCrearProducto;
         private System.Windows.Forms.Button btnCrearLote;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cboxLaboratorio;
@@ -868,5 +867,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtCodProductoLote;
+        private System.Windows.Forms.Button btnCrearProducto;
     }
 }

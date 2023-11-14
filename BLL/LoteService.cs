@@ -59,6 +59,27 @@ namespace BLL
             }
         }
 
-        
+        public Lote BuscarLotePorCodigo(string codLote,decimal codProdcuto)
+        {
+            var lote = MostrarLotesPorProducto(codProdcuto).FirstOrDefault(l => l.cod_lote.ToString() == codLote);
+            if (lote != null)
+            {
+                return lote;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public Lote loteSugerido(decimal codProducto)
+        {
+            var lotes = MostrarLotesPorProducto(codProducto);
+            if (lotes != null && lotes.Any())
+            {
+                var loteSugerido = lotes.OrderBy(l => l.vencimiento).FirstOrDefault();
+                return loteSugerido;
+            }
+            return null;
+        }
     }
 }

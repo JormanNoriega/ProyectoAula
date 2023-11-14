@@ -12,6 +12,7 @@ namespace BLL
     public class ProductoService : ICrud<Producto>
     {
         private ProductoRepository repository = new ProductoRepository();
+        private LoteService LoteService = new LoteService();
         public string EliminarDatos(Producto producto)
         {
             return repository.EliminarProducto(producto);
@@ -47,6 +48,19 @@ namespace BLL
             {
                 var filtrados = MostrarDatos().Where(p => p.cod_producto.ToString() == filtro || p.nomb_producto.StartsWith(filtro)).ToList();
                 return filtrados;
+            }
+        }
+
+        public Producto BuscarProducto(string codProducto)
+        {
+            if (string.IsNullOrEmpty(codProducto))
+            {
+                return null;
+            }
+            else
+            {
+                var producto = MostrarDatos().FirstOrDefault(p => p.cod_producto.ToString() == codProducto);
+                return producto;
             }
         }
     }

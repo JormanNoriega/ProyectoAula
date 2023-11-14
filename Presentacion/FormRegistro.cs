@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentacion
 {
@@ -26,16 +25,41 @@ namespace Presentacion
         public FormRegistro()
         {
             InitializeComponent();
-            ConfigureRoundedCorners(panelDatosProductos, 20);
-            ConfigureRoundedCorners(panelDatosLotes, 20);
-            ConfigureRoundedCorners(panelDatosCategorias, 20);
-            ConfigureRoundedCorners(panelDatosLaboratorios, 20);
-            ConfigureRoundedCorners(panelDatosProveedores, 20);
-
+            //redondeo de paneles
+            Redondear(panelDatosProductos, 20);
+            Redondear(panelDatosLotes, 20);
+            Redondear(panelDatosCategorias, 20);
+            Redondear(panelDatosLaboratorios, 20);
+            Redondear(panelDatosProveedores, 20);
+            //redondeo de textbox
+            Redondear(txtCodigoProducto, 10);
+            Redondear(txtNombreProducto, 10);
+            Redondear(txtDescripcion, 10);
+            Redondear(txtCodProductoLote, 10);
+            Redondear(txtCodLote, 10);
+            Redondear(txtCodLote, 10);
+            Redondear(dtpVencimiento, 10);
+            Redondear(txtCantidad, 10);
+            Redondear(txtPrecioCompra, 10);
+            Redondear(txtPrecioVenta, 10);
+            Redondear(txtNitProveedor, 10);
+            Redondear(txtNombreProveedor, 10);
+            Redondear(txtNombreCategoria, 10);
+            Redondear(txtNombreLaboratorio, 10);
+            //redondeo comboboxs
+            Redondear(cboxCategoria, 10);
+            Redondear(cboxProveedor, 10);
+            Redondear(cboxLaboratorio,10);
+            //redondeo de botones
+            Redondear(btnCrearProducto, 20);
+            Redondear(btnCrearLote, 20);
+            Redondear(btnRegistarLaboratorio, 20);
+            Redondear(btnRegistarCategoria, 20);
+            Redondear(btnRegistarProveedor, 20);
         }
 
-        //Funcion para aplicar bordes redondeados a paneles
-        private void ConfigureRoundedCorners(Control control, int radius)
+        //Funcion para aplicar bordes redondeados
+        private void Redondear(Control control, int radius)
         {
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, radius, radius, 180, 90); // Esquina superior izquierda
@@ -47,6 +71,7 @@ namespace Presentacion
             // Aplica la región con los bordes redondeados al control
             control.Region = new Region(path);
         }
+
         private void FormRegistro_Load(object sender, EventArgs e)
         {
             ListarCategorias();

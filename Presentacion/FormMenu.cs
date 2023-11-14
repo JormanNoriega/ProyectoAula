@@ -11,11 +11,12 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class Form1 : Form
+    public partial class FormMenu : Form
     {
-        public Form1()
+        public FormMenu()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +44,6 @@ namespace Presentacion
         {
             AbrirFormulario<FormAnalisis>();
         }
-    
 
         //METODO PARA ABRIR EL FORMULARIO DENTRO DE UN PANEL
         private void AbrirFormulario<MiForm>()where MiForm : Form,new()
@@ -82,5 +82,6 @@ namespace Presentacion
             lbHora.Text = DateTime.Now.ToString("hh:mm:ss");
         }
 
+        
     }
 }

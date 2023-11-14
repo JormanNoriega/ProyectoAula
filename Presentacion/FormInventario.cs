@@ -22,13 +22,13 @@ namespace Presentacion
         public FormInventario()
         {
             InitializeComponent();
-            ConfigureRoundedCorners(panelDatos, 20);
-            ConfigureRoundedCorners(PanelDgvInventario, 20);
-            RedondearTextBox(txtFiltroProducto,10);
-            RedondearTextBox(txtFiltroLote,10);
+            Redondear(panelDatos, 20);
+            Redondear(PanelDgvInventario, 20);
+            Redondear(txtFiltroProducto,10);
+            Redondear(txtFiltroLote,10);
         }
         //Funcion para aplicar bordes redondeados a paneles
-        private void ConfigureRoundedCorners(Control control, int radius)
+        private void Redondear(Control control, int radius)
         {
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, radius, radius, 180, 90); // Esquina superior izquierda
@@ -39,23 +39,6 @@ namespace Presentacion
 
             // Aplica la región con los bordes redondeados al control
             control.Region = new Region(path);
-        }
-
-        private void RedondearTextBox(TextBox textBox, int radio)
-        {
-            if (radio > 0)
-            {
-                Rectangle r = new Rectangle(0, 0, textBox.Width, textBox.Height);
-                int radioDoble = radio * 2;
-                GraphicsPath path = new GraphicsPath();
-                path.StartFigure();
-                path.AddArc(r.X, r.Y, radioDoble, radioDoble, 180, 90); // Esquina superior izquierda
-                path.AddArc(r.Right - radioDoble, r.Y, radioDoble, radioDoble, 270, 90); // Esquina superior derecha
-                path.AddArc(r.Right - radioDoble, r.Bottom - radioDoble, radioDoble, radioDoble, 0, 90); // Esquina inferior derecha
-                path.AddArc(r.X, r.Bottom - radioDoble, radioDoble, radioDoble, 90, 90); // Esquina inferior izquierda
-                path.CloseFigure();
-                textBox.Region = new Region(path);
-            }
         }
 
         private void FormInventario_Load(object sender, EventArgs e)
