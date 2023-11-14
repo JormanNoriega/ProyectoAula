@@ -11,6 +11,32 @@ namespace DAL
 {
     public class VentaRepository
     {
+
+        public string RegistrarVenta(Venta venta, List<ProductoVendido> productos_vendidos)
+        {
+            OracleConnection sqlCon = new OracleConnection();
+            try
+            {
+                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
+                OracleCommand comando = new OracleCommand("prc_InsertarVenta", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("p_fecha_venta", OracleDbType.Date).Value = venta.fecha_venta;
+                comando.Parameters.Add("p_total_venta", OracleDbType.Decimal).Value = venta.total_venta;
+                comando.Parameters.Add(new OracleParameter("p_productos_vendidos", OracleDbType.Object) { Value = productos_vendidos });
+                sqlCon.Open();
+                comando.ExecuteReader();
+                return "Se Registro la venta";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+        }
+
         public List<Venta> MostrarVentas()
         {
             OracleDataReader reader;
@@ -33,32 +59,6 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw ex;
-            }
-            finally
-            {
-                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
-            }
-        }
-
-        public string RegistrarVenta(Venta venta,List<ProductoVendido> productos_vendidos) 
-        {
-            OracleConnection sqlCon = new OracleConnection();
-            try
-            {
-                sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("prc_InsertarVenta", sqlCon);
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.Add("p_fecha_venta", OracleDbType.Date).Value = venta.fecha_venta;
-                comando.Parameters.Add("p_total_venta", OracleDbType.Decimal).Value = venta.total_venta;
-                OracleParameter parameter = new OracleParameter("p_productos_vendidos", OracleDbType.Array, productos_vendidos.ToArray(), ParameterDirection.Input);
-                comando.Parameters.Add(parameter);
-                sqlCon.Open();
-                comando.ExecuteReader();
-                return "Se Registro la venta";
-            }
-            catch (Exception ex)
-            {
                 throw ex;
             }
             finally

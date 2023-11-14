@@ -1,16 +1,41 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-noviembre-13-2023   
+-- Archivo creado  - martes-noviembre-14-2023   
 --------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Type PRODUCTOS_TABLA
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "C##VITAL"."PRODUCTOS_TABLA" AS TABLE OF producto_tipo;
+
+/
+--------------------------------------------------------
+--  DDL for Type PRODUCTO_TIPO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "C##VITAL"."PRODUCTO_TIPO" AS OBJECT (
+    cod_producto NUMBER,
+    nomb_producto VARCHAR2(50),
+    cantidad NUMBER,
+    cod_lote VARCHAR2(50),
+    total_venta NUMBER
+);
+
+/
 --------------------------------------------------------
 --  DDL for Sequence INCREMENTOCAT
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "C##VITAL"."INCREMENTOCAT"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+   CREATE SEQUENCE  "C##VITAL"."INCREMENTOCAT"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+--------------------------------------------------------
+--  DDL for Sequence INCREMENTODETALLEVENTA
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "C##VITAL"."INCREMENTODETALLEVENTA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
 --------------------------------------------------------
 --  DDL for Sequence INCREMENTOLAB
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "C##VITAL"."INCREMENTOLAB"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+   CREATE SEQUENCE  "C##VITAL"."INCREMENTOLAB"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
 --------------------------------------------------------
 --  DDL for Sequence INCREMENTOVENTA
 --------------------------------------------------------
@@ -123,37 +148,24 @@
   TABLESPACE "USERS" ;
 REM INSERTING into C##VITAL.CATEGORIAS
 SET DEFINE OFF;
-Insert into C##VITAL.CATEGORIAS (ID_CATEGORIA,NOMB_CATEGORIA) values ('21','prueba 3');
-Insert into C##VITAL.CATEGORIAS (ID_CATEGORIA,NOMB_CATEGORIA) values ('22','prueba 3');
-Insert into C##VITAL.CATEGORIAS (ID_CATEGORIA,NOMB_CATEGORIA) values ('1','prueba 2');
-Insert into C##VITAL.CATEGORIAS (ID_CATEGORIA,NOMB_CATEGORIA) values ('41','tabletas');
+Insert into C##VITAL.CATEGORIAS (ID_CATEGORIA,NOMB_CATEGORIA) values ('61','categoria 1');
 REM INSERTING into C##VITAL.DETALLES_VENTAS
 SET DEFINE OFF;
 REM INSERTING into C##VITAL.LABORATORIOS
 SET DEFINE OFF;
-Insert into C##VITAL.LABORATORIOS (ID_LABORATORIO,NOMB_LABORATORIO) values ('1','prueba 1');
-Insert into C##VITAL.LABORATORIOS (ID_LABORATORIO,NOMB_LABORATORIO) values ('21','lab 2');
+Insert into C##VITAL.LABORATORIOS (ID_LABORATORIO,NOMB_LABORATORIO) values ('41','lab prueba');
 REM INSERTING into C##VITAL.LOTES
 SET DEFINE OFF;
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote prueba 2','121212',to_date('11/11/23','DD/MM/RR'),'10','1000','2000');
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('prueba 44','2',to_date('15/11/23','DD/MM/RR'),'10','34','444');
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('asfasfsaf','2',to_date('11/11/23','DD/MM/RR'),'424','4444','444');
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote333','1',to_date('12/11/23','DD/MM/RR'),'5','20','30');
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('prueba lote ','1',to_date('11/11/23','DD/MM/RR'),'10','200000','300000');
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('prueba 3','2',to_date('13/11/23','DD/MM/RR'),'10','1','2');
+Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote1','1',to_date('14/11/23','DD/MM/RR'),'10','2000','3000');
+Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote2','1',to_date('14/11/23','DD/MM/RR'),'20','1000','2000');
+Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote1','2',to_date('14/11/23','DD/MM/RR'),'10','2000','3000');
 REM INSERTING into C##VITAL.PRODUCTOS
 SET DEFINE OFF;
-Insert into C##VITAL.PRODUCTOS (COD_PRODUCTO,NOMB_PRODUCTO,NIT_PROVEEDOR,ID_CATEGORIA,ID_LABORATORIO,DESCRIPCION) values ('2','asfsafas','2','22','1','asfasfasf');
-Insert into C##VITAL.PRODUCTOS (COD_PRODUCTO,NOMB_PRODUCTO,NIT_PROVEEDOR,ID_CATEGORIA,ID_LABORATORIO,DESCRIPCION) values ('3','asfsafasf','2','22','1','asfasfa');
-Insert into C##VITAL.PRODUCTOS (COD_PRODUCTO,NOMB_PRODUCTO,NIT_PROVEEDOR,ID_CATEGORIA,ID_LABORATORIO,DESCRIPCION) values ('1','prueba','2','22','1','aaaa');
-Insert into C##VITAL.PRODUCTOS (COD_PRODUCTO,NOMB_PRODUCTO,NIT_PROVEEDOR,ID_CATEGORIA,ID_LABORATORIO,DESCRIPCION) values ('121212','acetaminofen','4','21','21','olllklk');
+Insert into C##VITAL.PRODUCTOS (COD_PRODUCTO,NOMB_PRODUCTO,NIT_PROVEEDOR,ID_CATEGORIA,ID_LABORATORIO,DESCRIPCION) values ('2','ibuprofeno','123','61','41','prueba 2');
+Insert into C##VITAL.PRODUCTOS (COD_PRODUCTO,NOMB_PRODUCTO,NIT_PROVEEDOR,ID_CATEGORIA,ID_LABORATORIO,DESCRIPCION) values ('1','acetaminofen','123','61','41','prueba app');
 REM INSERTING into C##VITAL.PROVEEDORES
 SET DEFINE OFF;
-Insert into C##VITAL.PROVEEDORES (NIT_PROVEEDOR,NOMB_PROVEEDOR) values ('1','Proveedor Ejemplo');
-Insert into C##VITAL.PROVEEDORES (NIT_PROVEEDOR,NOMB_PROVEEDOR) values ('2','proveedor Prueba 2');
-Insert into C##VITAL.PROVEEDORES (NIT_PROVEEDOR,NOMB_PROVEEDOR) values ('3','Proveedor Ejemplo 3');
-Insert into C##VITAL.PROVEEDORES (NIT_PROVEEDOR,NOMB_PROVEEDOR) values ('4','prueba');
-Insert into C##VITAL.PROVEEDORES (NIT_PROVEEDOR,NOMB_PROVEEDOR) values ('5','proveedor');
+Insert into C##VITAL.PROVEEDORES (NIT_PROVEEDOR,NOMB_PROVEEDOR) values ('123','proveedor 1');
 REM INSERTING into C##VITAL.VENTAS
 SET DEFINE OFF;
 --------------------------------------------------------
@@ -244,6 +256,18 @@ BEGIN
 END;
 /
 ALTER TRIGGER "C##VITAL"."TRG_INCREMENTOVENTA" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TRG_INGREMENTO_DETALLE_VENTA
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "C##VITAL"."TRG_INGREMENTO_DETALLE_VENTA" 
+BEFORE INSERT ON detalles_ventas
+FOR EACH ROW
+BEGIN
+    SELECT incrementoDetalleVenta.NEXTVAL INTO :NEW.id_detalle_venta FROM dual;
+END;
+/
+ALTER TRIGGER "C##VITAL"."TRG_INGREMENTO_DETALLE_VENTA" ENABLE;
 --------------------------------------------------------
 --  DDL for Trigger TRG_LABORATORIO
 --------------------------------------------------------
@@ -579,6 +603,39 @@ BEGIN
     VALUES (nit,nombre);
     COMMIT;
 END prc_InsertarProveedor;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure PRC_INSERTARVENTA
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."PRC_INSERTARVENTA" (
+    p_fecha_venta DATE,
+    p_total_venta NUMBER,
+    p_productos_vendidos productos_tabla
+) AS
+    venta_id NUMBER;
+BEGIN
+    -- Lógica para insertar la venta
+    INSERT INTO Ventas(fecha_venta, total_venta)
+    VALUES (p_fecha_venta, p_total_venta)
+    RETURNING id_venta INTO venta_id;
+
+    -- Lógica para insertar detalles de la venta
+    FOR i IN 1..p_productos_vendidos.COUNT
+    LOOP
+        INSERT INTO Detalles_Ventas(id_venta, cod_producto, cantidad, cod_lote, total_venta)
+        VALUES (
+            venta_id,
+            p_productos_vendidos(i).cod_producto,
+            p_productos_vendidos(i).cantidad,
+            p_productos_vendidos(i).cod_lote,
+            p_productos_vendidos(i).total_venta
+        );
+    END LOOP;
+    COMMIT; -- Confirmar la transacción
+END prc_InsertarVenta;
 
 /
 --------------------------------------------------------

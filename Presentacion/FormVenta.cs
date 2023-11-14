@@ -21,6 +21,7 @@ namespace Presentacion
 
         LoteService loteService = new LoteService();
         ProductoService productoService = new ProductoService();
+        VentaService ventaService = new VentaService();
         public FormVenta()
         {
             InitializeComponent();
@@ -207,7 +208,10 @@ namespace Presentacion
                 txtCambio.Text = string.Empty; // O algún otro valor predeterminado
             }
         }
-
+        private void btnVender_Click(object sender, EventArgs e)
+        {
+            RegistrarVenta();
+        }
         private void RegistrarVenta()
         {
             List<ProductoVendido> detalleVenta = ProductosAVender();
@@ -216,7 +220,7 @@ namespace Presentacion
                 fecha_venta = DateTime.Now,
                 total_venta = total,
             };
-
+            var msg = ventaService.InsertarVenta(venta, detalleVenta);
         }
 
         private List<ProductoVendido> ProductosAVender()
@@ -228,48 +232,43 @@ namespace Presentacion
                 {
                     productosAVender.Add(new ProductoVendido
                     {
-                        cod_producto = Convert.ToDecimal(row.Cells["cod_producto"].Value),
-                        nomb_producto = row.Cells["nomb_producto"].Value.ToString(),
-                        cantidad = Convert.ToDecimal(row.Cells["cantidad"].Value),
-                        cod_lote = row.Cells["cod_lote"].Value.ToString(),
-                        valor = Convert.ToDecimal(row.Cells["valor"].Value)
+                        cod_producto = Convert.ToDecimal(row.Cells["CodProducto"].Value),
+                        nomb_producto = row.Cells["NombProducto"].Value.ToString(),
+                        cantidad = Convert.ToDecimal(row.Cells["Cantidad"].Value),
+                        cod_lote = row.Cells["CodLote"].Value.ToString(),
+                        valor = Convert.ToDecimal(row.Cells["Valor"].Value)
                     });
                 }
             }
             return productosAVender;
         }
 
+        
 
+        //private DataTable ProductosAVender()
+        //{
+        //    DataTable productosAVender = new DataTable();
+        //    productosAVender.Columns.Add("cod_producto", typeof(decimal));
+        //    productosAVender.Columns.Add("nomb_producto", typeof(string));
+        //    productosAVender.Columns.Add("cantidad", typeof(decimal));
+        //    productosAVender.Columns.Add("cod_lote", typeof(string));
+        //    productosAVender.Columns.Add("valor", typeof(decimal));
 
-
-
-
-
-
-            //private DataTable ProductosAVender()
-            //{
-            //    DataTable productosAVender = new DataTable();
-            //    productosAVender.Columns.Add("cod_producto", typeof(decimal));
-            //    productosAVender.Columns.Add("nomb_producto", typeof(string));
-            //    productosAVender.Columns.Add("cantidad", typeof(decimal));
-            //    productosAVender.Columns.Add("cod_lote", typeof(string));
-            //    productosAVender.Columns.Add("valor", typeof(decimal));
-
-            //    foreach (DataGridViewRow row in dgvVenta.Rows)
-            //    {
-            //        if (!row.IsNewRow) // Ignorar la fila nueva si está presente
-            //        {
-            //            productosAVender.Rows.Add(new object[]
-            //            {
-            //                Convert.ToDecimal(row.Cells["cod_producto"].Value),
-            //                row.Cells["nomb_producto"].Value.ToString(),
-            //                Convert.ToDecimal(row.Cells["cantidad"].Value),
-            //                row.Cells["cod_lote"].Value.ToString(),
-            //                Convert.ToDecimal(row.Cells["valor"].Value)
-            //            });
-            //        }
-            //    }
-            //    return productosAVender;
-            //}
-        }
+        //    foreach (DataGridViewRow row in dgvVenta.Rows)
+        //    {
+        //        if (!row.IsNewRow) // Ignorar la fila nueva si está presente
+        //        {
+        //            productosAVender.Rows.Add(new object[]
+        //            {
+        //                    Convert.ToDecimal(row.Cells["cod_producto"].Value),
+        //                    row.Cells["nomb_producto"].Value.ToString(),
+        //                    Convert.ToDecimal(row.Cells["cantidad"].Value),
+        //                    row.Cells["cod_lote"].Value.ToString(),
+        //                    Convert.ToDecimal(row.Cells["valor"].Value)
+        //            });
+        //        }
+        //    }
+        //    return productosAVender;
+        //}
+    }
     }
