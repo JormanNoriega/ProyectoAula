@@ -1,6 +1,18 @@
 --------------------------------------------------------
 -- Archivo creado  - martes-noviembre-14-2023   
 --------------------------------------------------------
+CREATE USER C##vital IDENTIFIED BY vital;
+
+GRANT CONNECT TO C##vital;
+GRANT UNLIMITED TABLESPACE TO C##vital;
+
+GRANT CREATE SESSION, CREATE ANY TABLE, CREATE PUBLIC SYNONYM, SELECT ANY
+TABLE, INSERT ANY TABLE, UPDATE ANY TABLE, DELETE ANY TABLE TO C##vital;
+
+GRANT CREATE SEQUENCE TO C##vital;
+GRANT CREATE PROCEDURE TO C##vital;
+GRANT CREATE ANY TRIGGER TO C##vital;
+
 --------------------------------------------------------
 --  DDL for Type PRODUCTOS_TABLA
 --------------------------------------------------------
