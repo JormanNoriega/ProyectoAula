@@ -34,6 +34,7 @@ namespace Presentacion
         private void FormVenta_Load(object sender, EventArgs e)
         {
             dgvVenta.CellFormatting += dgvVenta_CellFormatting;
+            dgvVentaRegistradas.DataSource = ventaService.MostrarVentas();
         }
 
         private void Redondear(Control control, int radius)
@@ -221,6 +222,9 @@ namespace Presentacion
                 total_venta = total,
             };
             var msg = ventaService.InsertarVenta(venta, detalleVenta);
+            MessageBox.Show(msg);
+            LimpiarDatosProducto();
+            dgvVenta.Rows.Clear();
         }
 
         private List<ProductoVendido> ProductosAVender()

@@ -307,48 +307,21 @@ UPDATE Lotes
     WHERE COD_LOTE = 'preuba 2'
     AND COD_PRODUCTO = 2;
     
-
-//logica de venta
-CREATE OR REPLACE TYPE producto_tipo AS OBJECT (
-    cod_producto NUMBER,
-    nomb_producto VARCHAR2(50),
-    cantidad NUMBER,
-    cod_lote VARCHAR2(50),
-    total_venta NUMBER
-);
-
-CREATE OR REPLACE TYPE productos_tabla AS TABLE OF producto_tipo;
-
-CREATE OR REPLACE PROCEDURE prc_InsertarVenta(
-    p_fecha_venta DATE,
-    p_total_venta NUMBER,
-    p_productos_vendidos productos_tabla
-) AS
-    venta_id NUMBER;
+//ventas
+CREATE OR REPLACE PROCEDURE Prc_ConsultarVentas(resultados OUT SYS_REFCURSOR)
+AS
 BEGIN
-    -- Lógica para insertar la venta
-    INSERT INTO Ventas(fecha_venta, total_venta)
-    VALUES (p_fecha_venta, p_total_venta)
-    RETURNING id_venta INTO venta_id;
-    
-    -- Lógica para insertar detalles de la venta
-    FOR i IN 1..p_productos_vendidos.COUNT
-    LOOP
-        INSERT INTO Detalles_Ventas(id_venta, cod_producto, cantidad, cod_lote, total_venta)
-        VALUES (
-            venta_id,
-            p_productos_vendidos(i).cod_producto,
-            p_productos_vendidos(i).cantidad,
-            p_productos_vendidos(i).cod_lote,
-            p_productos_vendidos(i).total_venta
-        );
-    END LOOP;
-    COMMIT; -- Confirmar la transacción
-END prc_InsertarVenta;
+  OPEN resultados FOR
+    SELECT * FROM VENTAS;
+END Prc_ConsultarVentas;
 
-SELECT * FROM Ventas;
-
-
+CREATE OR REPLACE PROCEDURE Prc_ConsultarDetallesVenta(p_id_venta ventas.id_venta%type, resultados OUT SYS_REFCURSOR)
+AS
+BEGIN
+  OPEN resultados FOR
+    SELECT * FROM DETALLES_VENTAS WHERE ID_VENTA = p_id_venta;
+END Prc_ConsultarDetallesVenta;
+/
 
 
 

@@ -13,18 +13,20 @@ namespace Entity
         public Producto producto { get; set; }
         public decimal cantidad { get; set; }
         public Lote lote { get; set; }
+        public decimal total_venta { get; set; }
 
         public DetalleVenta()
         {
         }
 
-        public DetalleVenta(decimal id_detalle_venta, Venta venta, Producto producto, decimal cantidad, Lote lote)
+        public DetalleVenta(decimal id_detalle_venta, Venta venta, Producto producto, decimal cantidad, Lote lote, decimal total_venta)
         {
             this.id_detalle_venta = id_detalle_venta;
             this.venta = venta;
             this.producto = producto;
             this.cantidad = cantidad;
             this.lote = lote;
+            this.total_venta = total_venta;
         }
     }
 }

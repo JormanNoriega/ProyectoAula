@@ -50,7 +50,7 @@ namespace DAL
             try
             {
                 sqlCon = DAL_Conexion.getInstancia().CrearConexion();
-                OracleCommand comando = new OracleCommand("prc_MostrarLotes", sqlCon);
+                OracleCommand comando = new OracleCommand("prc_ConsultarLotes", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add(new OracleParameter("CodProductoBuscado", CodProducto));
                 comando.Parameters.Add(new OracleParameter("Resultados", OracleDbType.RefCursor, ParameterDirection.Output));

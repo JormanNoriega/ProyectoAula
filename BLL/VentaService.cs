@@ -15,5 +15,14 @@ namespace BLL
         {
             return repository.RegistrarVenta(venta, productosVendidos);
         }
+
+        public List<Venta> MostrarVentas()
+        {
+            return repository.MostrarVentas();
+        }
+        public List<DetalleVenta> MostrarDetallesVentas(decimal id_venta)
+        {
+            return repository.MostrarDetallesVentas(id_venta);
+        }
     }
 }
