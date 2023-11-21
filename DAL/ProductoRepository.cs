@@ -158,11 +158,6 @@ namespace DAL
             }
         }
 
-
-
-
-
-
         private Proveedor ObtenerProveedor(decimal nitProveedor)
         {
             return proveedorRepository.MostrarProveedores().Find(p => p.nit_proveedor == nitProveedor);

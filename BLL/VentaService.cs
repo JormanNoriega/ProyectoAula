@@ -24,5 +24,23 @@ namespace BLL
         {
             return repository.MostrarDetallesVentas(id_venta);
         }
+
+        public List<VentaPorDia> ObtenerVentasAgrupadasPorDia(DateTime fechaInicio, DateTime fechaFin)
+        {
+            var ventasFiltradas = MostrarVentas()
+                .Where(v => v.fecha_venta >= fechaInicio && v.fecha_venta <= fechaFin)
+                .ToList();
+
+            // Agrupar las ventas por día y sumar los totales
+            var ventasPorDia = ventasFiltradas
+                .GroupBy(v => v.fecha_venta.Date)
+                .Select(group => new VentaPorDia
+                {
+                    Fecha = group.Key,
+                    TotalVentasPorDia = group.Sum(v => v.total_venta)
+                })
+                .ToList();
+            return ventasPorDia;
+        }
     }
 }

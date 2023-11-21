@@ -74,6 +74,7 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVerDetallesVenta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentaRegistradas)).BeginInit();
             this.tabVenta.SuspendLayout();
             this.tabVentasRegistradas.SuspendLayout();
@@ -157,6 +158,7 @@
             // panelDatos
             // 
             this.panelDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatos.Controls.Add(this.btnVerDetallesVenta);
             this.panelDatos.Controls.Add(this.panelDgvVentasRealizadas);
             this.panelDatos.Location = new System.Drawing.Point(103, 127);
             this.panelDatos.Name = "panelDatos";
@@ -588,6 +590,16 @@
             this.Valor.HeaderText = "Valor";
             this.Valor.Name = "Valor";
             // 
+            // btnVerDetallesVenta
+            // 
+            this.btnVerDetallesVenta.Location = new System.Drawing.Point(72, 694);
+            this.btnVerDetallesVenta.Name = "btnVerDetallesVenta";
+            this.btnVerDetallesVenta.Size = new System.Drawing.Size(132, 39);
+            this.btnVerDetallesVenta.TabIndex = 4;
+            this.btnVerDetallesVenta.Text = "Ver Detalles de Venta";
+            this.btnVerDetallesVenta.UseVisualStyleBackColor = true;
+            this.btnVerDetallesVenta.Click += new System.EventHandler(this.btnVerDetallesVenta_Click);
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -658,5 +670,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnVerDetallesVenta;
     }
 }

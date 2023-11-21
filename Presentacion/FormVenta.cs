@@ -17,6 +17,7 @@ namespace Presentacion
     {
         private Producto productoActual;
         private Lote loteActual;
+        private string id_ventaActual;
         private decimal total;
 
         LoteService loteService = new LoteService();
@@ -34,7 +35,7 @@ namespace Presentacion
         private void FormVenta_Load(object sender, EventArgs e)
         {
             dgvVenta.CellFormatting += dgvVenta_CellFormatting;
-            dgvVentaRegistradas.DataSource = ventaService.MostrarVentas();
+            MostrarVentas();
         }
 
         private void Redondear(Control control, int radius)
@@ -48,6 +49,68 @@ namespace Presentacion
 
             // Aplica la región con los bordes redondeados al control
             control.Region = new Region(path);
+        }
+
+        public void MostrarVentas()
+        {
+            dgvVentaRegistradas.Rows.Clear();
+            dgvVentaRegistradas.Columns.Clear();
+            if (dgvVentaRegistradas.ColumnCount == 0)
+            {
+                dgvVentaRegistradas.Columns.Add("IdVenta", "ID de Venta");
+                dgvVentaRegistradas.Columns.Add("Fecha", "Fecha de Venta");
+                dgvVentaRegistradas.Columns.Add("Total", "Total Vendido");
+            }
+            var ventas = ventaService.MostrarVentas();
+            foreach (var venta in ventas)
+            {
+                dgvVentaRegistradas.Rows.Add(
+                    venta.id_venta,
+                    venta.fecha_venta,
+                    venta.total_venta
+                    );
+            }
+        }
+        private void btnVerDetallesVenta_Click(object sender, EventArgs e)
+        {
+            if (dgvVentaRegistradas.SelectedRows.Count > 0)
+            {
+                id_ventaActual = dgvVentaRegistradas.SelectedRows[0].Cells["IdVenta"].Value.ToString();
+                MostrarDetallesVenta(id_ventaActual);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una Venta");
+            }
+
+        }
+
+        public void MostrarDetallesVenta(string id_venta)
+        {
+            var detallesVentas = ventaService.MostrarDetallesVentas(Convert.ToDecimal(id_venta));
+            dgvVentaRegistradas.Rows.Clear();
+            dgvVentaRegistradas.Columns.Clear();
+
+            if (dgvVentaRegistradas.ColumnCount == 0)
+            {
+                dgvVentaRegistradas.Columns.Add("id_detalle_venta", "ID Detalle Venta");
+                dgvVentaRegistradas.Columns.Add("id_venta", "ID Venta");
+                dgvVentaRegistradas.Columns.Add("nomb_producto", "Nombre de Producto");
+                dgvVentaRegistradas.Columns.Add("cod_lote", "Codigo de Lote");
+                dgvVentaRegistradas.Columns.Add("Cantidad", "Cantidad Vendida");
+                dgvVentaRegistradas.Columns.Add("total", "SubTotal");
+            }
+            foreach (var detalle in detallesVentas)
+            {
+                dgvVentaRegistradas.Rows.Add(
+                    detalle.id_detalle_venta,
+                    detalle.venta.id_venta,
+                    detalle.producto.nomb_producto,
+                    detalle.lote.cod_lote,
+                    detalle.cantidad,
+                    detalle.total_venta
+                );
+            }
         }
 
         private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
@@ -212,6 +275,7 @@ namespace Presentacion
         private void btnVender_Click(object sender, EventArgs e)
         {
             RegistrarVenta();
+            MostrarVentas();
         }
         private void RegistrarVenta()
         {
@@ -247,7 +311,6 @@ namespace Presentacion
             return productosAVender;
         }
 
-        
 
         //private DataTable ProductosAVender()
         //{
