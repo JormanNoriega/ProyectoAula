@@ -1,6 +1,3 @@
---------------------------------------------------------
--- Archivo creado  - martes-noviembre-14-2023   
---------------------------------------------------------
 CREATE USER C##vital IDENTIFIED BY vital;
 
 GRANT CONNECT TO C##vital;
@@ -13,27 +10,9 @@ GRANT CREATE SEQUENCE TO C##vital;
 GRANT CREATE PROCEDURE TO C##vital;
 GRANT CREATE ANY TRIGGER TO C##vital;
 GRANT CREATE TYPE TO C##vital;
-
 --------------------------------------------------------
---  DDL for Type PRODUCTOS_TABLA
+-- Archivo creado  - miércoles-noviembre-22-2023   
 --------------------------------------------------------
-
-  CREATE OR REPLACE EDITIONABLE TYPE "C##VITAL"."PRODUCTOS_TABLA" AS TABLE OF producto_tipo;
-
-/
---------------------------------------------------------
---  DDL for Type PRODUCTO_TIPO
---------------------------------------------------------
-
-  CREATE OR REPLACE EDITIONABLE TYPE "C##VITAL"."PRODUCTO_TIPO" AS OBJECT (
-    cod_producto NUMBER,
-    nomb_producto VARCHAR2(50),
-    cantidad NUMBER,
-    cod_lote VARCHAR2(50),
-    total_venta NUMBER
-);
-
-/
 --------------------------------------------------------
 --  DDL for Sequence INCREMENTOCAT
 --------------------------------------------------------
@@ -43,7 +22,7 @@ GRANT CREATE TYPE TO C##vital;
 --  DDL for Sequence INCREMENTODETALLEVENTA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "C##VITAL"."INCREMENTODETALLEVENTA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+   CREATE SEQUENCE  "C##VITAL"."INCREMENTODETALLEVENTA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
 --------------------------------------------------------
 --  DDL for Sequence INCREMENTOLAB
 --------------------------------------------------------
@@ -53,7 +32,7 @@ GRANT CREATE TYPE TO C##vital;
 --  DDL for Sequence INCREMENTOVENTA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "C##VITAL"."INCREMENTOVENTA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+   CREATE SEQUENCE  "C##VITAL"."INCREMENTOVENTA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
 --------------------------------------------------------
 --  DDL for Table CATEGORIAS
 --------------------------------------------------------
@@ -79,9 +58,12 @@ GRANT CREATE TYPE TO C##vital;
 	"CANTIDAD" NUMBER(4,0), 
 	"TOTAL_VENTA" NUMBER(10,0), 
 	"COD_LOTE" VARCHAR2(20 BYTE)
-   ) SEGMENT CREATION DEFERRED 
+   ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table LABORATORIOS
@@ -155,23 +137,36 @@ GRANT CREATE TYPE TO C##vital;
    (	"ID_VENTA" NUMBER(14,0), 
 	"FECHA_VENTA" DATE, 
 	"TOTAL_VENTA" NUMBER(18,0)
-   ) SEGMENT CREATION DEFERRED 
+   ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 REM INSERTING into C##VITAL.CATEGORIAS
 SET DEFINE OFF;
 Insert into C##VITAL.CATEGORIAS (ID_CATEGORIA,NOMB_CATEGORIA) values ('61','categoria 1');
 REM INSERTING into C##VITAL.DETALLES_VENTAS
 SET DEFINE OFF;
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('41','61','1','2','6000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('42','61','2','1','3000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('61','81','1','1','3000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('4','3','1','2','6000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('21','41','1','2','6000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('22','41','1','2','4000','lote2');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('62','82','2','3','9000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('1','1','1','2','6000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('2','1','2','2','6000','lote1');
+Insert into C##VITAL.DETALLES_VENTAS (ID_DETALLE_VENTA,ID_VENTA,COD_PRODUCTO,CANTIDAD,TOTAL_VENTA,COD_LOTE) values ('3','2','1','2','6000','lote1');
 REM INSERTING into C##VITAL.LABORATORIOS
 SET DEFINE OFF;
 Insert into C##VITAL.LABORATORIOS (ID_LABORATORIO,NOMB_LABORATORIO) values ('41','lab prueba');
 REM INSERTING into C##VITAL.LOTES
 SET DEFINE OFF;
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote1','1',to_date('14/11/23','DD/MM/RR'),'10','2000','3000');
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote2','1',to_date('14/11/23','DD/MM/RR'),'20','1000','2000');
-Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote1','2',to_date('14/11/23','DD/MM/RR'),'10','2000','3000');
+Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote1','1',to_date('14/11/23','DD/MM/RR'),'3','2000','3000');
+Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote2','1',to_date('14/11/23','DD/MM/RR'),'18','1000','2000');
+Insert into C##VITAL.LOTES (COD_LOTE,COD_PRODUCTO,VENCIMIENTO,CANTIDAD,PRECIO_COMPRA,PRECIO_VENTA) values ('lote1','2',to_date('14/11/23','DD/MM/RR'),'6','2000','3000');
 REM INSERTING into C##VITAL.PRODUCTOS
 SET DEFINE OFF;
 Insert into C##VITAL.PRODUCTOS (COD_PRODUCTO,NOMB_PRODUCTO,NIT_PROVEEDOR,ID_CATEGORIA,ID_LABORATORIO,DESCRIPCION) values ('2','ibuprofeno','123','61','41','prueba 2');
@@ -181,6 +176,13 @@ SET DEFINE OFF;
 Insert into C##VITAL.PROVEEDORES (NIT_PROVEEDOR,NOMB_PROVEEDOR) values ('123','proveedor 1');
 REM INSERTING into C##VITAL.VENTAS
 SET DEFINE OFF;
+Insert into C##VITAL.VENTAS (ID_VENTA,FECHA_VENTA,TOTAL_VENTA) values ('61',to_date('21/11/23','DD/MM/RR'),'9000');
+Insert into C##VITAL.VENTAS (ID_VENTA,FECHA_VENTA,TOTAL_VENTA) values ('81',to_date('22/11/23','DD/MM/RR'),'3000');
+Insert into C##VITAL.VENTAS (ID_VENTA,FECHA_VENTA,TOTAL_VENTA) values ('3',to_date('18/11/23','DD/MM/RR'),'6000');
+Insert into C##VITAL.VENTAS (ID_VENTA,FECHA_VENTA,TOTAL_VENTA) values ('41',to_date('18/11/23','DD/MM/RR'),'10000');
+Insert into C##VITAL.VENTAS (ID_VENTA,FECHA_VENTA,TOTAL_VENTA) values ('82',to_date('22/11/23','DD/MM/RR'),'9000');
+Insert into C##VITAL.VENTAS (ID_VENTA,FECHA_VENTA,TOTAL_VENTA) values ('1',to_date('18/11/23','DD/MM/RR'),'12000');
+Insert into C##VITAL.VENTAS (ID_VENTA,FECHA_VENTA,TOTAL_VENTA) values ('2',to_date('18/11/23','DD/MM/RR'),'6000');
 --------------------------------------------------------
 --  DDL for Index CATEGORIAS_PK
 --------------------------------------------------------
@@ -197,6 +199,9 @@ SET DEFINE OFF;
 
   CREATE UNIQUE INDEX "C##VITAL"."DETALLES_VENTAS_PK" ON "C##VITAL"."DETALLES_VENTAS" ("ID_DETALLE_VENTA") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index LABORATORIOS_PK
@@ -244,6 +249,9 @@ SET DEFINE OFF;
 
   CREATE UNIQUE INDEX "C##VITAL"."VENTAS_PK" ON "C##VITAL"."VENTAS" ("ID_VENTA") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Trigger TRG_CATEGORIA
@@ -294,59 +302,6 @@ END;
 /
 ALTER TRIGGER "C##VITAL"."TRG_LABORATORIO" ENABLE;
 --------------------------------------------------------
---  DDL for Procedure BUSCARPRODUCTO
---------------------------------------------------------
-set define off;
-
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."BUSCARPRODUCTO" (CodProductoBuscado productos.cod_producto%TYPE, Resultados OUT SYS_REFCURSOR)
-AS
-BEGIN
-  OPEN Resultados FOR SELECT * FROM PRODUCTOS WHERE Cod_Producto = CodProductoBuscado;
-END BuscarProducto;
-
-/
---------------------------------------------------------
---  DDL for Procedure CONSULTARPRODUCTOS
---------------------------------------------------------
-set define off;
-
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."CONSULTARPRODUCTOS" (resultados OUT SYS_REFCURSOR)
-AS
-BEGIN
-  OPEN  resultados FOR
-    SELECT
-      p.Cod_Producto "Codigo_Producto",
-      p.Nomb_Producto "Nombre_Producto",
-      f.nit_proveedor "Nit_Proveedor",
-      f.Nomb_Proveedor "Nombre_Proveedor",
-      c.id_categoria "Id_Categoria",
-      c.Nomb_Categoria "Nombre_Categoria",
-      l.id_laboratorio "Id_laboratorio",
-      l.Nomb_Laboratorio "Nombre_Laboratorio",
-      COALESCE(SUM(lt.cantidad), 0)"Cantidad_Total",
-      p.descripcion "Descripcion"
-    FROM Productos p
-    INNER JOIN Proveedores f ON p.Nit_Proveedor = f.Nit_Proveedor
-    INNER JOIN Categorias c ON p.Id_Categoria = c.Id_Categoria
-    INNER JOIN Laboratorios l ON p.Id_Laboratorio = l.Id_Laboratorio
-    LEFT JOIN Lotes lt ON p.Cod_Producto = lt.Cod_Producto OR lt.Cod_Producto IS NULL
-    GROUP BY p.Cod_Producto, p.Nomb_Producto, f.nit_proveedor, f.Nomb_Proveedor, c.id_categoria, c.Nomb_Categoria, l.id_laboratorio, l.Nomb_Laboratorio,p.descripcion;
-END ConsultarProductos;
-
-/
---------------------------------------------------------
---  DDL for Procedure MOSTRARLOTES
---------------------------------------------------------
-set define off;
-
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."MOSTRARLOTES" (CodProductoBuscado productos.cod_producto%TYPE, resultados OUT SYS_REFCURSOR)
-AS
-BEGIN
-  OPEN  resultados FOR SELECT * FROM Lotes WHERE Cod_Producto = CodProductoBuscado;
-END MostrarLotes;
-
-/
---------------------------------------------------------
 --  DDL for Procedure PRC_ACTUALIZARLOTE
 --------------------------------------------------------
 set define off;
@@ -396,6 +351,73 @@ BEGIN
     WHERE COD_PRODUCTO = p_cod_producto;
     COMMIT;
 END prc_actualizarproducto;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure PRC_CONSULTARDETALLESVENTA
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."PRC_CONSULTARDETALLESVENTA" (p_id_venta ventas.id_venta%type, resultados OUT SYS_REFCURSOR)
+AS
+BEGIN
+  OPEN resultados FOR
+    SELECT * FROM DETALLES_VENTAS WHERE ID_VENTA = p_id_venta;
+END Prc_ConsultarDetallesVenta;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure PRC_CONSULTARLOTES
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."PRC_CONSULTARLOTES" (CodProductoBuscado productos.cod_producto%TYPE, resultados OUT SYS_REFCURSOR)
+AS
+BEGIN
+  OPEN  resultados FOR SELECT * FROM Lotes WHERE Cod_Producto = CodProductoBuscado;
+END prc_ConsultarLotes;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure PRC_CONSULTARPRODUCTOS
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."PRC_CONSULTARPRODUCTOS" (resultados OUT SYS_REFCURSOR)
+AS
+BEGIN
+  OPEN  resultados FOR
+    SELECT
+      p.Cod_Producto "Codigo_Producto",
+      p.Nomb_Producto "Nombre_Producto",
+      f.nit_proveedor "Nit_Proveedor",
+      f.Nomb_Proveedor "Nombre_Proveedor",
+      c.id_categoria "Id_Categoria",
+      c.Nomb_Categoria "Nombre_Categoria",
+      l.id_laboratorio "Id_laboratorio",
+      l.Nomb_Laboratorio "Nombre_Laboratorio",
+      COALESCE(SUM(lt.cantidad), 0)"Cantidad_Total",
+      p.descripcion "Descripcion"
+    FROM Productos p
+    INNER JOIN Proveedores f ON p.Nit_Proveedor = f.Nit_Proveedor
+    INNER JOIN Categorias c ON p.Id_Categoria = c.Id_Categoria
+    INNER JOIN Laboratorios l ON p.Id_Laboratorio = l.Id_Laboratorio
+    LEFT JOIN Lotes lt ON p.Cod_Producto = lt.Cod_Producto OR lt.Cod_Producto IS NULL
+    GROUP BY p.Cod_Producto, p.Nomb_Producto, f.nit_proveedor, f.Nomb_Proveedor, c.id_categoria, c.Nomb_Categoria, l.id_laboratorio, l.Nomb_Laboratorio,p.descripcion;
+END Prc_ConsultarProductos;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure PRC_CONSULTARVENTAS
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."PRC_CONSULTARVENTAS" (resultados OUT SYS_REFCURSOR)
+AS
+BEGIN
+  OPEN resultados FOR
+    SELECT * FROM VENTAS;
+END Prc_ConsultarVentas;
 
 /
 --------------------------------------------------------
@@ -619,51 +641,6 @@ END prc_InsertarProveedor;
 
 /
 --------------------------------------------------------
---  DDL for Procedure PRC_INSERTARVENTA
---------------------------------------------------------
-set define off;
-
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."PRC_INSERTARVENTA" (
-    p_fecha_venta DATE,
-    p_total_venta NUMBER,
-    p_productos_vendidos productos_tabla
-) AS
-    venta_id NUMBER;
-BEGIN
-    -- Lógica para insertar la venta
-    INSERT INTO Ventas(fecha_venta, total_venta)
-    VALUES (p_fecha_venta, p_total_venta)
-    RETURNING id_venta INTO venta_id;
-
-    -- Lógica para insertar detalles de la venta
-    FOR i IN 1..p_productos_vendidos.COUNT
-    LOOP
-        INSERT INTO Detalles_Ventas(id_venta, cod_producto, cantidad, cod_lote, total_venta)
-        VALUES (
-            venta_id,
-            p_productos_vendidos(i).cod_producto,
-            p_productos_vendidos(i).cantidad,
-            p_productos_vendidos(i).cod_lote,
-            p_productos_vendidos(i).total_venta
-        );
-    END LOOP;
-    COMMIT; -- Confirmar la transacción
-END prc_InsertarVenta;
-
-/
---------------------------------------------------------
---  DDL for Procedure PRC_MOSTRARLOTES
---------------------------------------------------------
-set define off;
-
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "C##VITAL"."PRC_MOSTRARLOTES" (CodProductoBuscado productos.cod_producto%TYPE, resultados OUT SYS_REFCURSOR)
-AS
-BEGIN
-  OPEN  resultados FOR SELECT * FROM Lotes WHERE Cod_Producto = CodProductoBuscado;
-END prc_MostrarLotes;
-
-/
---------------------------------------------------------
 --  Constraints for Table PROVEEDORES
 --------------------------------------------------------
 
@@ -696,6 +673,9 @@ END prc_MostrarLotes;
   ALTER TABLE "C##VITAL"."VENTAS" MODIFY ("TOTAL_VENTA" NOT NULL ENABLE);
   ALTER TABLE "C##VITAL"."VENTAS" ADD CONSTRAINT "VENTAS_PK" PRIMARY KEY ("ID_VENTA")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
 --------------------------------------------------------
 --  Constraints for Table LOTES
@@ -734,6 +714,9 @@ END prc_MostrarLotes;
   ALTER TABLE "C##VITAL"."DETALLES_VENTAS" MODIFY ("TOTAL_VENTA" NOT NULL ENABLE);
   ALTER TABLE "C##VITAL"."DETALLES_VENTAS" ADD CONSTRAINT "DETALLES_VENTAS_PK" PRIMARY KEY ("ID_DETALLE_VENTA")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
 --------------------------------------------------------
 --  Constraints for Table LABORATORIOS

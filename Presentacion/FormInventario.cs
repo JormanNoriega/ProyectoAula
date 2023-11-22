@@ -117,6 +117,7 @@ namespace Presentacion
                 txtFiltroProducto.Visible = false;
                 txtFiltroLote.Visible = true;
                 lbCodLote.Visible = true;
+                btnVerLotes.Visible = false;
 
             }
             else

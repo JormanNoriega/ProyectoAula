@@ -37,6 +37,7 @@
             this.tabVenta = new System.Windows.Forms.TabControl();
             this.tabVentasRegistradas = new System.Windows.Forms.TabPage();
             this.panelDatos = new System.Windows.Forms.Panel();
+            this.btnVerDetallesVenta = new System.Windows.Forms.Button();
             this.panelDgvVentasRealizadas = new System.Windows.Forms.Panel();
             this.tabNuevaVenta = new System.Windows.Forms.TabPage();
             this.panelDatos2 = new System.Windows.Forms.Panel();
@@ -74,7 +75,8 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVerDetallesVenta = new System.Windows.Forms.Button();
+            this.lbCodLote = new System.Windows.Forms.Label();
+            this.txtFiltroVenta = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentaRegistradas)).BeginInit();
             this.tabVenta.SuspendLayout();
             this.tabVentasRegistradas.SuspendLayout();
@@ -158,12 +160,24 @@
             // panelDatos
             // 
             this.panelDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(31)))), ((int)(((byte)(54)))));
+            this.panelDatos.Controls.Add(this.txtFiltroVenta);
+            this.panelDatos.Controls.Add(this.lbCodLote);
             this.panelDatos.Controls.Add(this.btnVerDetallesVenta);
             this.panelDatos.Controls.Add(this.panelDgvVentasRealizadas);
             this.panelDatos.Location = new System.Drawing.Point(103, 127);
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(1438, 795);
             this.panelDatos.TabIndex = 0;
+            // 
+            // btnVerDetallesVenta
+            // 
+            this.btnVerDetallesVenta.Location = new System.Drawing.Point(72, 694);
+            this.btnVerDetallesVenta.Name = "btnVerDetallesVenta";
+            this.btnVerDetallesVenta.Size = new System.Drawing.Size(132, 39);
+            this.btnVerDetallesVenta.TabIndex = 4;
+            this.btnVerDetallesVenta.Text = "Ver Detalles de Venta";
+            this.btnVerDetallesVenta.UseVisualStyleBackColor = true;
+            this.btnVerDetallesVenta.Click += new System.EventHandler(this.btnVerDetallesVenta_Click);
             // 
             // panelDgvVentasRealizadas
             // 
@@ -590,15 +604,28 @@
             this.Valor.HeaderText = "Valor";
             this.Valor.Name = "Valor";
             // 
-            // btnVerDetallesVenta
+            // lbCodLote
             // 
-            this.btnVerDetallesVenta.Location = new System.Drawing.Point(72, 694);
-            this.btnVerDetallesVenta.Name = "btnVerDetallesVenta";
-            this.btnVerDetallesVenta.Size = new System.Drawing.Size(132, 39);
-            this.btnVerDetallesVenta.TabIndex = 4;
-            this.btnVerDetallesVenta.Text = "Ver Detalles de Venta";
-            this.btnVerDetallesVenta.UseVisualStyleBackColor = true;
-            this.btnVerDetallesVenta.Click += new System.EventHandler(this.btnVerDetallesVenta_Click);
+            this.lbCodLote.AutoSize = true;
+            this.lbCodLote.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.lbCodLote.ForeColor = System.Drawing.Color.White;
+            this.lbCodLote.Location = new System.Drawing.Point(68, 82);
+            this.lbCodLote.Name = "lbCodLote";
+            this.lbCodLote.Size = new System.Drawing.Size(141, 23);
+            this.lbCodLote.TabIndex = 9;
+            this.lbCodLote.Text = "Buscar Venta";
+            this.lbCodLote.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // txtFiltroVenta
+            // 
+            this.txtFiltroVenta.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFiltroVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroVenta.Location = new System.Drawing.Point(231, 74);
+            this.txtFiltroVenta.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.txtFiltroVenta.Name = "txtFiltroVenta";
+            this.txtFiltroVenta.Size = new System.Drawing.Size(546, 31);
+            this.txtFiltroVenta.TabIndex = 10;
+            this.txtFiltroVenta.TextChanged += new System.EventHandler(this.txtFiltroVenta_TextChanged);
             // 
             // FormVenta
             // 
@@ -615,6 +642,7 @@
             this.tabVentasRegistradas.ResumeLayout(false);
             this.tabVentasRegistradas.PerformLayout();
             this.panelDatos.ResumeLayout(false);
+            this.panelDatos.PerformLayout();
             this.panelDgvVentasRealizadas.ResumeLayout(false);
             this.tabNuevaVenta.ResumeLayout(false);
             this.panelDatos2.ResumeLayout(false);
@@ -671,5 +699,7 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnVerDetallesVenta;
+        private System.Windows.Forms.Label lbCodLote;
+        private System.Windows.Forms.TextBox txtFiltroVenta;
     }
 }

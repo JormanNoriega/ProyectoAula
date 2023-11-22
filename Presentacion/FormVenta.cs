@@ -77,6 +77,7 @@ namespace Presentacion
             {
                 id_ventaActual = dgvVentaRegistradas.SelectedRows[0].Cells["IdVenta"].Value.ToString();
                 MostrarDetallesVenta(id_ventaActual);
+                btnVerDetallesVenta.Enabled = false;
             }
             else
             {
@@ -274,7 +275,14 @@ namespace Presentacion
         }
         private void btnVender_Click(object sender, EventArgs e)
         {
-            RegistrarVenta();
+            if (ProductosAVender().Count > 0) // Verificar si hay productos en la lista
+            {
+                RegistrarVenta();
+            }
+            else
+            {
+                MessageBox.Show("No puedes registrar una venta sin productos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             MostrarVentas();
         }
         private void RegistrarVenta()
@@ -311,6 +319,24 @@ namespace Presentacion
             return productosAVender;
         }
 
+        private void txtFiltroVenta_TextChanged(object sender, EventArgs e)
+        {
+            CargarVentasFiltradas(txtFiltroVenta.Text);
+        }
+        private void CargarVentasFiltradas(string filtro)
+        {
+            var ventasFiltrados = ventaService.MostrarVentasFiltradas(filtro);
+            dgvVentaRegistradas.Rows.Clear();
+            foreach (var venta in ventasFiltrados)
+            {
+                dgvVentaRegistradas.Rows.Add(
+                    venta.id_venta,
+                    venta.fecha_venta,
+                    venta.total_venta
+                );
+            }
+        }
+
 
         //private DataTable ProductosAVender()
         //{
@@ -338,4 +364,4 @@ namespace Presentacion
         //    return productosAVender;
         //}
     }
-    }
+}

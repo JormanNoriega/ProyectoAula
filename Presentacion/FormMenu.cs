@@ -82,6 +82,13 @@ namespace Presentacion
             lbHora.Text = DateTime.Now.ToString("hh:mm:ss");
         }
 
-        
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea Cerrar Seccion?", "Confirmar Salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
